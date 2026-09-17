@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+Thumbs.db
+_site/
+*.log
+
+# Claude Design dışa aktarımı — yalnızca yerel referans
+docs/tasarim/

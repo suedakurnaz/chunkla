@@ -1,0 +1,59 @@
+# Her push ve pull request'te kontrolleri çalıştırır.
+# main dalına push'ta www/ klasörünü GitHub Pages'e yayınlar.
+#
+# İlk kurulum (bir kez): GitHub'da repo → Settings → Pages → Source: "GitHub Actions".
+
+name: Kontrol ve yayın
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Veri, çekirdek ve önbellek listesi
+        run: npm run check
+
+  yayin:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: kontrol
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Sürümü damgala
+        run: |
+          mkdir _site
+          cp -r www/. _site/
+          SHORT="${GITHUB_SHA::8}"
+          sed -i "s/const VERSION = 'dev';/const VERSION = '${SHORT}';/" _site/sw.js
+          grep -q "const VERSION = '${SHORT}';" _site/sw.js || { echo "sw.js VERSION damgalanamadı"; exit 1; }
+
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,17 @@
+{
+  "name": "chunkla",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Günde beş İngilizce kalıp — telefona yüklenebilen, internetsiz çalışan web uygulaması",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "test": "node scripts/test-core.js",
+    "validate": "node scripts/validate-chunks.js",
+    "sw:liste": "node scripts/check-sw.js --yaz",
+    "check": "node scripts/validate-chunks.js && node scripts/test-core.js && node scripts/check-sw.js",
+    "serve": "npx --yes http-server www -c-1 -p 8080"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,910 @@
+İngilizce Öğreniminde "Yığın" (Chunk)
+Sistemi ve Leksikal Yaklaşım: Dilbilimsel,
+Bilişsel ve Pedagojik Bir Kapsamlı Analiz
+Raporu
+1. Giriş: Dil Öğreniminde Paradigma Değişimi ve
+Leksikal Yaklaşımın Tarihsel Gelişimi
+Yabancı dil öğretimi, tarihsel gelişim süreci içerisinde yapısalcı gramer-çeviri yöntemlerinden
+iletişimsel yaklaşımlara kadar uzanan sayısız metodolojik evrim geçirmiştir. Yirminci yüzyılın
+büyük bir bölümünde dilbilgisi kuralları ve izole kelime ezberine dayalı öğretim modelleri
+egemen olmuş, kelimeler yalnızca sözdizimsel kuralların içerisine yerleştirilen basit yapı taşları
+olarak değerlendirilmiştir. Ancak 1920'lerde ve 1930'larda başlayan kelime seçimi çalışmaları ve
+ardından gelen teknolojik devrimlerle birlikte otantik metinlerden oluşan büyük veri tabanlarının
+(derlem) bilgisayar analizleri, dilin doğasına dair yerleşik inançları kökünden sarsmıştır
+1
+. Bu
+dönüşümün akademik alanyazındaki en belirgin meyvesi, İngilizce öğreniminde popüler kültürde
+"chunk" (yığın/kalıp) sistemi olarak bilinen metodolojinin teorik çerçevesini oluşturan Leksikal
+Yaklaşım (Lexical Approach) olmuştur.
+1993 yılında İngiliz dilbilimci Michael Lewis tarafından yayınlanan The Lexical Approach adlı çığır
+açıcı eser, dil öğretimi alanında devrimsel bir yeniden düşünme süreci başlatmıştır
+2
+. Leksikal
+Yaklaşım, dilin tekil kelimelerden ve bu kelimeleri bir araya getiren soyut gramer kurallarından
+ziyade, anlamlı kelime öbeklerinden (chunk'lardan) oluştuğunu savunur
+1
+. Geleneksel dilbilgisi
+odaklı yaklaşımlar, cümle düzeyindeki gramer öğretimine aşırı odaklanırken; Leksikal Yaklaşım,
+dilbilgisi kurallarının, sık kullanılan kelime yığınlarının ve desenlerin (patterns) doğal bir sonucu
+olarak belirdiğini öne sürer
+2
+. Michael Lewis'in bu teorik çerçevesi, "Dil, leksikalleştirilmiş gramer
+değil, gramerleştirilmiş sözcük dağarcığından oluşur" şeklindeki temel argümanla
+özetlenmektedir
+6
+. Bu argüman, öğrenicilerin "make a decision", "make an effort" veya "make
+progress" gibi çoklu kelime yığınlarını bütünsel olarak öğrendiklerinde, ilgili fiillerin gramatik
+yapılarını tümevarımsal bir biçimde ve kalıcı olarak edindiklerini ifade eder
+2
+.
+Derlem dilbilimi (corpus linguistics) araştırmalarının ortaya koyduğu veriler, Lewis'in teorik
+iddialarını güçlü ampirik temellere oturtmuştur. Anadili İngilizce olan kişilerin günlük
+konuşmalarının yüzde 55 ila yüzde 80'inin önceden kurgulanmış (prefabricated) kelime
+öbeklerinden ve formülik dizilerden türetildiği saptanmıştır
+1
+. Bu yüksek frekans, kelime
+yığınlarının dilbilgisi kurallarının ötesinde, doğal iletişimin asıl yapı taşları olduğunu
+kanıtlamaktadır. Leksikal Yaklaşım'ın temel gayesi, dil öğrenicisinin zihninde geleneksel
+sözdizimsel kurallardan bağımsız, ancak kendi içinde bir "kelime grameri" (word grammar)
+barındıran devasa bir yığın havuzu oluşturmaktır
+5
+.
+2. Formülik Dil ve Leksikal Yığınların (Chunks)
+Sınıflandırılması
+Leksikal Yaklaşım'ın "yığın" (chunk) olarak adlandırdığı birimler, akademik alanyazında "formülik
+dil" (formulaic language), "formülik diziler" (formulaic sequences), "eşdizimlilikler" (collocations)
+ve "leksikal öbekler" (lexical bundles) gibi kapsayıcı terimlerle incelenmektedir
+3
+. Bu diziler, insan
+zihninde kelime kelime analiz edilmek (assembled word by word) yerine, tek bir birim olarak
+bütünsel biçimde depolanan ve iletişim anında doğrudan geri çağrılan kelime gruplarıdır
+6
+.
+Formülik dil şemsiyesi altında toplanan bu yığınlar, yapısal esnekliklerine ve semantik
+şeffaflıklarına göre çeşitli alt kategorilere ayrılmaktadır. Aşağıdaki tablo, bu leksikal yığın türlerini,
+dilbilimsel özelliklerini ve İngilizce örneklerini detaylandırmaktadır.
+Yığın (Chunk) Türü Dilbilimsel Özellikleri ve
+Tanımı
+Örnek Yapılar
+Eşdizimlilikler
+(Collocations)
+Belirli kelimelerin doğal bir
+eğilimle birlikte kullanılma
+durumudur. İkili veya üçlü
+yapılardan oluşur ve şeffaf
+bir anlama sahiptir ancak
+kelime seçimi anadil
+normlarıyla kısıtlanmıştır.
+make a mistake, heavy rain,
+strong tea, completely
+different
+[cite: 4, 8]
+Sabit İfadeler (Fixed
+Expressions)
+Bütünsel bir pragmatik
+anlama sahip olan,
+kelimeleri değiştirilemeyen
+ve iletişimsel rutinleri
+yöneten katı dizilerdir.
+by the way, in the
+meantime, all of a sudden
+[cite: 3]
+Formülik Sözceler
+(Formulaic Utterances)
+Sosyal etkileşimlerde belirli
+durumlara veya duygu
+durumlarına anında tepki
+vermek için kullanılan
+kurumsallaşmış
+(institutionalised) kalıplardır.
+I'm on my way, no way!,
+Nice to meet you
+[cite: 3, 8]
+Cümle Başlatıcılar
+(Sentence Starters)
+Söylem kurgusunda yeni bir
+fikri sunarken veya cümleyi
+yapılandırırken zihinsel bir
+şablon görevi gören yarı
+açık öbeklerdir.
+I like the way..., Would you
+mind if..., The fact of the
+matter is...
+[cite: 3, 4]
+Deyimler (Idioms) Bireysel kelimelerin
+anlamlarının toplamından
+tamamen bağımsız
+(non-compositional), büyük
+oranda mecazi ve kültürel
+anlama sahip kelime
+gruplarıdır.
+break the ice, a wild goose
+chase, run out of steam,
+plain sailing
+[cite: 3, 8]
+Öbeksi Fiiller (Phrasal
+Verbs)
+Bir fiil ve bir veya daha fazla
+ilgeç/zarftan oluşan,
+çoğunlukla eylemin kendi
+anlamından uzaklaşarak
+yeni bir semantik bütünlük
+kazanan yapılardır.
+look after, give way, run out
+[cite: 3, 8]
+Bu sınıflandırmaların ışığında, kelime yığınlarının sadece başlangıç düzeyindeki konuşma
+başlatıcılarından ibaret olmadığı, aynı zamanda ileri düzey öğrenicilerin akademik makalelerde
+kullandıkları düşük frekanslı ancak yüksek özgüllüğe sahip disiplinler arası öbekleri de kapsadığı
+görülmektedir
+1
+. Çoğul "-s" takısı, geçmiş zaman "-ed" eki gibi temel morfolojik unsurlar bile,
+geleneksel bağlamda kural bazlı görülürken, Leksikal Yaklaşıma göre aslında "desen üreten
+sistemlerin" (pattern generating systems) yapıtaşlarıdır ve geniş leksikal şablonlar içinde
+bütünleşik olarak öğrenilmelidir
+5
+.
+3. Formülik Dilin Kuramsal Çerçevesi
+Dilin parçalı yapısını ve bu yapının bilişsel arka planını açıklayan üç temel teorik dayanak
+bulunmaktadır: John Sinclair'in İdiom İlkesi, Pawley ve Syder'ın Anadil Benzeri Seçim/Akıcılık
+Kuramı ve Alison Wray'in Zihinsel Sözlük modeli. Bu kuramlar, insan dilinin doğasının izole
+dilbilgisi kurallarıyla açıklanamayacak kadar önceden kurgulanmış şablonlara dayandığını ortaya
+koymaktadır.
+3.1. John Sinclair ve İdiom İlkesi (Idiom Principle)
+Derlem dilbiliminin öncülerinden John Sinclair (1991), dil üretim mekanizmasını analiz ederken iki
+zıt prensip ortaya koymuştur: "Açık Seçim İlkesi" (Open Choice Principle) ve "İdiom İlkesi" (Idiom
+Principle)
+9
+. Açık Seçim İlkesi, kelime seçimindeki tek kısıtlamanın dilbilgisellik (grammaticalness)
+olduğu, kelimelerin sözdizimsel boşluklara serbestçe yerleştirildiği geleneksel anlayışı temsil
+eder
+3
+. Ancak Sinclair, büyük metin veritabanlarını incelediğinde doğal dilin çoğunlukla bu şekilde
+işlemediğini tespit etmiştir.
+Buna karşın İdiom İlkesi, dil kullanıcılarının, parçalarına ayrılabiliyor gibi görünseler de tek bir
+tercih olarak işlev gören devasa miktarda yarı-sabit ifadeyi belleğinde hazır bulundurduğunu
+belirtir
+3
+. Bir cümle oluşturulurken zihin, "take" fiilini, "the" belirtecini ve "example" ismini açık bir
+seçimle birleştirmez; bunun yerine "take the example" yığınını tek bir iletişimsel rutin olarak
+doğrudan geri çağırır
+9
+. Bu ilke, söylemin neden büyük oranda rastlantısal olmaktan uzak ve
+oldukça öngörülebilir kalıplar üzerine inşa edildiğini açıklar niteliktedir.
+3.2. Pawley ve Syder: Anadil Benzeri Seçim ve Akıcılık Modeli
+Kelime yığınlarının dil üretimindeki zorunluluğunu ortaya koyan en önemli çalışmalardan biri,
+Andrew Pawley ve Frances Hodgetts Syder'ın (1983) formüle ettiği "Anadil Benzeri Seçim"
+(Native-like Selection) ve "Anadil Benzeri Akıcılık" (Native-like Fluency) kuramıdır
+12
+. Bu kuram,
+ana dili İngilizce olan konuşurların, mevcut sözdizimsel kuralların izin verdiği potansiyel
+cümlelerin yalnızca çok küçük ve belirli bir bölümünü günlük iletişimde kullanmayı tercih
+ettiklerini ampirik olarak kanıtlamıştır
+13
+.
+Bir İngilizce öğrenicisi, sahip olduğu dilbilgisi bilgisiyle tamamen kusursuz bir cümle olan "Halt
+the car" (Arabayı durdur) ifadesini üretebilir. Ancak, bu ifade dilbilgisel olarak doğru olmasına
+rağmen anadil konuşurları tarafından "doğal olmayan" (unidiomatic), "garip" (odd) veya "yabancı
+ağzı" (foreignism) olarak algılanır
+13
+. Ana dili İngilizce olan bir kişi aynı durumu ifade etmek için
+"Let me off here" (Beni burada indir) yığınını tercih eder
+16
+. Pawley ve Syder, dilbilgisel olarak olası
+yüz binlerce cümle kombinasyonu arasından anadil normlarına en uygun, doğal duran yapıyı
+seçebilme becerisini "Anadil Benzeri Seçim" olarak tanımlar
+13
+.
+Bu seçimin mümkün olabilmesinin altında "Anadil Benzeri Akıcılık" yatar. İnsan zihni spontane
+konuşma sırasında, özellikle sosyal zamanlama baskısı altındayken, sıfırdan kelime seçip
+sözdizimi kurallarına oturtmak için yeterli zamana sahip değildir. Bu nedenle Pawley ve Syder,
+"her seferinde bir tümcecik sınırlamasını" (one clause at a time constraint) öne sürer. Bu
+sınırlama, spontane konuşucuların, tam sözcüksel detaylarıyla bütün bir tümceciği tek bir
+kodlama işleminde (single encoding operation) kurgulama zorunluluğunu ifade eder
+18
+.
+Konuşucu, yapısal bir çöküş (syntactic breakdown) yaşamamak ve duraksamaları (mid-clause
+hesitations) engellemek adına, karmaşık ve iç içe geçmiş entegre bir stil (integrating style)
+yerine, zincirleme stili (chaining style) ve devasa yığın belleğini (yüz binlerce leksikalleşmiş cümle
+kökü) devreye sokar
+16
+.
+3.3. Alison Wray, Zihinsel Sözlük (Mental Lexicon) ve İhtiyaç Odaklı
+Analiz
+İngiliz dilbilimci Alison Wray'in (2002, 2008) formülik dil üzerine geliştirdiği modeller, bu yapıların
+insan beyninde nasıl depolandığı ve geri çağrıldığına dair en sistematik yaklaşımı sunar
+8
+. Wray'in
+kuramının merkezinde, insan zihnindeki sözlüğün düzenli, hiyerarşik bir "tekil kelimeler ve
+kurallar" listesinden ibaret olmadığı, aksine "heteromorfik" (heteromorphic) bir yapıya sahip
+olduğu argümanı yer alır
+8
+. Zihinsel sözlük; tekil morfemleri, kelimeleri, yarı sabit çerçeveleri ve
+tümleşik çoklu kelime dizilerini yan yana depolar
+8
+.
+Wray'in "İhtiyaç Odaklı Analiz" (Needs Only Analysis) kavramına göre beyin, iletişimsel amacı en
+az işlem çabasıyla gerçekleştirecek birimi otomatik olarak seçer
+8
+. Eğer amaç bir durumu
+onaylamaksa, zihin "I agree with you completely" cümlesini baştan inşa etmez; depolanmış
+formülik diziyi bütün olarak çağırır. Bu yaklaşım, TALK ve TESSA gibi konuşma güçlüğü çeken
+bireyler için geliştirilen makine çevirisi/destek sistemlerinde de test edilmiş ve önceden
+kurgulanmış ifadelerin geri çağrılmasının akıcılığa olan muazzam katkısı gözlemlenmiştir
+20
+.
+Ayrıca, klinik nörodilbilim araştırmaları, formülik dilin beyin hasarlarına karşı oldukça dirençli
+olduğunu göstermektedir. Aphasia (söz yitimi) ve Alzheimer hastalığı vakalarında hastaların
+yaratıcı dil üretimi tamamen çökse bile, çocukluktan ezberlenmiş şarkılar, tekerlemeler ve sosyal
+rutinler gibi formülik yığınların kaybolmadığı, beynin farklı ve daha dayanıklı sinirsel yollarında
+(neural pathways) saklandığı saptanmıştır
+22
+.
+4. Bilişsel Psikoloji Işığında Chunking ve Bilişsel Yük
+Kuramı
+Dil öğreniminde yığınların başarısı, yalnızca soyut dilbilimsel teorilerle değil, insan beyninin
+donanımsal mimarisiyle, özellikle de Bilişsel Yük Kuramı (Cognitive Load Theory - CLT) ile
+doğrudan ilişkilidir. Avustralyalı eğitim psikoloğu John Sweller (1988) tarafından temelleri atılan
+bu teori, öğrenme süreçlerini doğrudan insan hafızasının bilgi işleme (information processing)
+kapasitesine bağlamaktadır
+24
+.
+Bilişsel yaklaşımlar, dil edinimini pasif bir alışkanlık oluşumu (stimulus-response) olarak değil,
+bilginin çalışma belleğinde (working memory) işlenip uzun süreli belleğe (long-term memory)
+aktarıldığı aktif, zihinsel bir yapılandırma süreci olarak açıklar
+26
+. Sweller'in teorisi, bilgiyi evrimsel
+olarak doğuştan gelen ve çaba gerektirmeyen "biyolojik olarak birincil bilgi" (biologically primary
+knowledge - örneğin dinleme ve konuşma) ile bilinçli bir çaba gerektiren "biyolojik olarak ikincil
+bilgi" (biologically secondary knowledge - okuma, yazma ve ikinci dil dilbilgisi kuralları) şeklinde
+ikiye ayırır
+27
+.
+4.1. Çalışma Belleğinin Sınırları ve Bilişsel Yük Tipleri
+Bilişsel Yük Kuramı'nın kalbinde, George Miller'ın (1956) ve daha sonra Nelson Cowan'ın (2010)
+da kanıtladığı üzere, insan çalışma belleğinin son derece sınırlı bir kapasiteye sahip olduğu
+gerçeği yatar. Çalışma belleği, aynı anda yalnızca 4 ila 7 birim (item) bilgiyi işleyebilir
+24
+. Bir
+İngilizce öğrenicisi, serbest kombinasyonlarla bir cümle kurmaya çalışırken, çalışma belleği aynı
+anda fonolojik temsilleri tutmak, bunları depolanmış bilgilerle eşleştirmek, sözdizimsel kuralları
+(zaman kipleri, morfolojik çekimler, edatlar) uygulamak ve nihai bir anlam inşa etmek
+zorundadır
+26
+. Eğer bu görev 7 birimden fazlasını gerektirirse, dikkat dağılır, işlem durma
+noktasına gelir ve "bilişsel aşırı yüklenme" (cognitive overload) gerçekleşir
+24
+.
+Öğrenme sürecindeki zihinsel yük üç temel kategoriye ayrılır:
+Bilişsel Yük Tipi Tanımı ve İkinci Dil
+Edinimiyle İlişkisi
+Pedagojik Uygulama ve
+Etkisi
+İçsel Yük (Intrinsic Load) Hedef dilin kendi yapısal
+karmaşıklığından ve
+öğrencinin mevcut bilgi
+düzeyinden (şema
+eksikliğinden) kaynaklanan
+zorluktur
+26
+.
+İçsel yükü yönetmek için,
+karmaşık gramer kuralları
+parçalanıp tek tek
+öğretilmek yerine anlamlı
+yığınlar (chunks) halinde
+sunulmalıdır
+26
+.
+Dışsal Yük (Extraneous
+Load)
+Öğretim materyalinin kötü
+tasarımından veya konunun
+sunuluş biçiminden
+kaynaklanan, öğrenmeye
+hiçbir katkısı olmayan
+gereksiz yüktür
+26
+.
+Görsel ve işitsel metinlerin
+birbirini desteklemesi
+sağlanarak ve gereksiz
+çevirilerden kaçınılarak bu
+yük en aza indirilmelidir
+26
+.
+Etkili/Yapısal Yük
+(Germane Load)
+Yeni zihinsel şemaların
+(schema) inşasına ve
+otomatizasyona doğrudan
+katkıda bulunan, bilgiyi uzun
+süreli belleğe taşıyan faydalı
+zihinsel çabadır
+28
+.
+Yığınların (chunks) fark
+edilmesine yönelik
+alıştırmalar ve aralıklı tekrar
+uygulamaları bu yükü
+artırarak kalıcı dil edinimini
+sağlar
+26
+.
+"Chunking" (Yığınlama), işte tam olarak bu bilişsel darboğazı aşmak için beynin geliştirdiği en
+güçlü mekanizmadır
+25
+. Bir dil öğrenicisi "at the end of the day" (günün sonunda) ifadesini
+öğrenirken bunu 6 ayrı kelime olarak kodlarsa, çalışma belleğinin kapasitesini tek bir ifade için
+tamamen doldurmuş olur. Oysa yığınlama stratejisiyle bu dizi bütünsel olarak tek bir birim (1
+item) olarak kodlanıp uzun süreli bellekten çağrıldığında, çalışma belleğinde geriye kalan alan,
+cümlenin geri kalanını planlamak ve anlamı zenginleştirmek için serbest kalır
+4
+.
+4.2. Bilişsel Kuram Kapsamında Öğretim Efektleri (Effects)
+Bilişsel Yük Kuramı, dil materyallerinin tasarlanmasında dikkat edilmesi gereken bazı ampirik etki
+mekanizmalarını da tanımlar
+24
+:
+● Bölünmüş Dikkat Etkisi (Split Attention Effect): Öğrencinin birbiriyle ilişkili ancak farklı
+yerlerde sunulan iki bilgi kaynağını (örneğin bir diyalog metni ve sayfanın en sonundaki
+kelime sözlüğü) zihinsel olarak birleştirmeye çalışması dışsal bilişsel yükü muazzam
+derecede artırır. Yığın öğretiminde bağlam ve kalıp her zaman bütünleşik verilmelidir.
+● Gereksizlik Etkisi (Redundancy Effect): Aynı bilginin farklı formatlarda eşzamanlı
+sunulması (örneğin tahtadaki uzun bir yığın listesinin öğretmen tarafından aynı anda sesli
+okunması) çalışma belleğini gereksiz yere meşgul eder ve edinimi yavaşlatır.
+● Uzmanlığın Tersine Dönmesi Etkisi (Expert Reversal Effect): Yeni başlayanlar için çok
+faydalı olan adım adım detaylandırılmış yapısal analizlerin, ileri düzey öğrencilerde bilişsel
+aşırı yüklenmeye yol açarak otomatizasyonu (akıcılığı) sekteye uğratmasıdır. İleri düzey
+öğreniciler yığınları doğrudan bir bütün olarak çağırarak kullanmaya teşvik edilmelidir.
+5. Psikodilbilimsel ve Nörolojik Kanıtlar: Göz İzleme
+(Eye-Tracking) Analizleri
+Kelime yığınlarının zihinde kelime kelime işlenmediğine dair varsayımlar, salt teorik veya
+davranışsal modeller olmaktan çıkmış, Göz İzleme (Eye-Tracking) teknolojileri sayesinde
+psikodilbilimsel düzeyde de somut olarak kanıtlanmıştır
+3
+. Okuma süreçleri incelendiğinde
+araştırmacılar, "Göz-Zihin Varsayımı"nı (eye-mind assumption) temel alırlar. Bu varsayım, gözün
+bir kelime veya metin parçası üzerinde duraklama (fixation) süresinin, o kelimenin zihinsel olarak
+işlemden (processing) geçme süresiyle doğrudan ilişkili olduğunu belirtir
+30
+.
+İnsan gözü okuma sırasında metin üzerinde yumuşak bir kayma hareketi yapmaz. Bunun yerine,
+"fiksasyon" (fixations) adı verilen ve genellikle 200-250 milisaniye süren duraklamalar ile
+"sıçrama" (saccades) adı verilen, 20-40 milisaniye süren ve gözün 7-9 harf boşluğu ileri atladığı
+hızlı balistik hareketler arasında gidip gelir
+31
+. Zihnin cümlenin yapısını kurmakta veya
+anlamlandırmakta zorlandığı durumlarda ise göz önceki kelimelere "geri dönüşler" (regressions)
+yapar
+31
+.
+Conklin ve Schmitt'in (2008) gerçekleştirdiği ufuk açıcı çalışmalar, anadili İngilizce olanlar ile
+ikinci dil öğrenicilerinin, formülik dizileri (eşdizimlilikler, deyimler vb.), kelime kelime eşleştirilmiş
+ancak formülik olmayan sıradan dizilere göre çok daha hızlı ve düşük bir bilişsel yükle
+okuduklarını göstermiştir
+8
+. Yığınlar okunduğu sırada gözün duraklama (gaze duration) süreleri
+kısalmakta, fiksasyon sayısı azalmakta ve göz sıçramaları (saccade length) kelimelerin üstünden
+atlayarak (skipping) dizinin bütününe odaklanmaktadır
+30
+.
+Özellikle Metzner ve arkadaşlarının (2017) göz izleme verileriyle eşzamanlı ölçtüğü nörofizyolojik
+bulgular, anadil ve ileri düzey L2 (ikinci dil) okuyucularının bazı durumlarda bilgiyi "sığ işleme"
+(shallow processing) stratejisiyle olağanüstü hızlı bir şekilde entegre ettiğini ortaya çıkarmıştır
+30
+.
+Bir öğrencinin formülik dili hızlı bir biçimde işleyebilmesi, doğrudan onun "yığınlama yeteneği"
+(chunking ability) ile ilişkilidir. Bireysel yığınlama yeteneği yüksek olan öğrencilerin göz
+hareketleri, okuma sırasında geri dönüş (regression) oranlarını minimize etmekte, erken ve geç
+işleme (early and late cognitive processing) evrelerinin her ikisinde de yüksek bir yapısal
+bütünleşme (fast integration) sergilemektedir
+30
+.
+6. İkinci Dil Ediniminde Sözcük Dağarcığı: Genişlik
+(Size) ve Derinlik (Depth)
+Leksikal Yaklaşım, geleneksel sözcük öğretimindeki eksiklikleri gidermek amacıyla sözcük
+dağarcığı edinimini boyutsal olarak ikiye ayırır. Uygulamalı dilbilimci Norbert Schmitt'in (1994,
+1997, 2014) çalışmaları çerçevesinde sözcük bilgisi "genişlik" (breadth/size) ve "derinlik" (depth)
+olmak üzere, kelime ediniminin farklı veçhelerini temsil eden iki ana yapıtaşına ayrılmıştır
+36
+.
+● Sözcük Genişliği (Vocabulary Size): Bir bireyin kaç adet kelime veya "kelime ailesi" (word
+family) bildiğini ölçer. Çoğunlukla form tanıma (meaning recognition) düzeyinde bir
+bilgidir. Schmitt'in araştırmaları, yazılı bir otantik metni (roman veya makale) yüksek bir
+kavramsal başarıyla anlayabilmek için öğrencinin en az 8.000 ila 9.000 kelime ailesine
+hakim olması gerektiğini, sözlü günlük konuşmalar (oral discourse) için ise en sık kullanılan
+2.000 ila 3.000 kelime ailesinin yeterli bir eşik değeri (threshold) sunduğunu
+göstermektedir
+39
+. Akıcı konuşma ve ileri düzey dinleme becerileri için ise bu sayının 5.000
+ila 7.000 aralığına ulaşması beklenmektedir
+39
+. Genişlik, Vocaburary Levels Test (VLT) gibi
+standart testlerle ölçülür ve frekansı yüksek kelimelerin öğretilmesi stratejisine dayanır
+37
+.
+● Sözcük Derinliği (Vocabulary Depth): Bir kelimenin ne kadar "iyi" veya "kapsamlı"
+bilindiğini ifade eder. Kelimenin derinlemesine bilinmesi; sadece yüzeysel çevirisinin değil,
+onun telaffuzunun (fonolojik temsil), morfolojik türevlerinin, semantik çağrışımlarının,
+gramatik kısıtlamalarının ve en önemlisi eşdizimliliklerinin (collocations) bilinmesini
+gerektirir
+39
+. Derinlik, Word Association Test (WAT) gibi semantik çağrışım araçlarıyla
+ölçülür
+39
+.
+Norbert Schmitt ve diğer dilbilimcilerin çalışmaları, kelimenin sadece izole olarak form-anlam
+eşleştirmesi şeklinde öğrenilmesinin derinlik yaratmadığını, kelimenin hedef dildeki doğal
+bağlamı içerisindeki diğer kelimelerle oluşturduğu yığın (chunk) ilişkilerinin bilinmesinin şart
+olduğunu kanıtlamıştır
+39
+. Sınıf içi etkinliklerde, daraltıcı veya birleştirici (convergent) kelime
+görevleri sözcük genişliğini artırırken, genişletici veya ayrıştırıcı (divergent) yaratıcılığa dayalı
+görevler kelimelerin yığın bağlamında kullanımını teşvik ederek sözcük derinliğinin istatistiksel
+olarak yüksek etki boyutlarıyla (effect size) gelişmesini sağlar
+39
+.
+7. Sözlü Akıcılık (Oral Fluency) Üzerindeki Pedagojik
+Etki
+Bilişsel yükün azalması ve kelime derinliğinin eşdizimliliklerle artması, doğrudan öğrenicinin
+"sözlü akıcılık" (oral fluency) kapasitesine etki etmektedir
+42
+. Akıcılık, saniye başına üretilen kelime
+sayısı, duraksamalar arası uzunluk, konuşma hızı (articulation rate) ve fonasyon-zaman oranı
+(phonation-time ratio) gibi nesnel metriklerle ölçülmektedir
+42
+.
+Wood (2006, 2009) tarafından gerçekleştirilen boylamsal çalışmalar, formülik dizilerin
+kullanımının "konuşma sürekliliğini" (length of speech runs) dramatik bir biçimde artırdığını
+göstermiştir
+43
+. L2 öğrencileri monolojik veya karşılıklı konuşma (dialogic) sırasında "I think that",
+"at the same time", "as a matter of fact" veya "by the way" gibi yığınları hafızadan prosedürel
+düzeyde (otomatik olarak) çektiklerinde, söylemin geri kalan orijinal kısımlarını kurgulamak,
+sözdizimi planlamak ve dinleyicinin tepkilerini analiz etmek için zihinsel "zaman" (planning time)
+kazanırlar
+6
+. Yığınlar, anlık iletişimi kurtaran "güvenli basamak taşları" (secure stepping stones)
+işlevi görürler
+45
+.
+Alanyazındaki en prestijli pedagojik müdahale araştırmalarından biri olan Boers, Eyckmans,
+Kappel, Stengers ve Demecheleer'in (2006) çalışması, yığın sisteminin öğretilebilirliğini ve
+akıcılığa olan doğrudan katkısını ampirik olarak test etmiştir
+44
+. Araştırmada deney grubu, okuma
+ve dinleme metinlerindeki standart kelime öbeklerini ve eşdizimlilikleri "fark etmeye"
+(chunk-noticing) yönelik müfredatla eğitilirken, kontrol grubunda geleneksel "gramer-kelime"
+ikiliği korunmuştur
+8
+. Eğitimin sonunda bağımsız kör hakemler (blind judges) tarafından
+gerçekleştirilen sözlü mülakat değerlendirmeleri sonucunda, formülik dizilere yönlendirilen
+deney grubunun, kontrol grubuna kıyasla kelimeleri doğal bütünlükleriyle kullandıkları, daha
+yetkin, akıcı ve doğal (idiomatic) bir konuşma profili sergiledikleri saptanmıştır
+8
+.
+8. Sınıf İçi Metodoloji ve Fark Etme Hipotezi (Noticing
+Hypothesis)
+Leksikal Yaklaşım, geleneksel dil eğitiminde onlarca yıldır kullanılan "Sunum-Pratik-Üretim"
+(Practice-Present-Produce / PPP) paradigmasını tamamen reddeder
+7
+. Geleneksel PPP
+modelinde öğretmen önce kuralı (örneğin Present Perfect Tense) sunar, ardından mekanik
+boşluk doldurma pratikleri yaptırır ve en son serbest üretim bekler. Michael Lewis, insan zihninin
+dili mekanik kurallar şeklinde doğrusal (linear) öğrenmediğini, aksine çağrışımsal ve dallanan
+(branching) bir ağ olarak yapılandırdığını belirtir
+7
+. PPP paradigmasının yerini, Leksikal Yaklaşımda
+"Gözlem-Hipotez-Deney" (Observe-Hypothesis-Experiment) döngüsü almaktadır
+6
+. Öğrenciler
+önce otantik metinlerde (veya dinleme materyallerinde) hedeflenen dil yapılarını gözlemler, bu
+yapıların nasıl işlediğine dair hipotezler kurar ve en son bunları kontrollü bir deneye/üretim
+safhasına tabi tutarlar
+6
+.
+Bu döngünün temelini dilbilimci Richard Schmidt (1990) tarafından literatüre kazandırılan "Fark
+Etme Hipotezi" (Noticing Hypothesis) oluşturmaktadır
+6
+. Schmidt'e göre, hiçbir dilbilgisel form
+veya kelime dizisi sadece maruz kalmakla (subliminal language learning) kazanılamaz. İkinci dilin
+edinilebilmesi için hedef formların öğrenici tarafından veri girdisi (input) içinde bilinçli olarak fark
+edilmesi, yani kaydedilmesi (registering forms in the input) elzemdir
+2
+.
+Leksikal Yaklaşım ilkelerine göre düzenlenen bir ders, asla izole bir gramer tablosuyla başlamaz
+2
+.
+Bunun yerine öğretmen otantik bir metin veya diyalog üzerinden "take", "make", "have" gibi kilit
+fiillerin geçtiği yerleri öğrencilere inceletir ve eşdizimlilik (collocation discrimination) görevleri
+vererek bu yığınları fark etmelerini sağlar
+2
+. Öğrenciler, bağlam dışı "edatlar" kuralını öğrenmek
+yerine "depend on", "interested in", "responsible for" gibi dizileri bir bütün olarak, eşdizimlilik
+duyarlılığını (collocation sensitivity) eğiterek kendi zihinsel sözlüklerine yerleştirirler
+2
+.
+9. Derlem Dilbilim ve SKELL (Sketch Engine for
+Language Learning) Teknolojisi
+Yığınların rastgele seçilip ezberlenmesi, Leksikal Yaklaşım açısından faydasızdır. Hangi formülik
+dizilerin öğretileceği veya öğrenileceği sorusunun cevabı, otantik doğal dilde geçen frekans
+oranlarına (sıklığa) dayanmalıdır. Bu ihtiyacı karşılamak için, milyonlarca kelimelik veri kümelerini
+(corpus) tarayarak dildeki kullanım eğilimlerini analiz eden Derlem Dilbilimi (Corpus Linguistics)
+araçları geliştirilmiştir
+2
+.
+Öğrencilerin, öğretmenlerin ve araştırmacıların yığın (chunk) tespitinde kullandığı en yetkin
+yazılımlardan biri Lexical Computing Ltd. tarafından tasarlanan SKELL (Sketch Engine for
+Language Learning) arayüzüdür
+53
+. Geleneksel Sketch Engine yazılımının dil öğrenicileri için
+basitleştirilmiş ve özelleştirilmiş bu ücretsiz sürümü, Wikipedia makaleleri, Web 2013 korpusu ve
+diğer otantik web içeriklerinden derlenmiş, 57 milyondan fazla cümle barındıran devasa bir veri
+kümesidir
+53
+. Sistem, GDEX (Good Dictionary EXamples - İyi Sözlük Örnekleri) algoritmasını
+kullanarak karmaşık, yanlış kodlanmış, eski kullanımlı (örneğin Gutenberg projesinden çekilen
+metinler) ve yazım hatalı cümleleri veri tabanından tamamen ayıklayarak (versiyon 3.4, 3.5, 3.6
+güncellemeleri ile) pedagojik açıdan temiz metinler sunar
+55
+.
+SKELL'in yığın stratejisine entegre ettiği üç temel sorgulama işlevi bulunmaktadır
+52
+:
+1. Kelime Eskizi (Word Sketch): Aratılan kelimenin gramatik fonksiyonlara göre (nesne,
+özne, değiştirici zarf vb.) İngilizce dilindeki en yüksek frekanslı eşdizimliliklerini listeler.
+Örneğin "catch" fiili incelendiğinde, aracın sağladığı tabloda bu fiilin sadece "fish" veya
+"prey" (av) ile değil, "a cold" (üşütmek), "breath" (nefesi kesilmek), "fire" (alev almak) veya
+"attention" (dikkat çekmek) gibi deyimsel/formülik yığınlarla da bütünleştiği şeffaf bir
+şekilde sergilenir
+52
+.
+2. Bağlamsal Örnekler (Concordance): İlgili kelimenin veya öbeğin gerçek anadil
+konuşurları tarafından cümle içinde, önündeki ve arkasındaki diğer eşdizimli yapılarla
+birlikte nasıl kullanıldığını düzinelerce cümleyle örnekleyerek sunar
+53
+.
+3. Benzer Kelimeler / Kümeleme (Similar Words & Clustering): Dağılımsal Benzerlik
+(Distributional Similarity) modellerini ve açgözlü toplayıcı (greedy and agglomerative)
+algoritmaları kullanarak, semantik olarak birbirine yakın kavramları gruplandırır. Sistem
+bunu yaparken sadece kelimelerin eş anlamlı olmasına değil, ilgili kelimelerin aynı yığın
+(chunk) yapıları içerisinde birleşme eğiliminde (örneğin hem "cook salmon" hem de "try
+salmon") olmalarına göre karar verir
+53
+.
+10. Bireysel Öğrenme Stratejileri: Aralıklı Tekrar
+(Spaced Repetition) ve Cümle Madenciliği
+Derlem araçlarıyla keşfedilen yığınların çalışan bellekten (working memory) uzun süreli belleğe
+(long term memory) kalıcı olarak transfer edilebilmesi, ancak bilimsel temelli bir tekrarlama
+sistemiyle mümkündür. Bir yetişkin, yeni karşılaştığı bir formülik diziyi önce deklaratif (bildirimsel)
+bilgi olarak kaydeder; bu bilginin ancak belli aralıklarla kullanılıp geri çağrılmasıyla (retrieval)
+prosedürel (işlemsel, otomatik) belleğe taşınması sağlanabilir
+8
+.
+Bu aşamada Anki gibi yazılımların algoritmalarında da karşılık bulan Aralıklı Tekrar Sistemi
+(Spaced Repetition System - SRS) devreye girer. Hermann Ebbinghaus'un "unutma eğrisi"
+modeliyle paralel çalışan bu algoritmalar, bilginin (veya yığının) unutulma riskinin en yüksek
+olduğu eşik noktasında geri çağrılmasını sağlar. SRS eğitimine tabi tutulan L2 öğrenicilerinin,
+maruz kalmayanlara göre ortalama konuşma sürekliliklerini (mean length of runs) anlamlı
+derecede artırdıkları, yani yığınları akıcılığa tahvil ettikleri saptanmıştır
+59
+.
+Leksikal yaklaşıma göre dijital bir kartın (flashcard) bir yüzüne kelimenin İngilizcesini, diğerine
+Türkçe karşılığını yazmak en yaygın fakat en verimsiz hatadır. Çünkü bu yaklaşım kelimeyi izole
+bırakmakta, Leksikal yaklaşımın temelini oluşturan şablon/eşdizimlilik mantığına aykırı
+düşmektedir
+4
+. SRS uygulamaları ile birleştirilmesi gereken stratejiler şunlardır
+61
+:
+● Cümle Madenciliği (Sentence Mining): Hedef yapıyı izole kelime olarak değil, onu
+kuşatan tüm doğal bağlamıyla (the company it keeps) birlikte öğrenme sürecine almaktır
+8
+.
+● Boşluk Doldurma (Cloze Deletion): Bir cümlenin veya yığının bütünü içinden sadece
+hedeflenen bölümün maskelenerek, bağlam yardımıyla tamamlanmasını zorlayan hafıza
+kartı türüdür
+60
+. Örneğin kartta "The monster was over ten metres tall, with hair [...] a mop."
+yazılır (cevap: like). Bu sayede öğrenci tekil olarak "like" edatını değil, zihne bir şablon ve
+yığın (chunk) olarak kazınan "hair like a mop" benzetmesini (simile) prosedürelleştirir
+61
+.
+11. Anadil Etkisi (L1 Transfer) ve Uyumsuz
+Eşdizimliliklerin Aktarımı
+Kelime yığınları ve eşdizimlilikler (collocations) öğrenilirken karşılaşılan en büyük dilbilimsel
+engel, öğrenicinin kendi anadilinden (L1) hedeflenen dile (L2) yönelik zihinsel müdahalesi, yani
+"Dil Aktarımı" (Language Transfer / Cross-Linguistic Influence) olgusudur
+66
+. Dil aktarımı,
+öğrenicinin L2'de üretim yaparken (konuşma veya yazma), anadilinin sözcüksel (lexical),
+sözdizimsel (syntactic), biçimbirimsel (morphological) veya semantik yapılarını, doğrudan veya
+dolaylı olarak hedef dile yansıtması sürecidir
+68
+. Jarvis (2009), leksikal aktarımı kendi içinde ikiye
+ayırır: Ses veya harflerin şekilsel aktarımına dayanan "leksik" (lexemic) aktarım ve doğrudan
+kelimenin semantik, işlevsel veya sözdizimsel özelliklerinin aktarıldığı "lemmasal" (lemmatic)
+aktarım68.
+Dil aktarımı, anadil ile hedef dilin kuralları örtüştüğünde öğrenmeyi hızlandıran "pozitif aktarım"
+(equivalence) olarak işlev görür. Ancak iki dilin anlamsal veya dizimsel sınırları çatıştığında,
+öğrenici yapısal hatalar üretir; bu durum alanyazında negatif aktarım (negative transfer /
+interference) olarak adlandırılır
+66
+. Özellike yığınlar, kelime kelime çevrilemeyen
+(non-compositional) ya da belirli kısıtlamalara tabi yapılar olduğundan, L1 transfer hatalarının en
+yoğun gözlemlendiği linguistik alanı oluştururlar
+67
+.
+Türkiye'deki İngilizce Öğretmenliği (ELT) bölümü öğrencileri ve L1 Türkçeye sahip öğreniciler
+üzerinde yürütülen araştırma sonuçları, yığınların hedef dile aktarımını "Uyumlu" (Congruent) ve
+"Uyumsuz" (Incongruent) eşdizimlilikler bağlamında sınıflandırmıştır
+67
+:
+Eşdizimlilik Türü Tanımı ve Bilişsel İşlenme
+Özelliği
+Türkçe-İngilizce
+Karşılaştırmalı Örnek
+Uyumlu Eşdizimlilik
+(Congruent Collocation)
+Anadildeki (L1) kelimesi
+kelimesine doğrudan
+çevirinin hedef dildeki (L2)
+kullanımla birebir aynı
+olduğu kelime gruplarıdır
+67
+.
+break a heart = kalp (heart)
+kırmak (break)
+[cite: 71]
+Uyumsuz Eşdizimlilik
+(Incongruent Collocation)
+Hedef dildeki öbeğin,
+anadildeki karşılığının farklı
+kökenli kelimelerle ifade
+edildiği, doğrudan
+çevrildiğinde negatif
+transfere yol açan
+gruplardır
+67
+.
+black coffee = sade
+(plain/simple) kahve
+(İngilizcede sade/simple
+yerine siyah/black denir)
+67
+Araştırmacılardan Wolter ve Gyllstad (2011) ile Cangır ve Durrant (2021) tarafından
+gerçekleştirilen kelime karar görevleri (lexical decision tasks) deneyleri, L1 ve L2 arasında
+örtüşen (congruent) yığınların zihinsel sözlükten doğrudan transfer edildiğini (positive priming)
+ve çok daha hızlı, sıfıra yakın hata oranıyla işlendiğini bulgulamıştır
+67
+. Ancak öğrenici, anadilinde
+"sade kahve" olarak kurguladığı bir kavramı İngilizceye çevirirken L1 referansından kopamayıp
+"plain coffee" şeklinde negatif bir lemmasal aktarıma başvurduğunda (doğrusu black coffee'dir),
+işlemleme ve reaksiyon süreleri anında uzamakta, hata oranları (error rates) istatistiksel olarak
+keskin bir biçimde artmaktadır
+67
+.
+Yapılan metin analizlerinde, örneğin Türk EFL (Yabancı Dil Olarak İngilizce) öğrencilerinin yazdığı
+edebi analiz kompozisyonlarında, kullanılan eşdizimliliklerin yaklaşık yüzde 25'inin Türkçe kaynaklı
+negatif leksikal aktarım (negative collocation transfer) hataları içerdiği saptanmıştır
+69
+. Laufer ve
+Waldman (2011) da İbranice anadili konuşurlarında benzer bir etki saptamış, fiil-isim
+öbeklerindeki tercihlerin büyük oranda L1 müdahalesinden (interference) etkilendiğini
+belirtmiştir
+70
+. Bu bağlamda, Chunk (yığın) sisteminin öğretimde uygulanması esnasında rastgele
+bir kelime ezberinden kaçınılmalı, doğrudan diller arası "uyumsuz" (incongruent) noktalara
+odaklanılarak hedef dilin doğal kısıtlamaları, farkındalık yaratan bir stratejiyle öğretilmelidir.
+12. Sonuç ve Genel Değerlendirme
+İngilizce öğreniminde devrimsel bir yaklaşım sunan Chunk (Yığın) Sistemi ve onu bilimsel
+literatürde temellendiren Leksikal Yaklaşım, insan iletişiminin mekanik gramer şemalarından
+değil, kelime yığınlarından (formülik dizilerden) güç aldığını teorik ve ampirik boyutlarıyla
+ispatlamıştır. Anadili İngilizce olan kişilerin, karmaşık cümleleri olağanüstü hızlarda, hatasız ve
+doğal bir biçimde (native-like selection and fluency) üretmelerinin altındaki yegâne faktör,
+zihinlerinde taşıdıkları heteromorfik sözlüklerindeki yüz binlerce önceden kurgulanmış "yığın"dır.
+Eğitim psikolojisi perspektifinden bakıldığında Bilişsel Yük Kuramı, çalışan belleğimizin sığ
+kapasitesi (4-7 birim) dikkate alındığında, gramer kurallarının kelime kelime işlenmesinin beyni
+dışsal yük (extraneous load) altında nasıl boğduğunu net bir biçimde açıklamaktadır. Göz izleme
+(eye-tracking) tabanlı okuma ve nörofizyolojik hız testleri, formülik yığınları bir bütün olarak
+değerlendiren zihnin, geri dönüşleri (regressions) engelleyerek çok daha bütüncül, hızlı ve akıcı
+(fluent) bir işlemleme gerçekleştirdiğini doğrulamaktadır. Bu durum, sadece kelime genişliği
+(vocabulary size) yaratmanın ötesine geçerek, eşdizimlilikler üzerinden inşa edilmiş kapsamlı bir
+kelime derinliğinin (vocabulary depth) de elzem olduğunu göstermektedir.
+Geleneksel sözdizimci yaklaşımlarını terk eden Leksikal öğretim metodolojisi, Fark Etme
+Hipotezini (Noticing) merkeze koyarak, PPP (Sunum-Pratik-Üretim) modeli yerine doğrudan
+metinler üzerinden analitik gözlemler yaptırmaktadır. Modern dil öğrenicileri, SKELL gibi frekans
+odaklı derlem (corpus) araçlarını kullanarak hedef dildeki otantik kalıpları tespit etmeli; bunları
+kelime-çeviri tablolarıyla izole etmek yerine "Cümle Madenciliği" ve "Boşluk Doldurma"
+metotlarıyla Aralıklı Tekrar (Spaced Repetition) sistemleri üzerinden zihnine şablon olarak
+kazımalıdır. Öğrenme süreçleri boyunca, özellikle Türkçe anadilinden aktarılan uyumsuz
+eşdizimlilik (incongruent collocations) tuzaklarının bilincinde olarak ilerlemek, gramatik
+doğruluğun ötesine geçip asıl hedef olan "anadil benzeri doğallığa" ulaşmanın tartışmasız
+anahtarıdır.
+Alıntılanan çalışmalar
+1. Lexical approach - Wikipedia, https://en.wikipedia.org/wiki/Lexical_approach
+2. What Is the Lexical Approach to Language Teaching? - TEFL Institute,
+https://teflinstitute.com/blog/what-is-the-lexical-approach-to-language-teaching
+/
+3. Learning language in chunks,
+https://www.cambridge.org/elt/blog/wp-content/uploads/2019/10/Learning-Lang
+uage-in-Chunks.pdf
+4. How to Teach English Using the Lexical Approach,
+https://www.teachenglishinkorea.org/post/how-to-teach-english-using-the-lexic
+al-approach
+5. Review: The Lexical Approach – Michael Lewis - sponge elt,
+https://spongeelt.org/2022/06/08/review-the-lexical-approach-michael-lewis/
+6. The lexical approach: collocability, fluency and implications for,
+https://dialnet.unirioja.es/descarga/articulo/4216803.pdf
+7. Understanding the Lexical Approach | PDF - Scribd,
+https://fr.scribd.com/document/395118122/The-lexical-approach
+8. Formulaic sequences: Language consists of chunks (2005),
+https://www.taalhammer.com/formulaic-sequences-language-consists-of-chunk
+s-2005/
+9. Yearbook of Phraseology - Dial.pr,
+https://research.dial.uclouvain.be/entities/publication/f113f08e-0bf7-43a3-8377-0
+5fd561ffcd5
+10. Understanding the Lexical Approach in Language Teaching - Scribd,
+https://www.scribd.com/document/865981098/Understanding-the-Lexical-Appro
+ach-in-Language-Teaching-1
+11. (PDF) The Idiom Principle Revisited - ResearchGate,
+https://www.researchgate.net/publication/261878958_The_Idiom_Principle_Revisit
+ed
+12. Two puzzles for linguistic theory | 14 | Nativelike selection and nati,
+https://www.taylorfrancis.com/chapters/edit/10.4324/9781315836027-14/two-puz
+zles-linguistic-theory-andrew-pawley-frances-hodgetts-syder
+13. Nativelike selection - Chaotic Language,
+https://www.chaoticlanguage.com/post/nativelike-selection/
+14. Collocations help achieve native-like language proficiency,
+https://ebrary.net/301200/language_literature/collocations_help_achieve_native_l
+anguage_proficiency
+15. Role That Collocations Play In Language Learning English,
+https://www.ukessays.com/essays/english-language/role-that-collocations-play-i
+n-language-learning-english-language-essay.php
+16. The Most Frequent Collocations in Spoken English | PDF | Word,
+https://www.scribd.com/document/668442044/The-most-frequent-collocationsin-spoken-English
+17. Word structure, collocation, word-class, and meaning Nick C. Ellis,
+http://sites.lsa.umich.edu/nickellis-new/wp-content/uploads/sites/1284/2021/07/Vo
+cabChapMcCarthySchmidtFinalPrePrint.pdf
+18. 7 Two puzzles for linguistic theory: nativelike selection and,
+https://lextutor.ca/rt/pawley_syder_83.pdf
+19. Formulaic Language: Pushing the Boundaries by Alison Wray. Oxford,
+https://escholarship.org/content/qt55b9c5mx/qt55b9c5mx_noSplash_b57520b92f
+19fbf0001040a1b32e8139.pdf
+20. Formulaic Language in Computer-Supported Communication,
+https://www.scribd.com/document/679248789/Formulaic-language-in-computersupported-communication-Theory-meets-reality
+21. (PDF) Alison Wray: Formulaic language: Pushing the boundaries.,
+https://www.researchgate.net/publication/303165557_Alison_Wray_Formulaic_lan
+guage_Pushing_the_boundaries
+22. Formulaic language | Language Teaching | Cambridge Core,
+https://www.cambridge.org/core/journals/language-teaching/article/formulaic-lan
+guage/BBB14FAEC07F104039986A1B5733B049
+23. Formulaic Language as a Barrier to Effective Communication with,
+https://utppublishing.com/doi/10.3138/cmlr.67.4.429
+24. Cognitive Load Theory - Education NI,
+https://www.education-ni.gov.uk/sites/default/files/2025-09/Cognitive%20Load%
+20Theory.PDF
+25. Instructions for reducing cognitive load to increase language learning,
+https://www.elgazette.com/instructions-for-reducing-cognitive-load-to-increase
+-language-learning/
+26. How Do Cognitive Approaches to Language Learning Work,
+https://vietnamteachingjobs.com/blog/cognitive-approaches-to-language-learnin
+g/
+27. 38 - Cognitive Load Theory and Instructional Design for Language,
+https://www.cambridge.org/core/books/cambridge-handbook-of-working-memo
+ry-and-language/cognitive-load-theory-and-instructional-design-for-language-l
+earning/C1A61C6FC46C173594554509664B2757
+28. Cognitive Load Theory and its application in the classroom,
+https://my.chartered.college/impact_article/cognitive-load-theory-and-its-applic
+ation-in-the-classroom/
+29. Cognitive Load Theory and the English Language Instruction,
+https://www.researchgate.net/publication/371558712_Cognitive_Load_Theory_an
+d_the_English_Language_Instruction
+30. Individual Chunking Ability Predicts Efficient or Shallow L2 Processing,
+https://pmc.ncbi.nlm.nih.gov/articles/PMC7844092/
+31. Novel uses of eye-tracking data for natural language processing,
+https://pure.itu.dk/ws/files/85544655/LangLinCompass_Submitted.pdf
+32. Cognitive Signatures of Multi-Word Expressions: Reading-Time and,
+https://aclanthology.org/2026.mwe-1.5.pdf
+33. Individual Chunking Ability Predicts Efficient or Shallow L2 Processing,
+https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.6076
+21/full
+34. Eye movements in reading span tasks to working memory functions,
+https://dergipark.org.tr/tr/download/article-file/536727
+35. A Comparative Eye-Tracking Study of Native English Speakers and,
+https://scholarsarchive.byu.edu/cgi/viewcontent.cgi?article=8334&context=etd
+36. Vocabulary in language teaching,
+http://library.uc.edu.kh/userfiles/pdf/14.Vocabulary%20in%20language%20teachi
+ng.pdf
+37. Norbert SCHMITT | Centre for Research in Applied Linguistics (CRAL),
+https://www.researchgate.net/profile/Norbert-Schmitt-4
+38. Norbert Schmitt - Google Scholar,
+https://scholar.google.com/citations?user=cuuQrqkAAAAJ&hl=en
+39. Review article: Instructed second language vocabulary learning,
+https://www.researchgate.net/publication/249870528_Review_article_Instructed_
+second_language_vocabulary_learning
+40. L2 VOCABULARY ACQUISITION, KNOWLEDGE AND USE new,
+https://www.eurosla.org/monographs/EM02/EM02tot.pdf
+41. (PDF) Current Perspectives on Vocabulary Teaching and Learning,
+https://www.researchgate.net/publication/227092388_Current_Perspectives_on_V
+ocabulary_Teaching_and_Learning
+42. the role of formulaic sequences in oral fluency,
+https://ijlllc.org/uploads2024/LLLC_03_062.pdf
+43. Effects of focused instruction of formulaic sequences on fluent,
+https://search.proquest.com/openview/8e62cb584f5463727c4ad7b1a1ddff48/1?p
+q-origsite=gscholar&cbl=39587
+44. EFL Learners' Use of Formulaic Language in Oral Assessments,
+http://www.efdergi.hacettepe.edu.tr/upload/files/1659-formulaiclanguage.pdf
+45. Replication research in pedagogical approaches to spoken fluency,
+https://www.cambridge.org/core/journals/language-teaching/article/replication-re
+search-in-pedagogical-approaches-to-spoken-fluency-and-formulaic-sequence
+s-a-call-for-replication-of-wood-2009-and-boers-eyckmans-kappel-stengers-d
+emecheleer-2006/8D7676F9CA677D380F6B3870CE20DA9F
+46. Role of Knowledge of Formulaic Sequences in ... - SciSpace,
+https://scispace.com/pdf/role-of-knowledge-of-formulaic-sequences-in-languag
+e-52qbtvixq1.pdf
+47. ERIC - EJ950983 - Formulaic Sequences and L2 Oral Proficiency,
+https://eric.ed.gov/?id=EJ950983
+48. Formulaic sequences and perceived oral proficiency: putting a,
+https://www.researchgate.net/publication/258169489_Formulaic_sequences_and_
+perceived_oral_proficiency_putting_a_Lexical_Approach_to_the_test
+49. Noticing Hypothesis: Explained & Applications - StudySmarter,
+https://www.studysmarter.co.uk/explanations/english/tesol-english/noticing-hypot
+hesis/
+50. The Noticing Hypothesis In Language Theories - Free Essay Example,
+https://hub.edubirdie.com/examples/the-noticing-hypothesis-in-language-theori
+es/
+51. The Noticing Hypothesis of Richard Schmidt,
+https://ijee.org/ijee/article/download/1237/1230
+52. Corpora and Language Learning with the Sketch Engine and SKELL,
+https://www.sketchengine.eu/wp-content/uploads/2015/04/2015-corpora-submit
+ted.pdf
+53. SKELL – corpus tool for language learners | Sketch Engine,
+https://www.sketchengine.eu/skell/
+54. SKELL A corpus-based platform for language learning and analysis,
+https://www.ecml.at/en/Resources/ICT/InventoryID/319
+55. English corpus for SKELL - Sketch Engine,
+https://www.sketchengine.eu/english-skell-corpus/
+56. SKell (SKetch Engine for language learners) - CLARIN ERIC,
+https://www.clarin.eu/resource-families/skell-sketch-engine-language-learners
+57. (PDF) A critical review of SkELL (Sketch Engine for Language,
+https://www.researchgate.net/publication/392097438_A_critical_review_of_SkELL
+_Sketch_Engine_for_Language_Learning_-_V1118
+58. Clustering - Sketch Engine,
+https://www.sketchengine.eu/documentation/clustering-neighbours-documentati
+on/
+59. The Effect of Teaching Formulaic Sequences through Spaced and,
+https://www.sid.ir/fileserver/je/132320192404.pdf
+60. Does spaced repetition really work and other learning frustrations,
+https://www.reddit.com/r/languagelearning/comments/tujpwp/does_spaced_repe
+tition_really_work_and_other/
+61. How to Use Anki Effectively for Language Learning | StudyCards AI,
+https://studycardsai.com/blog/how-to-use-anki-effectively-for-language-learnin
+g
+62. SuperMemo: Incremental learning - Super Memory,
+https://super-memory.com/help/il.htm
+63. Language Learning Strategies Guide | PDF - Scribd,
+https://www.scribd.com/document/888195753/r-Languagelearning-03
+64. spaced-repetition for language learning beyond vocab - Reddit,
+https://www.reddit.com/r/LearnJapanese/comments/1mdokmc/spacedrepetition_
+for_language_learning_beyond/
+65. Cognitive load theory in practice - Examples for the classroom,
+https://education.nsw.gov.au/content/dam/main-education/about-us/educationaldata/cese/2017-cognitive-load-theory-practice-guide.pdf
+66. (PDF) The Traces of Interference in the Use of Collocations,
+https://www.researchgate.net/publication/375957304_The_Traces_of_Interference
+_in_the_Use_of_Collocations
+67. The Influence of L1 on the Acquisition of L2 Collocations: Turkish,
+https://www.researchgate.net/publication/355904866_The_Influence_of_L1_on_th
+e_Acquisition_of_L2_Collocations_Turkish_ELT_Students
+68. Tracing negative transfer in the lexical collocations used by Turkish,
+https://dergipark.org.tr/en/download/article-file/1131692
+69. Tracing negative transfer in the lexical collocations used by Turkish,
+https://www.researchgate.net/publication/341821954_TRACING_NEGATIVE_TRAN
+SFER_IN_THE_LEXICAL_COLLOCATIONS_USED_BY_TURKISH_LEARNERS_OF_ENG
+LISH_IN_WRITTEN_TEXTS
+70. Using NLI to Identify Potential Collocation Transfer in L2 English,
+https://aclanthology.org/2025.bea-1.49.pdf
+71. The Influence of L1 on the Acquisition of L2 Collocations - TESL-EJ,
+https://tesl-ej.org/wordpress/issues/volume25/ej99a2/
+72. The Influence of L1 on the Acquisition of L2 Collocations: Turkish,
+https://eric.ed.gov/?id=EJ1332270
