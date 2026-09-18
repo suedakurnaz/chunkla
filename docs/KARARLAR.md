@@ -21,8 +21,10 @@ istenirse hazır olması için veride durur.
 1122 cümlenin tamamı benzersiz; hiçbiri mevcut bir örnek cümleyle çakışmıyor.
 
 **Denetim:** `validate-chunks.js` artık kalıbın İngilizce cümlede (çekimli hâlleriyle) geçip
-geçmediğine bakıyor ve uzun cümleleri işaretliyor. Uyarılar hata değil; birkaçı yanlış alarm
-(ör. "it's up to you" içinde "it's" düşünce kalıp bulunamıyor sanılıyor).
+geçmediğine bakıyor ve uzun cümleleri işaretliyor. Uyarılar hata değil, gözden geçirilecek
+liste; şu an sıfır uyarı var. Doğrulayıcı kısaltmaları ("it's up to you" → "the decision is
+up to you") ve kalıptaki çekimli sözcükleri ("used to" → "did you use to") yalın hâle indirip
+karşılaştırıyor, böylece yanlış alarm vermiyor.
 
 **Sonuç:** `chunks.js` 181 KB → 292 KB. Çevrimdışı önbellek bir kez indirdiği için sorun değil.
 

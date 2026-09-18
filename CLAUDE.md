@@ -52,7 +52,7 @@ Yükleme sırası: `fonts/fonts.css`, `styles.css`, `chunks.js`, `js/core.js`, `
 
 ```
 npm run check      # veri + çekirdek testleri + sw.js önbellek listesi — her değişiklikten sonra
-                   # (çeviri alıştırmalarını da denetler; uyarılar hata değil, gözden geçirilir)
+                   # (çeviri alıştırmalarını da denetler; uyarı çıkarsa gözden geçir, hata değil)
 npm run serve      # http://localhost:8080 (yerelde service worker kapalı, değişiklik anında görünür)
                    # internetsiz davranışı yerelde denemek için: http://localhost:8080/?sw
 npm run sw:liste   # www/'e dosya ekleyip sildikten sonra sw.js ASSETS listesini yeniden yazar

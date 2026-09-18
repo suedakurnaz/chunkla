@@ -76,7 +76,20 @@ const IRREGULAR = {
   bet: ['bets', 'betting'], burn: ['burns', 'burnt', 'burning'], learn: ['learns', 'learnt', 'learning']
 };
 const STOP = new Set(['a', 'an', 'the', 'to', 'of', 'in', 'on', 'at', 'for', 'with',
-  'your', 'my', 'his', 'her', 'its', 'our', 'their', 'me', 'you', 'it', 'is', 'be', 'and', 'or']);
+  'your', 'my', 'his', 'her', 'its', 'our', 'their', 'me', 'you', 'it', 'is', 'be', 'and', 'or',
+  // Kısaltmalar: kalıpta geçse de cümlede başka bir özneyle kurulabilir
+  // ("it's up to you" → "The decision is up to you").
+  "it's", "i'm", "he's", "she's", "we're", "they're", "you're", "that's", "there's",
+  "what's", "how's", "let's", "don't", "doesn't", "didn't", "isn't", "can't", "won't", "i'd"]);
+
+// "used" → "use", "running" → "run": kalıptaki çekimli sözcüğün yalın hâlini de dene.
+function stems(w) {
+  const out = new Set([w]);
+  if (w.length > 3 && w.endsWith('ed')) { out.add(w.slice(0, -2)); out.add(w.slice(0, -1)); }
+  if (w.length > 5 && w.endsWith('ing')) { out.add(w.slice(0, -3)); out.add(w.slice(0, -3) + 'e'); }
+  if (w.length > 3 && w.endsWith('s') && !w.endsWith('ss')) out.add(w.slice(0, -1));
+  return out;
+}
 
 function wordForms(w) {
   const set = new Set([w]);
@@ -94,7 +107,8 @@ function usesChunk(chunk, en) {
   const key = chunk.toLowerCase().replace(/[^a-z' ]/g, ' ').split(/\s+/).filter(Boolean);
   const content = key.filter((w) => !STOP.has(w));
   const target = content.length ? content : key;
-  const hit = target.filter((w) => [...wordForms(w)].some((f) => bag.has(f)));
+  const hit = target.filter((w) => [...stems(w)]
+    .some((base) => [...wordForms(base)].some((f) => bag.has(f))));
   return hit.length >= Math.ceil(target.length * 0.6);
 }
 const seen = new Map();
