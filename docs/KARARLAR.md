@@ -5,6 +5,32 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 
 ---
 
+## 2026-09-19 — Alıştırmalarda birebir örtüşme kuralı
+
+**Karar:** Çeviri alıştırmasında Türkçe cümle ile gizli İngilizce cevap **kelime kelime**
+örtüşür. Türkçede olan her kelimenin İngilizcede karşılığı olmalı, tersi de geçerli.
+Kullanıcı Türkçeyi çevirip cevabı açtığında kendi yazdığıyla aynısını görmeli.
+
+**Neden:** İlk sürümde birçok çift gevşekti. "Biraz çaba göster." → "Make an effort."
+gibi: Türkçedeki "biraz" İngilizcede yoktu, kullanıcı doğru çevirdiği hâlde cevabı farklı
+görüyordu. Alıştırmanın işe yaraması kullanıcının kendi cevabını güvenle karşılaştırabilmesine
+bağlı.
+
+**İstisna:** Kalıbın kendisi. Deyimler doğası gereği birebir çevrilmez; "never mind" = "boş ver",
+"a piece of cake" = "çocuk oyuncağı". Örtüşme kuralı kalıbın dışındaki kelimeler için geçerli.
+
+**Uygulama:** 374 maddenin tamamı tek tek okundu, 92 maddede düzeltme yapıldı. Ayrıca özne
+belirsizliği giderildi (Türkçe "O ...-di" hangi cevabı beklediğini söylemiyordu); bunlara
+Ali, Ayşe, ablam gibi açık özneler eklendi. He/she tercihi kullanıcı için önemsiz, ama cümlenin
+tek bir cevaba götürmesi önemli.
+
+**Denetim:** `scratchpad/literal.js` (tek seferlik) Türkçe belirteçlerle ("biraz", "hiç",
+"lütfen") İngilizce karşılıklarını karşılaştırıyor. Kalan 35 uyarının tamamı deyim kaynaklı
+yanlış alarm.
+
+**Sonuç:** 1122 cümlenin tamamı benzersiz, hiçbiri mevcut örneklerle çakışmıyor, hiçbiri
+9 kelimeyi geçmiyor.
+
 ## 2026-09-19 — Alıştırma cevapları dokununca açılıyor
 
 **Karar:** "Sen çevir" cümlelerinden birine dokununca altında İngilizcesi açılır, tekrar

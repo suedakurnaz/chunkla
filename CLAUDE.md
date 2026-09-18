@@ -77,6 +77,11 @@ Actions yayınlasın, telefondan Pages adresini aç.
    make/do seçimi, `look forward to` + `-ing` gibi Türk öğrencinin düştüğü hatayı söyler.
 5. **Örnek cümleler kısa.** Elle yazılacaklar. Çeviri alıştırmaları da en fazla 9 kelime,
    mevcut örneklerden farklı ve üçü ayrı zaman/kipte olur (olumsuz, soru, geçmiş).
+   **Alıştırmada Türkçe ile İngilizce birebir örtüşür:** Türkçedeki her kelimenin İngilizcede
+   karşılığı olmalı ve tersi. "Biraz çaba göster." → "Make an effort." yanlış; ya Türkçeden
+   "biraz" çıkar ya İngilizceye "a little" girer. Kullanıcı Türkçeyi çevirdiğinde cevabın
+   aynısını yazabilmeli. Tek istisna kalıbın kendisi: deyimler doğası gereği birebir çevrilmez
+   ("never mind" = "boş ver").
    Toplu eklemek için: `node scripts/add-practice.js parti.json`.
 6. **Arayüz metinleri Türkçe, içerik İngilizce.**
 7. **Kapsam dışı, eklenmez:** ses, telaffuz, bildirim, hatırlatma, test, quiz, puan, rozet,

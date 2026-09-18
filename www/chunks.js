@@ -30,7 +30,7 @@ const CHUNKS = [
     practice: [
       { tr: "Acele karar verme.", en: "Don't make a decision in a hurry." },
       { tr: "Kararımı dün akşam verdim.", en: "I made my decision last night." },
-      { tr: "Ne zaman karar vereceksin?", en: "When are you going to make a decision?" }
+      { tr: "Ne zaman karar vereceksin?", en: "When will you make a decision?" }
     ]
   },
   {
@@ -44,9 +44,9 @@ const CHUNKS = [
       { en: "He did me a huge favor last week.", tr: "Geçen hafta bana büyük bir iyilik yaptı." }
     ],
     practice: [
-      { tr: "Bir iyilik yap, şunu imzala.", en: "Do me a favor and sign this." },
+      { tr: "Bana bir iyilik yap, şunu imzala.", en: "Do me a favor and sign this." },
       { tr: "Bana büyük bir iyilik yaptın.", en: "You did me a big favor." },
-      { tr: "Kardeşim bana bir iyilik yaptı.", en: "My brother did me a favor." }
+      { tr: "Abim bana bir iyilik yaptı.", en: "My brother did me a favor." }
     ]
   },
   {
@@ -61,7 +61,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Beş dakika ara verelim.", en: "Let's take a five-minute break." },
-      { tr: "Neden biraz ara vermiyorsun?", en: "Why don't you take a break?" },
+      { tr: "Neden ara vermiyorsun?", en: "Why don't you take a break?" },
       { tr: "Öğleden sonra uzun bir ara verdim.", en: "I took a long break in the afternoon." }
     ]
   },
@@ -108,8 +108,8 @@ const CHUNKS = [
       { en: "She's bad at keeping secrets.", tr: "Sır tutmakta pek iyi değil." }
     ],
     practice: [
-      { tr: "Sır tutacağına söz ver.", en: "Promise me you'll keep the secret." },
-      { tr: "Ondan sır tutmak istemiyorum.", en: "I don't want to keep a secret from him." },
+      { tr: "Bana sır tutacağına söz ver.", en: "Promise me you'll keep the secret." },
+      { tr: "Ali'den sır tutmak istemiyorum.", en: "I don't want to keep a secret from Ali." },
       { tr: "Sır tutmak bazen zordur.", en: "Keeping a secret is sometimes hard." }
     ]
   },
@@ -125,8 +125,8 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Büyük bir hata yaptım.", en: "I made a big mistake." },
-      { tr: "Hata yapmaktan korkma.", en: "Don't be afraid to make mistakes." },
-      { tr: "Hesapta bir hata yapmış.", en: "He made a mistake in the calculation." }
+      { tr: "Hata yapmaktan korkma.", en: "Don't be afraid to make a mistake." },
+      { tr: "Ali hesapta bir hata yaptı.", en: "Ali made a mistake in the calculation." }
     ]
   },
   {
@@ -142,7 +142,7 @@ const CHUNKS = [
     practice: [
       { tr: "Yola dikkat et.", en: "Pay attention to the road." },
       { tr: "Derste dikkatimi veremedim.", en: "I couldn't pay attention in class." },
-      { tr: "Lütfen biraz dikkat verin.", en: "Please pay a little attention." }
+      { tr: "Lütfen dikkatinizi verin.", en: "Please pay attention." }
     ]
   },
   {
@@ -172,8 +172,8 @@ const CHUNKS = [
       { en: "We took our seats before the show.", tr: "Gösteriden önce yerlerimize oturduk." }
     ],
     practice: [
-      { tr: "Buyurun, şuraya oturun.", en: "Please take a seat over there." },
-      { tr: "Herkes yerine oturdu.", en: "Everyone took their seats." },
+      { tr: "Lütfen şuraya oturun.", en: "Please take a seat over there." },
+      { tr: "Misafirler yerlerine oturdu.", en: "The guests took their seats." },
       { tr: "Oturmak ister misiniz?", en: "Would you like to take a seat?" }
     ]
   },
@@ -188,8 +188,8 @@ const CHUNKS = [
       { en: "At least he made an effort.", tr: "En azından çaba gösterdi." }
     ],
     practice: [
-      { tr: "Biraz çaba göster.", en: "Make an effort." },
-      { tr: "Anlamak için çaba sarf etti.", en: "She made an effort to understand." },
+      { tr: "Çaba göster.", en: "Make an effort." },
+      { tr: "Ali anlamak için çaba sarf etti.", en: "Ali made an effort to understand." },
       { tr: "Hiç çaba göstermediler.", en: "They didn't make any effort." }
     ]
   },
@@ -237,7 +237,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Hemen bir telefon etmeliyim.", en: "I have to make a phone call right now." },
-      { tr: "Dışarıda birkaç telefon etti.", en: "He made a few phone calls outside." },
+      { tr: "Ayşe dışarıda birkaç telefon etti.", en: "Ayşe made a few phone calls outside." },
       { tr: "Toplantıdan önce bir telefon edeyim.", en: "Let me make a phone call before the meeting." }
     ]
   },
@@ -253,7 +253,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Bazen riske girmen gerekir.", en: "Sometimes you have to take a chance." },
-      { tr: "Bana bir şans tanıdı.", en: "He took a chance on me." },
+      { tr: "Mert bana bir şans tanıdı.", en: "Mert took a chance on me." },
       { tr: "Riske girmekten korktum.", en: "I was afraid to take a chance." }
     ]
   },
@@ -268,9 +268,9 @@ const CHUNKS = [
       { en: "I'll give you a hand tomorrow.", tr: "Yarın sana yardım ederim." }
     ],
     practice: [
-      { tr: "Bana biraz yardım eder misin?", en: "Can you give me a hand?" },
-      { tr: "Taşınırken bize yardım etti.", en: "She gave us a hand with the move." },
-      { tr: "Kimse ona yardım etmedi.", en: "Nobody gave him a hand." }
+      { tr: "Bana yardım eder misin?", en: "Can you give me a hand?" },
+      { tr: "Ablam taşınmada bize yardım etti.", en: "My sister gave us a hand with the move." },
+      { tr: "Kimse Ali'ye yardım etmedi.", en: "Nobody gave Ali a hand." }
     ]
   },
   {
@@ -286,7 +286,7 @@ const CHUNKS = [
     practice: [
       { tr: "Lütfen benimle irtibatta kal.", en: "Please keep in touch with me." },
       { tr: "Eski arkadaşlarımla irtibatta kalırım.", en: "I keep in touch with my old friends." },
-      { tr: "İrtibatta kalacağına söz ver.", en: "Promise me you will keep in touch." }
+      { tr: "Bana irtibatta kalacağına söz ver.", en: "Promise me you will keep in touch." }
     ]
   },
   {
@@ -300,9 +300,9 @@ const CHUNKS = [
       { en: "She lost her temper with the kids.", tr: "Çocuklara sinirlendi." }
     ],
     practice: [
-      { tr: "Toplantıda tepesi attı.", en: "He lost his temper in the meeting." },
+      { tr: "Toplantıda Ali'nin tepesi attı.", en: "Ali lost his temper in the meeting." },
       { tr: "Sakın öfkelenme.", en: "Don't lose your temper." },
-      { tr: "Annem nadiren sinirlenir.", en: "My mother rarely loses her temper." }
+      { tr: "Annem nadiren öfkelenir.", en: "My mother rarely loses her temper." }
     ]
   },
   {
@@ -317,7 +317,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Buzları eritmek için ne yapalım?", en: "What should we do to break the ice?" },
-      { tr: "Küçük bir oyun buzları eritti.", en: "A short game broke the ice." },
+      { tr: "Kısa bir oyun buzları eritti.", en: "A short game broke the ice." },
       { tr: "Kimse buzları eritmeye cesaret edemedi.", en: "Nobody dared to break the ice." }
     ]
   },
@@ -383,7 +383,7 @@ const CHUNKS = [
       { en: "Sooner or later everyone makes that mistake.", tr: "Er ya da geç herkes o hatayı yapar." }
     ],
     practice: [
-      { tr: "Er ya da geç pes edecek.", en: "Sooner or later he will give up." },
+      { tr: "Er ya da geç Ali pes edecek.", en: "Sooner or later Ali will give up." },
       { tr: "Bu sorunu er ya da geç çözmeliyiz.", en: "We must solve this problem sooner or later." },
       { tr: "Er ya da geç yağmur yağacak.", en: "Sooner or later it will rain." }
     ]
@@ -432,7 +432,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Arada bir sinemaya giderim.", en: "I go to the cinema once in a while." },
-      { tr: "Arada bir onu düşünürüm.", en: "I think about him once in a while." },
+      { tr: "Arada bir Ayşe'yi düşünürüm.", en: "I think about Ayşe once in a while." },
       { tr: "Arada bir tatlı yemek zararsız.", en: "Eating dessert once in a while is harmless." }
     ]
   },
@@ -497,7 +497,7 @@ const CHUNKS = [
     practice: [
       { tr: "Bu arada, anahtarını unuttun.", en: "By the way, you forgot your key." },
       { tr: "Bu arada yarın izinliyim.", en: "By the way, I'm off tomorrow." },
-      { tr: "Aklıma gelmişken, çok teşekkürler.", en: "By the way, thank you very much." }
+      { tr: "Bu arada, çok teşekkürler.", en: "By the way, thank you very much." }
     ]
   },
 
@@ -514,7 +514,7 @@ const CHUNKS = [
       { en: "As far as I know, nothing has changed.", tr: "Bildiğim kadarıyla bir şey değişmedi." }
     ],
     practice: [
-      { tr: "Bildiğim kadarıyla henüz gelmedi.", en: "As far as I know, he hasn't come yet." },
+      { tr: "Bildiğim kadarıyla Mert henüz gelmedi.", en: "As far as I know, Mert hasn't come yet." },
       { tr: "Bildiğim kadarıyla giriş ücretsiz.", en: "As far as I know, the entrance is free." },
       { tr: "Bildiğim kadarıyla kimse bilmiyor.", en: "As far as I know, nobody knows." }
     ]
@@ -531,7 +531,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Dürüst olmak gerekirse sıkıldım.", en: "To be honest, I was bored." },
-      { tr: "Açıkçası ondan hoşlanmıyorum.", en: "To be honest, I don't like him." },
+      { tr: "Açıkçası yeni komşumuzdan hoşlanmıyorum.", en: "To be honest, I don't like our new neighbour." },
       { tr: "Doğrusu hiç hazırlanmadım.", en: "To be honest, I didn't prepare at all." }
     ]
   },
@@ -578,7 +578,7 @@ const CHUNKS = [
       { en: "It's up to us to fix this.", tr: "Bunu düzeltmek bize düşüyor." }
     ],
     practice: [
-      { tr: "Ne zaman gideceğimiz sana kalmış.", en: "When we go is up to you." },
+      { tr: "Seçim sana kalmış.", en: "The choice is up to you." },
       { tr: "Sen bilirsin, ben karışmam.", en: "It's up to you, I won't interfere." },
       { tr: "Karar tamamen sana kalmış.", en: "The decision is completely up to you." }
     ]
@@ -659,8 +659,8 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "İçeri gel, rahatına bak.", en: "Come in, make yourself at home." },
-      { tr: "Rahat olun, ben hemen geliyorum.", en: "Make yourselves at home, I'll be right back." },
-      { tr: "Rahat etmemizi söyledi.", en: "She told us to make ourselves at home." }
+      { tr: "Rahat olun, hemen dönerim.", en: "Make yourselves at home, I'll be right back." },
+      { tr: "Ev sahibi rahat etmemizi söyledi.", en: "The host told us to make ourselves at home." }
     ]
   },
   {
@@ -674,7 +674,7 @@ const CHUNKS = [
       { en: "She finished first, believe it or not.", tr: "İster inan ister inanma, birinci bitirdi." }
     ],
     practice: [
-      { tr: "İnanır mısın, hiç geç kalmadı.", en: "Believe it or not, he was never late." },
+      { tr: "İnanır mısın, Ali hiç geç kalmadı.", en: "Believe it or not, Ali was never late." },
       { tr: "İnansan da inanmasan da kazandım.", en: "Believe it or not, I won." },
       { tr: "İster inan ister inanma, hâlâ çalışıyor.", en: "Believe it or not, it still works." }
     ]
@@ -723,7 +723,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Senin yerinde olsam dinlenirdim.", en: "If I were you, I would rest." },
-      { tr: "Yerinde olsam ona güvenmezdim.", en: "If I were you, I wouldn't trust him." },
+      { tr: "Yerinde olsam o adama güvenmezdim.", en: "If I were you, I wouldn't trust that man." },
       { tr: "Senin yerinde olsam hemen başlardım.", en: "If I were you, I'd start right away." }
     ]
   },
@@ -759,7 +759,7 @@ const CHUNKS = [
     practice: [
       { tr: "Neden bu kadar acelen var?", en: "Why are you in such a hurry?" },
       { tr: "Acelem yok, bekleyebilirim.", en: "I'm not in a hurry, I can wait." },
-      { tr: "Aceleyle anahtarını unuttu.", en: "In a hurry, she forgot her key." }
+      { tr: "Ayşe aceleyle anahtarını unuttu.", en: "Ayşe forgot her key in a hurry." }
     ]
   },
   {
@@ -774,7 +774,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Kapıyı yanlışlıkla kilitledim.", en: "I locked the door by accident." },
-      { tr: "Mesajı kazara ona gönderdim.", en: "I sent the message to him by accident." },
+      { tr: "Mesajı kazara Ali'ye gönderdim.", en: "I sent the message to Ali by accident." },
       { tr: "Bunu tamamen tesadüfen buldum.", en: "I found this completely by accident." }
     ]
   },
@@ -791,7 +791,7 @@ const CHUNKS = [
     practice: [
       { tr: "Bunu bilerek mi yaptın?", en: "Did you do this on purpose?" },
       { tr: "Kimse kasten geç kalmaz.", en: "Nobody is late on purpose." },
-      { tr: "Adımı bilerek yanlış yazdı.", en: "He spelled my name wrong on purpose." }
+      { tr: "Ali adımı bilerek yanlış yazdı.", en: "Ali spelled my name wrong on purpose." }
     ]
   },
   {
@@ -838,7 +838,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "İlk bakışta kolay görünüyor.", en: "At first sight, it looks easy." },
-      { tr: "İlk görüşte ona âşık oldu.", en: "He fell in love with her at first sight." },
+      { tr: "Ali ilk görüşte Ayşe'ye âşık oldu.", en: "Ali fell in love with Ayşe at first sight." },
       { tr: "İlk bakışta fark etmedim.", en: "I didn't notice at first sight." }
     ]
   },
@@ -854,7 +854,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Planı detaylı anlat.", en: "Explain the plan in detail." },
-      { tr: "Her şeyi detaylı yazdı.", en: "She wrote everything in detail." },
+      { tr: "Her şeyi detaylı yazdım.", en: "I wrote everything in detail." },
       { tr: "Bunu detaylı incelemedik.", en: "We didn't examine this in detail." }
     ]
   },
@@ -870,7 +870,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Durum kontrol altında.", en: "The situation is under control." },
-      { tr: "Her şeyi kontrol altında tutuyor.", en: "He keeps everything under control." },
+      { tr: "Ayşe her şeyi kontrol altında tutuyor.", en: "Ayşe keeps everything under control." },
       { tr: "Hastalık artık kontrol altında.", en: "The illness is under control now." }
     ]
   },
@@ -902,8 +902,8 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Zor değil. Aslında çok kolay.", en: "It's not hard. In fact, it's very easy." },
-      { tr: "Aslında onu hiç tanımıyorum.", en: "In fact, I don't know him at all." },
-      { tr: "Beğendi. Hatta iki tane aldı.", en: "He liked it. In fact, he bought two." }
+      { tr: "Aslında o adamı hiç tanımıyorum.", en: "In fact, I don't know that man at all." },
+      { tr: "Beğendim. Hatta iki tane aldım.", en: "I liked it. In fact, I bought two." }
     ]
   },
   {
@@ -949,9 +949,9 @@ const CHUNKS = [
       { en: "Nobody was in danger.", tr: "Kimse tehlikede değildi." }
     ],
     practice: [
-      { tr: "Köy sel tehlikesiyle karşı karşıya.", en: "The village is in danger of flooding." },
+      { tr: "Köy sel tehlikesinde.", en: "The village is in danger of flooding." },
       { tr: "Hayatın tehlikede olabilir.", en: "Your life may be in danger." },
-      { tr: "İşini kaybetme tehlikesinde.", en: "He is in danger of losing his job." }
+      { tr: "Ali işini kaybetme tehlikesinde.", en: "Ali is in danger of losing his job." }
     ]
   },
   {
@@ -983,7 +983,7 @@ const CHUNKS = [
     practice: [
       { tr: "Şüphesiz bu en ucuzu.", en: "Without a doubt, this is the cheapest." },
       { tr: "Kesinlikle haklısın.", en: "Without a doubt, you are right." },
-      { tr: "Şüphesiz çok çalıştı.", en: "Without a doubt, he worked hard." }
+      { tr: "Şüphesiz çok çalıştın.", en: "Without a doubt, you worked hard." }
     ]
   },
 
@@ -1034,7 +1034,7 @@ const CHUNKS = [
     practice: [
       { tr: "Sakin ol, kimse kızmadı.", en: "Take it easy, nobody is angry." },
       { tr: "Bu hafta sonu kendimi yormayacağım.", en: "I'm going to take it easy this weekend." },
-      { tr: "Kendine iyi bak, sonra ararım.", en: "Take it easy, I'll call you later." }
+      { tr: "Kendini yorma, sonra ararım.", en: "Take it easy, I'll call you later." }
     ]
   },
   {
@@ -1080,7 +1080,7 @@ const CHUNKS = [
       { en: "I'll bear that in mind.", tr: "Bunu aklımda tutarım." }
     ],
     practice: [
-      { tr: "Yarın kapalı olduğunu unutma.", en: "Bear in mind that it's closed tomorrow." },
+      { tr: "Yarın kapalı olduğunu aklında bulundur.", en: "Bear in mind that it's closed tomorrow." },
       { tr: "Bütçeyi de aklında bulundur.", en: "Bear in mind the budget as well." },
       { tr: "Bunu aklımızda tutacağız.", en: "We will bear this in mind." }
     ]
@@ -1097,7 +1097,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Zahmet etme, ben giderim.", en: "Don't bother, I'll go." },
-      { tr: "Sormaya kalkma, cevap vermez.", en: "Don't bother asking, he won't answer." },
+      { tr: "Sormaya kalkma, Ali cevap vermez.", en: "Don't bother asking, Ali won't answer." },
       { tr: "Beklemekle uğraşma.", en: "Don't bother waiting." }
     ]
   },
@@ -1144,7 +1144,7 @@ const CHUNKS = [
       { en: "It's a relief that nobody was hurt.", tr: "Kimsenin yaralanmaması büyük rahatlık." }
     ],
     practice: [
-      { tr: "Sınavı geçmiş. Oh be!", en: "He passed the exam. What a relief!" },
+      { tr: "Ali sınavı geçmiş. Oh be!", en: "Ali passed the exam. What a relief!" },
       { tr: "Ne büyük rahatlama, tren gecikmemiş.", en: "What a relief, the train wasn't late." },
       { tr: "Bitti mi? Oh be!", en: "Is it over? What a relief!" }
     ]
@@ -1180,7 +1180,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Sorun olursa benimle iletişime geç.", en: "Get in touch with me if there's a problem." },
-      { tr: "Onunla nasıl iletişime geçebilirim?", en: "How can I get in touch with her?" },
+      { tr: "Ayşe'yle nasıl iletişime geçebilirim?", en: "How can I get in touch with Ayşe?" },
       { tr: "Yarın seninle iletişime geçeceğim.", en: "I'll get in touch with you tomorrow." }
     ]
   },
@@ -1196,7 +1196,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Kendi işletmemi yönetmek istiyorum.", en: "I want to run my own business." },
-      { tr: "Yıllardır bu işletmeyi yönetiyor.", en: "She has been running this business for years." },
+      { tr: "Amcam yıllardır bu işletmeyi yönetiyor.", en: "My uncle has been running this business for years." },
       { tr: "Tek başına işletme yönetmek kolay değil.", en: "Running a business alone is not easy." }
     ]
   },
@@ -1227,9 +1227,9 @@ const CHUNKS = [
       { en: "She makes a good living.", tr: "İyi para kazanıyor." }
     ],
     practice: [
-      { tr: "Müzikle geçimini sağlıyor.", en: "He makes a living from music." },
+      { tr: "Ali müzikle geçimini sağlıyor.", en: "Ali makes a living from music." },
       { tr: "Bu şehirde geçinmek zor.", en: "It's hard to make a living in this city." },
-      { tr: "Öğretmenlik yaparak geçiniyordu.", en: "She made a living as a teacher." }
+      { tr: "Annem öğretmenlik yaparak geçiniyordu.", en: "My mother made a living as a teacher." }
     ]
   },
   {
@@ -1245,7 +1245,7 @@ const CHUNKS = [
     practice: [
       { tr: "Bana doğruyu söylemedin.", en: "You didn't tell me the truth." },
       { tr: "Doğruyu söylemekten korkma.", en: "Don't be afraid to tell the truth." },
-      { tr: "Sonunda doğruyu söyledi.", en: "He finally told the truth." }
+      { tr: "Sonunda doğruyu söyledim.", en: "I finally told the truth." }
     ]
   },
   {
@@ -1277,7 +1277,7 @@ const CHUNKS = [
     practice: [
       { tr: "Kimse sorumluluk almak istemiyor.", en: "Nobody wants to take responsibility." },
       { tr: "Hatamın sorumluluğunu alıyorum.", en: "I take responsibility for my mistake." },
-      { tr: "Projenin sorumluluğunu üstlendi.", en: "She took responsibility for the project." }
+      { tr: "Ayşe projenin sorumluluğunu üstlendi.", en: "Ayşe took responsibility for the project." }
     ]
   },
   {
@@ -1309,7 +1309,7 @@ const CHUNKS = [
     practice: [
       { tr: "Yoruldum, bugünlük bırakalım.", en: "I'm tired, let's call it a day." },
       { tr: "Beşte paydos ettiler.", en: "They called it a day at five." },
-      { tr: "Bugünlük bu kadar yeter mi?", en: "Shall we call it a day?" }
+      { tr: "Bugünlük bırakalım mı?", en: "Shall we call it a day?" }
     ]
   },
 
@@ -1343,7 +1343,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Sıkıcı değil. Aksine çok eğlenceli.", en: "It's not boring. On the contrary, it's very fun." },
-      { tr: "Aksine bize yardım etti.", en: "On the contrary, he helped us." },
+      { tr: "Aksine bize yardım ettiler.", en: "On the contrary, they helped us." },
       { tr: "Kızgın değilim. Aksine mutluyum.", en: "I'm not angry. On the contrary, I'm happy." }
     ]
   },
@@ -1374,7 +1374,7 @@ const CHUNKS = [
       { en: "He lost his job as a result of the merger.", tr: "Birleşme sonucunda işini kaybetti." }
     ],
     practice: [
-      { tr: "Çok çalıştı ve sonuç olarak kazandı.", en: "He worked hard and as a result he won." },
+      { tr: "Çok çalıştım ve sonuç olarak kazandım.", en: "I worked hard and as a result I won." },
       { tr: "Sonuç olarak dükkân kapandı.", en: "As a result, the shop closed." },
       { tr: "Kaza sonucunda yol kapandı.", en: "As a result of the accident, the road closed." }
     ]
@@ -1392,7 +1392,7 @@ const CHUNKS = [
     practice: [
       { tr: "Bazı diller, örneğin Japonca, zordur.", en: "Some languages, for instance Japanese, are hard." },
       { tr: "Örneğin bu kitabı ele al.", en: "Take this book, for instance." },
-      { tr: "Mesela dün geç kaldı.", en: "For instance, he was late yesterday." }
+      { tr: "Mesela dün geç kaldın.", en: "For instance, you were late yesterday." }
     ]
   },
   {
@@ -1423,7 +1423,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Öncelikle beni dinle.", en: "First of all, listen to me." },
-      { tr: "Her şeyden önce güvenlik gelir.", en: "First of all comes safety." },
+      { tr: "Öncelikle güvenliği düşünmeliyiz.", en: "First of all, we should think about safety." },
       { tr: "Öncelikle neden geciktin?", en: "First of all, why are you late?" }
     ]
   },
@@ -1454,7 +1454,7 @@ const CHUNKS = [
       { en: "Moreover, the deadline is tomorrow.", tr: "Dahası son tarih yarın." }
     ],
     practice: [
-      { tr: "Geç kaldı. Üstelik özür dilemedi.", en: "He was late. Moreover, he didn't apologize." },
+      { tr: "Ali geç kaldı. Üstelik özür dilemedi.", en: "Ali was late. Moreover, he didn't apologize." },
       { tr: "Dahası bunun kanıtı var.", en: "Moreover, there is proof of this." },
       { tr: "Üstelik hava da çok soğuktu.", en: "Moreover, the weather was very cold." }
     ]
@@ -1470,8 +1470,8 @@ const CHUNKS = [
       { en: "Despite the rain, we went out.", tr: "Yağmura rağmen dışarı çıktık." }
     ],
     practice: [
-      { tr: "Hasta olmasına rağmen işe gitti.", en: "Despite the fact that he was ill, he went to work." },
-      { tr: "Geç olmasına rağmen beni bekledi.", en: "Despite the fact that it was late, she waited for me." },
+      { tr: "Hasta olmama rağmen işe gittim.", en: "Despite the fact that I was ill, I went to work." },
+      { tr: "Geç olmasına rağmen Ayşe beni bekledi.", en: "Despite the fact that it was late, Ayşe waited for me." },
       { tr: "Pahalı olmasına rağmen aldık.", en: "Despite the fact that it was expensive, we bought it." }
     ]
   },
@@ -1521,7 +1521,7 @@ const CHUNKS = [
       { en: "He set a bad example.", tr: "Kötü örnek oldu." }
     ],
     practice: [
-      { tr: "Ağabeyler örnek olmalı.", en: "Older brothers should set an example." },
+      { tr: "Anne babalar örnek olmalı.", en: "Parents should set an example." },
       { tr: "Sen ekibe örnek oldun.", en: "You set an example for the team." },
       { tr: "Böyle bir örnek olmak istemiyorum.", en: "I don't want to set such an example." }
     ]
@@ -1537,7 +1537,7 @@ const CHUNKS = [
       { en: "We spend a lot of time together.", tr: "Birlikte çok vakit geçiriyoruz." }
     ],
     practice: [
-      { tr: "Kıyafete çok para harcıyor.", en: "She spends a lot of money on clothes." },
+      { tr: "Ablam kıyafete çok para harcıyor.", en: "My sister spends a lot of money on clothes." },
       { tr: "Bu ay az para harcadık.", en: "We spent little money this month." },
       { tr: "Gereksiz şeylere para harcama.", en: "Don't spend money on useless things." }
     ]
@@ -1586,7 +1586,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Gelecek ay evleniyorlar.", en: "They are getting married next month." },
-      { tr: "Komşumuzla evlendi.", en: "She got married to our neighbour." },
+      { tr: "Ablam komşumuzla evlendi.", en: "My sister got married to our neighbour." },
       { tr: "Evlenmek için acele etmiyoruz.", en: "We're not in a hurry to get married." }
     ]
   },
@@ -1602,7 +1602,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Çocuklar bahçede eğleniyor.", en: "The children are having fun in the garden." },
-      { tr: "Tatilde çok eğlendik mi?", en: "Did we have fun on holiday?" },
+      { tr: "Tatilde eğlendik mi?", en: "Did we have fun on holiday?" },
       { tr: "Umarım bu akşam eğlenirsin.", en: "I hope you have fun tonight." }
     ]
   },
@@ -1634,7 +1634,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Verdiğin sözü tut.", en: "Keep the promise you made." },
-      { tr: "Sözünü tutacağına inanıyorum.", en: "I believe he will keep his promise." },
+      { tr: "Ali'nin sözünü tutacağına inanıyorum.", en: "I believe Ali will keep his promise." },
       { tr: "Sözünü tutmak her zaman kolay değil.", en: "Keeping a promise is not always easy." }
     ]
   },
@@ -1654,7 +1654,7 @@ const CHUNKS = [
     practice: [
       { tr: "Birkaç günde alışırsın.", en: "You'll get the hang of it in a few days." },
       { tr: "Sonunda püf noktasını kaptım.", en: "I finally got the hang of it." },
-      { tr: "Bisiklete binmeye alışıyor.", en: "She's getting the hang of riding a bike." }
+      { tr: "Kızım bisiklete binmeye alışıyor.", en: "My daughter is getting the hang of riding a bike." }
     ]
   },
   {
@@ -1669,7 +1669,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Yeni bir fikir bulmalıyız.", en: "We have to come up with a new idea." },
-      { tr: "Güzel bir çözüm buldu.", en: "He came up with a good solution." },
+      { tr: "Mert güzel bir çözüm buldu.", en: "Mert came up with a good solution." },
       { tr: "Kimse iyi bir isim bulamadı.", en: "Nobody could come up with a good name." }
     ]
   },
@@ -1685,7 +1685,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Yürüsen daha iyi olur.", en: "You'd be better off walking." },
-      { tr: "Onsuz daha iyi olurdum.", en: "I'd be better off without him." },
+      { tr: "Arabasız daha iyi olurduk.", en: "We'd be better off without a car." },
       { tr: "Şimdi eskisinden daha iyi durumdalar.", en: "They are better off now than before." }
     ]
   },
@@ -1702,7 +1702,7 @@ const CHUNKS = [
     practice: [
       { tr: "Şimdilik burada kalabilirsin.", en: "You can stay here for the time being." },
       { tr: "Şimdilik eski telefonu kullanıyorum.", en: "I'm using the old phone for the time being." },
-      { tr: "Şu an için plan değişmedi.", en: "The plan hasn't changed for the time being." }
+      { tr: "Şimdilik plan aynı kalıyor.", en: "The plan stays the same for the time being." }
     ]
   },
   {
@@ -1716,9 +1716,9 @@ const CHUNKS = [
       { en: "I took it for granted that you knew.", tr: "Bildiğini varsaymıştım." }
     ],
     practice: [
-      { tr: "Ailenin kıymetini bilmemezlik etme.", en: "Don't take your family for granted." },
+      { tr: "Aileni sıradan görme.", en: "Don't take your family for granted." },
       { tr: "Yıllarca sağlığımın kıymetini bilmedim.", en: "I took my health for granted for years." },
-      { tr: "Geleceğini varsaymıştık.", en: "We took it for granted that he would come." }
+      { tr: "Ali'nin geleceğini varsaymıştık.", en: "We took it for granted that Ali would come." }
     ]
   },
   {
@@ -1782,7 +1782,7 @@ const CHUNKS = [
     practice: [
       { tr: "Yaz tatilini dört gözle bekliyorum.", en: "I'm looking forward to the summer holiday." },
       { tr: "Seni görmeyi iple çekiyoruz.", en: "We're looking forward to seeing you." },
-      { tr: "Cevabınızı bekliyorum.", en: "I look forward to your reply." }
+      { tr: "Cevabınızı dört gözle bekliyorum.", en: "I look forward to your reply." }
     ]
   },
   {
@@ -1812,9 +1812,9 @@ const CHUNKS = [
       { en: "No wonder she didn't call.", tr: "Aramamasına şaşmamalı." }
     ],
     practice: [
-      { tr: "Haliyle aç, hiç yemedi.", en: "No wonder he's hungry, he hasn't eaten." },
+      { tr: "Haliyle açım, hiç yemedim.", en: "No wonder I'm hungry, I haven't eaten." },
       { tr: "Haliyle herkes şikâyet ediyor.", en: "No wonder everyone is complaining." },
-      { tr: "Kazanmasına şaşmamalı.", en: "No wonder she won." }
+      { tr: "Ayşe'nin kazanmasına şaşmamalı.", en: "No wonder Ayşe won." }
     ]
   },
   {
@@ -1830,7 +1830,7 @@ const CHUNKS = [
     practice: [
       { tr: "Biraz sabredin, hemen bakıyorum.", en: "Bear with me, I'm checking right away." },
       { tr: "Uzun bir hikâye, biraz sabredin.", en: "It's a long story, bear with me." },
-      { tr: "Ben sıra bulana kadar sabredin.", en: "Bear with me while I find my place." }
+      { tr: "Ben kaldığım yeri bulana kadar sabredin.", en: "Bear with me while I find my place." }
     ]
   },
   {
@@ -1846,7 +1846,7 @@ const CHUNKS = [
     practice: [
       { tr: "Sadede gelelim, vaktimiz az.", en: "Let's cut to the chase, we don't have much time." },
       { tr: "Sadede gel lütfen.", en: "Please cut to the chase." },
-      { tr: "Uzatmadan sadede geldi.", en: "He cut to the chase without delay." }
+      { tr: "Uzatmadan sadede geldim.", en: "I cut to the chase without delay." }
     ]
   },
   {
@@ -1878,7 +1878,7 @@ const CHUNKS = [
     practice: [
       { tr: "Zor ama bir deneyelim.", en: "It's hard, but let's give it a shot." },
       { tr: "Neden bir denemiyorsun?", en: "Why don't you give it a shot?" },
-      { tr: "Bir denedi ve beğendi.", en: "She gave it a shot and liked it." }
+      { tr: "Bir denedim ve beğendim.", en: "I gave it a shot and liked it." }
     ]
   },
   {
@@ -1908,9 +1908,9 @@ const CHUNKS = [
       { en: "She never called, let alone visited.", tr: "Hiç aramadı, ziyareti bırak." }
     ],
     practice: [
-      { tr: "Yazamıyor, okumayı bırak.", en: "He can't write, let alone read." },
+      { tr: "Yazamıyorum, okumayı bırak.", en: "I can't write, let alone read." },
       { tr: "Bir saatim yok, bir günü geç.", en: "I don't have an hour, let alone a day." },
-      { tr: "Onu tanımıyorum bile, arkadaşını geç.", en: "I don't even know him, let alone his friend." }
+      { tr: "Ali'yi tanımıyorum bile, arkadaşını geç.", en: "I don't even know Ali, let alone his friend." }
     ]
   },
   {
@@ -1925,7 +1925,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Burada sigara içmemen gerekiyor.", en: "You're not supposed to smoke here." },
-      { tr: "Toplantı dokuzda başlaması gerekiyordu.", en: "The meeting was supposed to start at nine." },
+      { tr: "Toplantının dokuzda başlaması gerekiyordu.", en: "The meeting was supposed to start at nine." },
       { tr: "Bunu kime vermem gerekiyor?", en: "Who am I supposed to give this to?" }
     ]
   },
@@ -1941,7 +1941,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Sonunda bütün gece çalıştık.", en: "We ended up working all night." },
-      { tr: "Sonunda en pahalısını aldı.", en: "He ended up buying the most expensive one." },
+      { tr: "Sonunda en pahalısını aldım.", en: "I ended up buying the most expensive one." },
       { tr: "Böyle giderse sonun kötü olur.", en: "You'll end up badly if this continues." }
     ]
   },
@@ -2006,7 +2006,7 @@ const CHUNKS = [
     practice: [
       { tr: "Pes etmenin eşiğindeydim.", en: "I was on the verge of giving up." },
       { tr: "Takım şampiyonluğun eşiğinde.", en: "The team is on the verge of the championship." },
-      { tr: "Gözyaşlarının eşiğindeydi.", en: "She was on the verge of tears." }
+      { tr: "Ayşe gözyaşlarının eşiğindeydi.", en: "Ayşe was on the verge of tears." }
     ]
   },
   {
@@ -2020,8 +2020,8 @@ const CHUNKS = [
       { en: "He stands out in a crowd.", tr: "Kalabalıkta hemen göze çarpıyor." }
     ],
     practice: [
-      { tr: "Kırmızı ceketi hemen göze çarpıyor.", en: "His red jacket really stands out." },
-      { tr: "Sınıfta öne çıkmak istiyor.", en: "She wants to stand out in class." },
+      { tr: "Kırmızı ceketin gerçekten göze çarpıyor.", en: "Your red jacket really stands out." },
+      { tr: "Sınıfta öne çıkmak istiyorum.", en: "I want to stand out in class." },
       { tr: "Bu tasarım diğerlerinden sıyrılıyor.", en: "This design stands out from the others." }
     ]
   },
@@ -2038,7 +2038,7 @@ const CHUNKS = [
     practice: [
       { tr: "Bu bölümün sorumlusu kim?", en: "Who is in charge of this department?" },
       { tr: "Mutfağın sorumlusu benim.", en: "I'm in charge of the kitchen." },
-      { tr: "Geçen yıl bütçenin sorumlusuydu.", en: "He was in charge of the budget last year." }
+      { tr: "Geçen yıl bütçenin sorumlusuydum.", en: "I was in charge of the budget last year." }
     ]
   },
   {
@@ -2052,7 +2052,7 @@ const CHUNKS = [
       { en: "Somehow we pulled it off.", tr: "Bir şekilde başardık." }
     ],
     practice: [
-      { tr: "Zor bir işti ama başardı.", en: "It was hard, but he pulled it off." },
+      { tr: "Zor bir işti ama başardık.", en: "It was hard, but we pulled it off." },
       { tr: "Başarabileceğimizi sanmıyorum.", en: "I don't think we can pull it off." },
       { tr: "Bir şekilde altından kalktılar.", en: "They pulled it off somehow." }
     ]
@@ -2070,7 +2070,7 @@ const CHUNKS = [
     practice: [
       { tr: "Şifreyi çözemedim.", en: "I couldn't figure out the password." },
       { tr: "Ne yapacağımızı çözmemiz lazım.", en: "We need to figure out what to do." },
-      { tr: "Sonunda sorunu çözdü.", en: "She finally figured out the problem." }
+      { tr: "Sonunda sorunu çözdüm.", en: "I finally figured out the problem." }
     ]
   },
   {
@@ -2133,7 +2133,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Büyük ihtimalle yarın yağmur yağar.", en: "The odds are it will rain tomorrow." },
-      { tr: "Büyük ihtimalle bizi hatırlamıyor.", en: "The odds are he doesn't remember us." },
+      { tr: "Büyük ihtimalle Ali bizi hatırlamıyor.", en: "The odds are Ali doesn't remember us." },
       { tr: "Büyük ihtimalle kazanırız.", en: "The odds are we will win." }
     ]
   },
@@ -2149,7 +2149,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Bu kadar kolay havlu atma.", en: "Don't throw in the towel so easily." },
-      { tr: "İki yıl sonra havlu attı.", en: "He threw in the towel after two years." },
+      { tr: "İki yıl sonra havlu attım.", en: "I threw in the towel after two years." },
       { tr: "Havlu atmayı düşünüyoruz.", en: "We're thinking of throwing in the towel." }
     ]
   }
@@ -2185,8 +2185,8 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Seni havalimanından alırım.", en: "I'll pick you up from the airport." },
-      { tr: "Fransızcayı Paris'te kapmış.", en: "She picked up French in Paris." },
-      { tr: "Dönüşte ekmek al.", en: "Pick up some bread on your way back." }
+      { tr: "Ablam Fransızcayı Paris'te kapmış.", en: "My sister picked up French in Paris." },
+      { tr: "Dönüşte biraz ekmek al.", en: "Pick up some bread on your way back." }
     ]
   },
   {
@@ -2200,8 +2200,8 @@ const CHUNKS = [
       { en: "The cake turned out perfectly.", tr: "Kek mükemmel oldu." }
     ],
     practice: [
-      { tr: "Gün güzel geçti.", en: "The day turned out well." },
-      { tr: "Meğer o haklıymış.", en: "It turned out that he was right." },
+      { tr: "Gün güzel çıktı.", en: "The day turned out well." },
+      { tr: "Meğer Ali haklıymış.", en: "It turned out that Ali was right." },
       { tr: "Yemek beklediğimden lezzetli çıktı.", en: "The food turned out tastier than I expected." }
     ]
   },
@@ -2216,8 +2216,8 @@ const CHUNKS = [
       { en: "She found out the truth later.", tr: "Gerçeği sonradan öğrendi." }
     ],
     practice: [
-      { tr: "Ne zaman geleceğini öğren.", en: "Find out when he is coming." },
-      { tr: "Adresini nasıl öğrendin?", en: "How did you find out his address?" },
+      { tr: "Ali'nin ne zaman geleceğini öğren.", en: "Find out when Ali is coming." },
+      { tr: "Ali'nin adresini nasıl öğrendin?", en: "How did you find out Ali's address?" },
       { tr: "Sonunda gerçeği öğrendik.", en: "We finally found out the truth." }
     ]
   },
@@ -2233,8 +2233,8 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Sakın vazgeçme.", en: "Don't ever give up." },
-      { tr: "Kahveyi bırakmaya karar verdi.", en: "He decided to give up coffee." },
-      { tr: "Onu ikna etmekten vazgeçtim.", en: "I gave up trying to convince her." }
+      { tr: "Kahveyi bırakmaya karar verdim.", en: "I decided to give up coffee." },
+      { tr: "Ayşe'yi ikna etmekten vazgeçtim.", en: "I gave up trying to convince Ayşe." }
     ]
   },
   {
@@ -2250,7 +2250,7 @@ const CHUNKS = [
     practice: [
       { tr: "Yarından itibaren işi ben devralıyorum.", en: "I'm taking over the job from tomorrow." },
       { tr: "Sınıfı devralır mısın?", en: "Can you take over the class?" },
-      { tr: "Şirketi oğlu devraldı.", en: "His son took over the company." }
+      { tr: "Şirketi Ali'nin oğlu devraldı.", en: "Ali's son took over the company." }
     ]
   },
   {
@@ -2329,7 +2329,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Ben yokken kediye bakar mısın?", en: "Can you look after the cat while I'm away?" },
-      { tr: "Hasta annesine bakıyor.", en: "He looks after his sick mother." },
+      { tr: "Mert hasta annesine bakıyor.", en: "Mert looks after his sick mother." },
       { tr: "Çocuklara komşumuz baktı.", en: "Our neighbour looked after the children." }
     ]
   },
@@ -2361,8 +2361,8 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Yemekte bu konuyu açma.", en: "Don't bring up this subject at dinner." },
-      { tr: "İki çocuğunu köyde büyüttü.", en: "She brought up her two children in the village." },
-      { tr: "Sorunu ilk o gündeme getirdi.", en: "He brought up the problem first." }
+      { tr: "Anneannem iki çocuğunu köyde büyüttü.", en: "My grandmother brought up her two children in the village." },
+      { tr: "Sorunu ilk Ayşe gündeme getirdi.", en: "Ayşe brought up the problem first." }
     ]
   },
   {
@@ -2394,7 +2394,7 @@ const CHUNKS = [
     practice: [
       { tr: "Ziyareti gelecek haftaya erteledim.", en: "I put off the visit until next week." },
       { tr: "Gitmeyi daha fazla erteleme.", en: "Don't put off going any longer." },
-      { tr: "Neden hep erteliyorsun?", en: "Why do you always put things off?" }
+      { tr: "Neden hep işleri erteliyorsun?", en: "Why do you always put things off?" }
     ]
   },
   {
@@ -2409,8 +2409,8 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Kimse toplantıya gelmedi.", en: "Nobody showed up at the meeting." },
-      { tr: "Yarım saat geç geldi.", en: "He showed up half an hour late." },
-      { tr: "Umarım zamanında gelir.", en: "I hope she shows up on time." }
+      { tr: "Yarım saat geç geldin.", en: "You showed up half an hour late." },
+      { tr: "Umarım Ali zamanında gelir.", en: "I hope Ali shows up on time." }
     ]
   },
   {
@@ -2458,7 +2458,7 @@ const CHUNKS = [
     practice: [
       { tr: "Çamaşır makinesi yine bozuldu.", en: "The washing machine broke down again." },
       { tr: "Arabam yolun ortasında bozuldu.", en: "My car broke down in the middle of the road." },
-      { tr: "Haberi duyunca çöktü.", en: "She broke down when she heard the news." }
+      { tr: "Haberi duyunca Ayşe çöktü.", en: "Ayşe broke down when she heard the news." }
     ]
   },
   {
@@ -2473,7 +2473,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Üç yıl sonra ayrıldılar.", en: "They broke up after three years." },
-      { tr: "Erkek arkadaşından ayrılmış.", en: "She broke up with her boyfriend." },
+      { tr: "Ablam erkek arkadaşından ayrılmış.", en: "My sister broke up with her boyfriend." },
       { tr: "Ayrılmak istemiyorum.", en: "I don't want to break up." }
     ]
   },
@@ -2505,8 +2505,8 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Neşelen, yarın tatil.", en: "Cheer up, tomorrow is a holiday." },
-      { tr: "Onu neşelendirmek için çiçek aldım.", en: "I bought flowers to cheer her up." },
-      { tr: "Hediyeyi görünce neşelendi.", en: "He cheered up when he saw the present." }
+      { tr: "Ayşe'yi neşelendirmek için çiçek aldım.", en: "I bought flowers to cheer Ayşe up." },
+      { tr: "Hediyeyi görünce neşelendim.", en: "I cheered up when I saw the present." }
     ]
   },
   {
@@ -2522,7 +2522,7 @@ const CHUNKS = [
     practice: [
       { tr: "Kütüphanede ilginç bir kitaba rastladım.", en: "I came across an interesting book in the library." },
       { tr: "Yolda eski bir arkadaşıma denk geldim.", en: "I came across an old friend on the way." },
-      { tr: "Çok kibar bir izlenim bıraktı.", en: "She came across as very polite." }
+      { tr: "Ayşe çok kibar bir izlenim bıraktı.", en: "Ayşe came across as very polite." }
     ]
   },
   {
@@ -2537,8 +2537,8 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Sana güvenebilir miyim?", en: "Can I count on you?" },
-      { tr: "Onun yardımına bel bağlama.", en: "Don't count on his help." },
-      { tr: "Herkes ona güveniyor.", en: "Everyone counts on him." }
+      { tr: "Ali'nin yardımına bel bağlama.", en: "Don't count on Ali's help." },
+      { tr: "Herkes Ali'ye güveniyor.", en: "Everyone counts on Ali." }
     ]
   },
   {
@@ -2570,7 +2570,7 @@ const CHUNKS = [
     practice: [
       { tr: "Çocukları okula bırakayım.", en: "Let me drop off the children at school." },
       { tr: "Kitapları yarın bırakırım.", en: "I'll drop off the books tomorrow." },
-      { tr: "Beni köşede bırak yeter.", en: "Just drop me off at the corner." }
+      { tr: "Beni köşede bırak.", en: "Drop me off at the corner." }
     ]
   },
   {
@@ -2585,8 +2585,8 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Yeni patronumla iyi geçiniyorum.", en: "I get along with my new boss." },
-      { tr: "Kardeşiyle hiç geçinemiyor.", en: "She doesn't get along with her sister." },
-      { tr: "Herkesle iyi geçinir.", en: "He gets along with everyone." }
+      { tr: "Ayşe ablasıyla hiç geçinemiyor.", en: "Ayşe doesn't get along with her sister." },
+      { tr: "Herkesle iyi geçinirim.", en: "I get along with everyone." }
     ]
   },
   {
@@ -2600,8 +2600,8 @@ const CHUNKS = [
       { en: "She gets away with everything.", tr: "Her şey onun yanına kâr kalıyor." }
     ],
     practice: [
-      { tr: "Bu yalan yanına kâr kalmaz.", en: "He won't get away with this lie." },
-      { tr: "Nasıl yanına kâr kaldı?", en: "How did she get away with it?" },
+      { tr: "Bu yalan Ali'nin yanına kâr kalmaz.", en: "Ali won't get away with this lie." },
+      { tr: "Bu senin nasıl yanına kâr kaldı?", en: "How did you get away with this?" },
       { tr: "Çocuklar her şeyi yanlarına kâr bırakıyor.", en: "The children get away with everything." }
     ]
   },
@@ -2632,7 +2632,7 @@ const CHUNKS = [
       { en: "Get over it and move on.", tr: "Unut gitsin ve yoluna bak." }
     ],
     practice: [
-      { tr: "Hastalığı atlatması iki hafta sürdü.", en: "It took him two weeks to get over the illness." },
+      { tr: "Hastalığı atlatmam iki hafta sürdü.", en: "It took me two weeks to get over the illness." },
       { tr: "Korkunu atlatmalısın.", en: "You have to get over your fear." },
       { tr: "Bu şoku kolay atlatamam.", en: "I can't get over this shock easily." }
     ]
@@ -2650,7 +2650,7 @@ const CHUNKS = [
     practice: [
       { tr: "Ne olursa olsun pes etme.", en: "Don't give in, whatever happens." },
       { tr: "Sonunda isteklerine boyun eğdik.", en: "We finally gave in to their demands." },
-      { tr: "Baskı altında pes etti.", en: "He gave in under pressure." }
+      { tr: "Baskı altında pes ettim.", en: "I gave in under pressure." }
     ]
   },
   {
@@ -2664,7 +2664,7 @@ const CHUNKS = [
       { en: "You have no idea what I went through.", tr: "Neler yaşadığımı bilmiyorsun." }
     ],
     practice: [
-      { tr: "Geçen yıl çok zor bir dönem geçirdi.", en: "She went through a very hard time last year." },
+      { tr: "Geçen yıl çok zor bir dönem geçirdim.", en: "I went through a very hard time last year." },
       { tr: "Belgeleri birlikte gözden geçirelim.", en: "Let's go through the documents together." },
       { tr: "Neler yaşadığını anlıyorum.", en: "I understand what you're going through." }
     ]
@@ -2826,7 +2826,7 @@ const CHUNKS = [
     practice: [
       { tr: "Şafakta yola çıkacağız.", en: "We will set off at dawn." },
       { tr: "Trafik olmadan yola çıktılar.", en: "They set off before the traffic." },
-      { tr: "Kediyi çıkarınca alarm çaldı.", en: "The cat set off the alarm." }
+      { tr: "Kedi alarmı çalıştırdı.", en: "The cat set off the alarm." }
     ]
   },
   {
@@ -2874,7 +2874,7 @@ const CHUNKS = [
     practice: [
       { tr: "Uçağımız yarım saat gecikmeli kalktı.", en: "Our plane took off half an hour late." },
       { tr: "Ceketini çıkarmak ister misin?", en: "Would you like to take off your jacket?" },
-      { tr: "Ürün geçen yıl birden tuttu.", en: "The product took off last year." }
+      { tr: "Ürün geçen yıl tuttu.", en: "The product took off last year." }
     ]
   },
   {
@@ -2968,7 +2968,7 @@ const CHUNKS = [
       { en: "Can you call back later?", tr: "Sonra arayabilir misin?" }
     ],
     practice: [
-      { tr: "Beni akşam ararsın.", en: "Call me back in the evening." },
+      { tr: "Beni akşam geri ara.", en: "Call me back in the evening." },
       { tr: "Ofis kapalıydı, sonra aradılar.", en: "The office was closed, they called back later." },
       { tr: "Onu geri aramayı unuttum.", en: "I forgot to call him back." }
     ]
@@ -2986,7 +2986,7 @@ const CHUNKS = [
     practice: [
       { tr: "Formu mavi kalemle doldurun.", en: "Fill in the form with a blue pen." },
       { tr: "Eksik kelimeleri doldur.", en: "Fill in the missing words." },
-      { tr: "Toplantıda olanları bana anlatır mısın?", en: "Can you fill me in on the meeting?" }
+      { tr: "Beni toplantı hakkında bilgilendirir misin?", en: "Can you fill me in on the meeting?" }
     ]
   },
   {
@@ -3293,7 +3293,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Bir bardak su zarar vermez.", en: "A glass of water won't do any harm." },
-      { tr: "Bu söz ona çok zarar verdi.", en: "These words did him a lot of harm." },
+      { tr: "Bu sözler ona çok zarar verdi.", en: "These words did him a lot of harm." },
       { tr: "Kimseye zarar vermek istemedim.", en: "I didn't want to do harm to anyone." }
     ]
   },
@@ -3341,7 +3341,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Sırayla okuyun.", en: "Take turns reading." },
-      { tr: "Yemek yapmayı sırayla yapıyoruz.", en: "We take turns cooking." },
+      { tr: "Sırayla yemek yapıyoruz.", en: "We take turns cooking." },
       { tr: "Bebeğe sırayla baktılar.", en: "They took turns looking after the baby." }
     ]
   },
@@ -3581,7 +3581,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Yemeğim için iltifat etti.", en: "She paid me a compliment about my cooking." },
-      { tr: "Kimseye iltifat etmez.", en: "He never pays anyone a compliment." },
+      { tr: "Kimseye asla iltifat etmez.", en: "He never pays anyone a compliment." },
       { tr: "Bir iltifat etmek istiyorum.", en: "I want to pay you a compliment." }
     ]
   },
@@ -3889,7 +3889,7 @@ const CHUNKS = [
     practice: [
       { tr: "Tartışmanın ne anlamı var?", en: "What's the point of arguing?" },
       { tr: "Geç kaldıysak gitmenin ne anlamı var?", en: "What's the point of going if we're late?" },
-      { tr: "Bunun ne anlamı var, anlamıyorum.", en: "I don't understand what's the point of this." }
+      { tr: "Bunun ne anlamı var?", en: "What's the point of this?" }
     ]
   },
   {
@@ -4015,8 +4015,8 @@ const CHUNKS = [
       { en: "You're right, I couldn't agree more.", tr: "Haklısın, tamamen aynı fikirdeyim." }
     ],
     practice: [
-      { tr: "Kesinlikle katılıyorum, çok haklısın.", en: "I couldn't agree more, you're very right." },
-      { tr: "Bu planla ilgili tamamen aynı fikirdeyim.", en: "I couldn't agree more about this plan." },
+      { tr: "Kesinlikle katılıyorum, haklısın.", en: "I couldn't agree more, you're right." },
+      { tr: "Bu planla ilgili kesinlikle katılıyorum.", en: "I couldn't agree more about this plan." },
       { tr: "Sana kesinlikle katılıyorum.", en: "I couldn't agree more with you." }
     ]
   },
@@ -4223,7 +4223,7 @@ const CHUNKS = [
       { en: "Let me know either way.", tr: "Ne karar verirsen bildir." }
     ],
     practice: [
-      { tr: "Ne yaparsan yap, sonuç aynı.", en: "Either way, the result is the same." },
+      { tr: "Her iki durumda da sonuç aynı.", en: "Either way, the result is the same." },
       { tr: "Her iki durumda da kazanırız.", en: "Either way, we win." },
       { tr: "Nasıl olursa olsun bana uyar.", en: "Either way works for me." }
     ]
@@ -4936,7 +4936,7 @@ const CHUNKS = [
     practice: [
       { tr: "Sunumdan önce ayakları geri gitti.", en: "He got cold feet before the presentation." },
       { tr: "Sakın son anda vazgeçme.", en: "Don't get cold feet at the last minute." },
-      { tr: "Sözleşmeyi imzalarken cayacak gibi oldu.", en: "She got cold feet while signing the contract." }
+      { tr: "Sözleşmeyi imzalarken ayakları geri gitti.", en: "She got cold feet while signing the contract." }
     ]
   },
   {
@@ -4951,7 +4951,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Bu gecikme bardağı taşıran son damlaydı.", en: "This delay was the last straw." },
-      { tr: "Onun bu sözü son damla oldu.", en: "That word of his was the last straw." },
+      { tr: "Söyledikleri bardağı taşıran son damlaydı.", en: "What he said was the last straw." },
       { tr: "Benim için son damla oydu.", en: "For me that was the last straw." }
     ]
   },
@@ -5368,7 +5368,7 @@ const CHUNKS = [
     practice: [
       { tr: "Hafta ortasında kısaca görüşelim.", en: "Let's touch base in the middle of the week." },
       { tr: "Proje için müşteriyle kısaca görüştüm.", en: "I touched base with the client about the project." },
-      { tr: "Yarın seninle bir görüşürüm.", en: "I'll touch base with you tomorrow." }
+      { tr: "Yarın seninle kısaca görüşürüm.", en: "I'll touch base with you tomorrow." }
     ]
   }
 ,
@@ -5499,7 +5499,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Yeni model beklentileri karşılamadı.", en: "The new model didn't meet expectations." },
-      { tr: "Sonuçlar beklentileri fazlasıyla karşıladı.", en: "The results met expectations easily." },
+      { tr: "Sonuçlar beklentileri rahatlıkla karşıladı.", en: "The results met expectations easily." },
       { tr: "Beklentileri karşılamak kolay değil.", en: "It's not easy to meet expectations." }
     ]
   },
@@ -5596,7 +5596,7 @@ const CHUNKS = [
     practice: [
       { tr: "Tatilini en iyi şekilde değerlendir.", en: "Make the most of your holiday." },
       { tr: "Kısa zamanı en iyi şekilde kullandık.", en: "We made the most of the short time." },
-      { tr: "Bu fırsatı değerlendirmelisin.", en: "You should make the most of this chance." }
+      { tr: "Bu fırsatı en iyi şekilde değerlendirmelisin.", en: "You should make the most of this chance." }
     ]
   },
   {
@@ -5724,7 +5724,7 @@ const CHUNKS = [
     practice: [
       { tr: "Karar gerçek verilere dayanıyor.", en: "The decision is based on real data." },
       { tr: "Bu roman bir efsaneye dayanıyor.", en: "This novel is based on a legend." },
-      { tr: "Fiyat mesafeye göre belirleniyor.", en: "The price is based on the distance." }
+      { tr: "Fiyat mesafeyi temel alıyor.", en: "The price is based on the distance." }
     ]
   },
   {
@@ -5786,7 +5786,7 @@ const CHUNKS = [
       { en: "Try to focus.", tr: "Odaklanmaya çalış." }
     ],
     practice: [
-      { tr: "Şimdi sadece sınava odaklan.", en: "Focus on the exam only now." },
+      { tr: "Şimdi sadece sınava odaklan.", en: "Focus only on the exam now." },
       { tr: "Kaliteye odaklanmayı tercih ediyoruz.", en: "We prefer to focus on quality." },
       { tr: "Gürültüde odaklanamıyorum.", en: "I can't focus in the noise." }
     ]
@@ -5918,7 +5918,7 @@ const CHUNKS = [
     ],
     practice: [
       { tr: "Sıcağa hiç katlanamıyorum.", en: "I can't stand the heat." },
-      { tr: "Geç kalmaya hiç gelemez.", en: "He can't stand being late." },
+      { tr: "Geç kalmaya hiç katlanamaz.", en: "He can't stand being late." },
       { tr: "Bu sesi artık çekemiyorum.", en: "I can't stand this noise anymore." }
     ]
   },
