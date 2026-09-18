@@ -16,7 +16,7 @@ Eski teknik geçmiş: `docs/DEVAM-eski.md` (TWA kısmı geçersiz).
 ## Dağıtım
 
 Mağaza yok. **Kurulabilir web uygulaması (PWA)**, GitHub Pages'te yayınlanır:
-`https://KULLANICI.github.io/chunkla/`. Aynı adres tarayıcıda açılır ve telefona uygulama
+`https://suedakurnaz.github.io/chunkla/`. Aynı adres tarayıcıda açılır ve telefona uygulama
 olarak yüklenir. Repo herkese açık; kod ve README vitrin niteliğinde, özenli tutulur.
 
 ## Teknik yapı
@@ -27,12 +27,12 @@ olarak yüklenir. Repo herkese açık; kod ve README vitrin niteliğinde, özenl
 - Site alt yolda yayınlandığı için **tüm yollar göreli** (`icons/…`, `./`). `/` ile başlayan yol yazma.
 
 ```
-www/index.html            arayüz iskeleti (entegrasyon öncesi GEÇİCİ test sayfası)
-www/styles.css            görünüm (entegrasyonla gelecek)
+www/index.html            tüm ekranların iskeleti (Claude Design tasarımından)
+www/styles.css            görünüm
 www/chunks.js             374 ifadelik veri, const CHUNKS
 www/js/core.js            gün, seri, işaret, tekrar, çetele, depolama — window.Chunkla, DOM'a dokunmaz
 www/js/pwa.js             service worker kaydı, sessiz güncelleme, yükleme — window.ChunklaPWA
-www/js/app.js             etkileşim ve çizim (entegrasyonla gelecek)
+www/js/app.js             arayüz: deste, çetele, Detay, Defter, Seri, tanıtım, geri tuşu
 www/sw.js                 internetsiz çalışma; ASSETS listesi otomatik üretilir
 www/manifest.webmanifest  uygulama adı, renkler, ikonlar
 www/icons/                PWA ikonları (assets/icon.svg'den üretildi)
@@ -138,9 +138,10 @@ ChunklaPWA.onChange(fn)
 - [x] Klasör birleştirildi; `core.js`, testler, fontlar, tasarım görselleri hazır
 - [x] PWA altyapısı: manifest, ikonlar, `sw.js`, `pwa.js`, önbellek listesi denetimi
 - [x] GitHub Actions: kontrol + Pages yayını
-- [ ] GitHub reposu, Pages ayarı, ilk yayın, telefonda yükleme denemesi
-- [ ] Tasarım entegrasyonu (`docs/TASARIM-ENTEGRASYON.md`, promptlar `docs/CLAUDE-CODE-PROMPTLARI.md`)
-- [ ] 30 çetele grubunda okunaklılık cihazda kontrol
+- [x] GitHub reposu, Pages ayarı, ilk yayın
+- [x] Tasarım entegrasyonu (Aşama 1–4 tek seferde yapıldı; `docs/TASARIM-ENTEGRASYON.md` referans olarak kalıyor)
+- [x] 30 çetele grubunda okunaklılık: eski günler soluk, bugünün çetelesi parlak
+- [ ] Gerçek telefonlarda (iPhone + Android) dokunma hareketleri ve çentik kontrolü
 - [ ] Yükleme yönlendirmesi, yedekleme, lisans kararları (KARARLAR.md açık sorular)
 - [ ] Paylaşım hazırlığı: README görselleri, og-image, GitHub sosyal önizleme (`docs/paylasim.md`)
 - [ ] Liste 500 maddeye

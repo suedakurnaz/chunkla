@@ -32,78 +32,148 @@
   <meta name="twitter:card" content="summary_large_image">
   <!-- ═══ BU BLOK ENTEGRASYONDA AYNEN KORUNUR (bitiş) ═══ -->
 
-  <style>
-    body { margin: 0; padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
-           font: 16px/1.5 system-ui, sans-serif; }
-    main { max-width: 36rem; margin: 0 auto; padding: 16px 0 48px; }
-    .item { padding: 12px 0; border-bottom: 1px solid #ccc; }
-    .item button { min-height: 44px; min-width: 44px; }
-    .en { font-weight: 600; }
-    .tr { opacity: .7; }
-    :focus-visible { outline: 3px solid; outline-offset: 2px; }
-  </style>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main>
-    <p id="status">Yükleniyor…</p>
-    <div id="list"></div>
-    <p><button id="done" type="button">Deftere yazdım</button></p>
-    <p><button id="install" type="button" hidden>Uygulama olarak yükle</button></p>
-    <p id="pwa"></p>
-    <p id="error" role="alert"></p>
-  </main>
+  <div class="app">
+    <div class="grain" aria-hidden="true"></div>
+
+    <div class="frame">
+      <!-- Arka plan çetelesi: 30 günlük sayfa -->
+      <div class="tally" id="tally" aria-hidden="true"></div>
+
+      <!-- Kalıp işaretlenince bir an beyaz parlama -->
+      <span class="flash" id="flash" aria-hidden="true" hidden></span>
+
+      <div class="main" id="main">
+        <header class="topbar">
+          <div class="brand">
+            <img src="assets/chunkla-logo.png" alt="" width="34" height="34">
+            <span class="wordmark">chunkla</span>
+          </div>
+          <div class="topbar-actions">
+            <button type="button" class="pill" id="btn-streak" aria-label="Seri">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.6 2.8c.4 3.4 3.4 4.6 3.9 7.8.6 3.8-1.6 6.6-4.6 6.9-3.2.3-5.6-2-5.5-5 .1-2.2 1.3-3.4 2.1-4.3.1 1.6.7 2.4 1.4 2.7.4-3.1-.2-5.6 2.7-8.1Z"/><path d="M10.4 21.2c1.3.5 2.7.5 4 0"/></svg>
+              <span id="streak-count">0</span>
+            </button>
+            <button type="button" class="pill" id="btn-defter" aria-label="Defter">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 3v18"/></svg>
+              <span id="jar-count">0</span>
+            </button>
+          </div>
+        </header>
+
+        <div class="deck" id="deck" tabindex="0" aria-roledescription="kalıp destesi">
+          <div class="track" id="track"></div>
+        </div>
+
+        <button type="button" class="sr-only" id="mark-toggle" aria-pressed="false">Bu kalıbı çeteleye işle</button>
+
+        <span class="hand" id="hand" aria-hidden="true">
+          <img src="assets/chunkla-mark.png" alt="">
+        </span>
+
+        <div class="detail-row" id="detail-row">
+          <button type="button" class="ghost-pill" id="btn-detail">↑ Detay</button>
+        </div>
+
+        <footer class="ticks" id="ticks" aria-hidden="true"></footer>
+      </div>
+
+      <!-- Detay paneli -->
+      <section class="sheet" id="sheet" aria-label="Anlam ve örnekler" inert>
+        <div class="sheet-head">
+          <div class="eyebrow" id="sheet-group"></div>
+          <button type="button" class="round-btn" id="sheet-close" aria-label="Kapat">↓</button>
+        </div>
+        <div class="sheet-scroll" id="sheet-scroll">
+          <h3 class="sheet-chunk" id="sheet-chunk" lang="en"></h3>
+          <p class="sheet-tr" id="sheet-tr"></p>
+          <p class="sheet-note" id="sheet-note"></p>
+          <svg class="wave" aria-hidden="true" viewBox="0 0 320 12" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2.4" stroke-linecap="round"><path d="M2 7.5C40 3.6 78 9.2 116 5.6c38-3.5 76 3.9 114 .6 30-2.6 60 3.4 88 1.2"/></svg>
+          <div class="examples" id="sheet-examples"></div>
+        </div>
+      </section>
+
+      <!-- Defter -->
+      <section class="layer" id="defter" aria-label="Defter" hidden>
+        <div class="layer-head">
+          <div class="defter-title">
+            <span class="script">defter</span>
+            <span class="defter-sentence" id="defter-sentence"></span>
+          </div>
+          <button type="button" class="close-btn" id="defter-close" aria-label="Kapat">×</button>
+        </div>
+        <div class="tabs" role="tablist">
+          <button type="button" class="tab" id="tab-groups" role="tab">Çetele grupları</button>
+          <button type="button" class="tab" id="tab-days" role="tab">Günler</button>
+        </div>
+        <div class="layer-scroll" id="defter-groups" role="tabpanel" aria-labelledby="tab-groups"></div>
+        <div class="layer-scroll" id="defter-days" role="tabpanel" aria-labelledby="tab-days" hidden></div>
+      </section>
+
+      <!-- Seri ekranı -->
+      <section class="layer" id="splash" aria-label="Seri" hidden>
+        <div class="layer-head splash-head">
+          <span class="eyebrow eyebrow-wide">Seri</span>
+          <button type="button" class="close-btn" id="splash-close" aria-label="Kapat">×</button>
+        </div>
+        <div class="splash-body">
+          <div class="streak-big">
+            <span class="streak-number" id="splash-streak">0</span>
+            <span class="streak-label">
+              <span class="script streak-gun">Gün</span>
+              <span class="eyebrow eyebrow-wide">üst üste</span>
+            </span>
+          </div>
+          <div class="week" id="splash-week"></div>
+          <div class="stats">
+            <span class="stat"><span class="stat-n" id="splash-jar">0</span><span class="stat-label">kalıp çakıldı</span></span>
+            <span class="stat"><span class="stat-n" id="splash-full">0</span><span class="stat-label">tam çetele</span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Giriş (tanıtımdan sonra bir kez) -->
+      <section class="layer layer-top" id="gate" aria-label="Giriş" hidden>
+        <div class="gate-body">
+          <img src="assets/chunkla-logo.png" alt="" width="110" height="110">
+          <span class="script gate-word">Chunkla</span>
+          <p class="gate-text">Günde beş kalıp, bir defter ve bir çetele. Başladığın gün 1. gündür.</p>
+          <button type="button" class="primary-btn" id="gate-start">Başlayalım</button>
+        </div>
+      </section>
+
+      <!-- Tanıtım (yalnızca ilk açılış) -->
+      <section class="layer layer-top" id="intro" aria-label="Tanıtım" hidden>
+        <div class="layer-head intro-head">
+          <span class="brand">
+            <img src="assets/chunkla-logo.png" alt="" width="42" height="42">
+            <span class="wordmark">chunkla</span>
+          </span>
+        </div>
+        <div class="intro-body">
+          <div class="intro-art">
+            <svg id="intro-strokes" aria-hidden="true" viewBox="0 0 96 110" width="104" height="119"></svg>
+          </div>
+          <h2 class="intro-title" id="intro-title"></h2>
+          <p class="intro-text" id="intro-text"></p>
+        </div>
+        <div class="intro-foot">
+          <button type="button" class="back-btn" id="intro-back" aria-label="Geri">←</button>
+          <div class="dots" id="intro-dots" aria-hidden="true"></div>
+          <button type="button" class="primary-btn" id="intro-next">İleri</button>
+        </div>
+      </section>
+    </div>
+
+    <p class="sr-only" id="live" aria-live="polite"></p>
+  </div>
 
   <script src="chunks.js"></script>
   <script src="js/core.js"></script>
   <script src="js/pwa.js"></script>
-  <script>
-    (function () {
-      var C = window.Chunkla;
-      var statusEl = document.getElementById('status');
-      var installEl = document.getElementById('install');
-      var pwaEl = document.getElementById('pwa');
-      function renderPwa() {
-        var P = window.ChunklaPWA;
-        installEl.hidden = !P.canPrompt();
-        pwaEl.textContent = 'platform: ' + P.platform() + ' · ana ekrandan: ' + (P.isStandalone() ? 'evet' : 'hayır') +
-          ' · service worker: ' + ('serviceWorker' in navigator && navigator.serviceWorker.controller ? 'aktif' : 'yok');
-      }
-      installEl.onclick = function () { window.ChunklaPWA.promptInstall().then(renderPwa); };
-      window.ChunklaPWA.onChange(renderPwa);
-      renderPwa();
-      var listEl = document.getElementById('list');
-      var doneEl = document.getElementById('done');
-      var day = 1;
-
-      function render() {
-        statusEl.textContent = day + '. gün · seri ' + C.streak() + ' · işaretli ' + C.totalMarked() +
-          ' · ' + (C.isDayDone(day) ? 'tamam' : 'devam') + '';
-        listEl.innerHTML = '';
-        C.chunksForDay(day).forEach(function (row) {
-          var div = document.createElement('div');
-          div.className = 'item';
-          var btn = document.createElement('button');
-          btn.type = 'button';
-          btn.textContent = row.marked ? '✓' : '○';
-          btn.setAttribute('aria-pressed', String(row.marked));
-          btn.setAttribute('aria-label', row.item.chunk + ' işaretle');
-          btn.onclick = function () { C.toggleMark(day, row.slot); render(); };
-          var en = document.createElement('div'); en.className = 'en'; en.textContent = row.item.chunk;
-          var tr = document.createElement('div'); tr.className = 'tr'; tr.textContent = row.item.tr;
-          div.appendChild(btn); div.appendChild(en); div.appendChild(tr);
-          listEl.appendChild(div);
-        });
-      }
-
-      doneEl.onclick = function () { C.markDayDone(day).then(render); };
-
-      C.init().then(function (r) {
-        day = r.today;
-        render();
-      }).catch(function (e) {
-        document.getElementById('error').textContent = 'Hata: ' + e.message;
-      });
-    })();
-  </script>
+  <script src="js/app.js"></script>
 </body>
 </html>

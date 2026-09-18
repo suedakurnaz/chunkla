@@ -49,10 +49,12 @@ const ASSETS = [
   'icons/icon-maskable-192.png',
   'icons/icon-maskable-512.png',
   'index.html',
+  'js/app.js',
   'js/core.js',
   'js/pwa.js',
   'manifest.webmanifest',
   'privacy.html',
+  'styles.css',
 ];
 // sw:liste bitiş
 

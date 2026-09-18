@@ -5,6 +5,14 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 
 ---
 
+## 2026-09-17 — Arka plan çetelesinde eski günler soluk
+
+**Karar:** 30 günlük çetele sayfasında bugünün grubu tasarımdaki gibi (`rgba(255,255,255,.7)`),
+geçmiş günlerin grupları soluk (`.26`) çizilir.
+
+**Gerekçe:** Sayfa dolunca 30 grup kalıp metninin arkasını tamamen kaplıyor ve İngilizce metin
+okunmuyordu (tarayıcıda 390×844 ekranda denendi). Değiştirmek için `styles.css` → `.tally-group.past`.
+
 ## 2026-09-16 — Dağıtım: kurulabilir web uygulaması (PWA) + GitHub Pages
 
 **Karar:** Mağaza yok. chunkla GitHub Pages'te yayınlanan bir web uygulamasıdır. Aynı adres
@@ -24,7 +32,7 @@ güncellemeler anında herkese ulaşır, kurulum bir bağlantı kadar kolay.
   yazar. Önbellek listesi `npm run sw:liste` ile üretilir, `npm run check` denetler.
 - Yeni sürüm arka planda iner, kullanıcı uygulamadan çıkınca devreye girer; kullanım sırasında
   sayfa yenilenmez.
-- Tüm yollar göreli (`./`), çünkü site `KULLANICI.github.io/chunkla/` alt yolunda yayınlanır.
+- Tüm yollar göreli (`./`), çünkü site `suedakurnaz.github.io/chunkla/` alt yolunda yayınlanır.
 - Android geri tuşu History API ile yönetilir (bkz. TASARIM-ENTEGRASYON §9).
 - iOS'ta veri kalıcılığı için uygulamanın ana ekrana eklenmesi önerilir: Safari, ana ekrana
   eklenmemiş sitelerin verisini uzun süre kullanılmayınca silebilir.
