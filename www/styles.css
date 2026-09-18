@@ -376,10 +376,26 @@ path.draw { animation: draw .45s ease both; }
   color: var(--ink-55);
 }
 
-/* Çeviri alıştırması: örneklerin altında, yalnızca Türkçe */
+/* Çeviri alıştırması: Türkçesi görünür, dokununca İngilizcesi açılır */
 .practice .wave { margin: 30px 0 18px; }
-.practice-list { display: flex; flex-direction: column; gap: 18px; margin-top: 16px; }
+.practice-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.practice-hint { font-size: 11px; font-weight: 600; letter-spacing: .04em; color: rgba(255, 255, 255, .42); }
+
+.practice-list { display: flex; flex-direction: column; margin-top: 8px; }
+
+.practice-item {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 12px 0;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+.practice-list .practice-item:last-child { border-bottom: 0; }
+.practice-item:hover .practice-tr { color: #fff; }
+
 .practice-tr {
+  display: block;
   font-family: var(--serif);
   font-style: italic;
   font-weight: 300;
@@ -387,7 +403,21 @@ path.draw { animation: draw .45s ease both; }
   line-height: 1.35;
   color: var(--ink-72);
   text-wrap: pretty;
+  transition: color .2s ease;
 }
+
+.practice-en {
+  display: block;
+  margin-top: 8px;
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  color: #fff;
+  text-wrap: pretty;
+  animation: fadeIn .22s ease both;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* ——— Tam ekran katmanlar ——— */
 

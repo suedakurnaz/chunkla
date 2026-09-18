@@ -66,9 +66,9 @@ Actions yayınlasın, telefondan Pages adresini aç.
 1. **Veri formatı birebir korunur.** Her madde: `group` (TR), `chunk` (EN), `tr` (TR),
    `note` (TR, tek cümle), `examples` (tam 3 adet `{ en, tr }`) ve `practice` (tam 3 adet
    `{ tr, en }` çeviri alıştırması). Başka alan eklenmez.
-   **`practice[i].en` ekranda GÖSTERİLMEZ.** Yalnızca doğrulayıcının "bu Türkçe cümle gerçekten
-   bu kalıbı gerektiriyor mu" denetimini yapabilmesi ve ileride "cevabı göster" istenirse hazır
-   olması için veride durur. Arayüz yalnızca `practice[i].tr` okur.
+   `practice[i].tr` her zaman görünür; `practice[i].en` cümleye dokununca açılır (cevap).
+   Doğrulayıcı `en` üzerinden "bu Türkçe cümle gerçekten bu kalıbı gerektiriyor mu" denetimini
+   yapar, bu yüzden `en` boş bırakılamaz.
 2. **Sıra değişmez, ekleme sona yapılır.** İşaretler gün+slot olarak saklandığı için araya
    madde sokmak kullanıcıların geçmişini bozar. `scripts/chunks-kilit.json` bunu denetler.
    Kilidi yalnızca kullanıcı onayıyla güncelle: `npm run validate -- --kilitle`.
@@ -148,7 +148,7 @@ ChunklaPWA.onChange(fn)
 - [x] GitHub reposu, Pages ayarı, ilk yayın
 - [x] Tasarım entegrasyonu (Aşama 1–4 tek seferde yapıldı; `docs/TASARIM-ENTEGRASYON.md` referans olarak kalıyor)
 - [x] 30 çetele grubunda okunaklılık: eski günler soluk, bugünün çetelesi parlak
-- [x] Detay panelinde çeviri alıştırması: 374 kalıp × 3 Türkçe cümle (1122 cümle)
+- [x] Detay panelinde çeviri alıştırması: 374 kalıp × 3 Türkçe cümle (1122 cümle), dokununca cevap
 - [ ] Gerçek telefonlarda (iPhone + Android) dokunma hareketleri ve çentik kontrolü
 - [ ] Yükleme yönlendirmesi, yedekleme, lisans kararları (KARARLAR.md açık sorular)
 - [ ] Paylaşım hazırlığı: README görselleri, og-image, GitHub sosyal önizleme (`docs/paylasim.md`)

@@ -5,6 +5,19 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 
 ---
 
+## 2026-09-19 — Alıştırma cevapları dokununca açılıyor
+
+**Karar:** "Sen çevir" cümlelerinden birine dokununca altında İngilizcesi açılır, tekrar
+dokununca kapanır. Her cümle ayrı ayrı açılır; kendi çevirini yazdıktan sonra tek tek
+kontrol edebilirsin.
+
+**Ayrıntılar:** Cevaplar detay paneli her açıldığında kapalı başlar. "SEN ÇEVİR" etiketinin
+yanına "dokun, cevabı gör" ipucu eklendi, yoksa özelliğin varlığı fark edilmiyordu.
+Cümleler artık `<button>`; bu hem klavye ve ekran okuyucu için doğru hem de panelin
+aşağı çekilerek kapatılması hareketiyle çakışmayı kendiliğinden önlüyor.
+
+**Veri değişmedi.** `practice[i].en` zaten vardı; ilk günden beri bu ihtimal için saklanıyordu.
+
 ## 2026-09-19 — Detay panelinde çeviri alıştırması
 
 **Karar:** Detay panelinin en altına, mevcut üç örneğin ardından **3 Türkçe cümle** eklenir.

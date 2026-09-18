@@ -436,9 +436,16 @@
     sheet.inert = !ui.sheet;
   }
 
+  function hidePracticeAnswers() {
+    $('sheet-practice-list').querySelectorAll('.practice-item').forEach((btn) => {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.querySelector('.practice-en').hidden = true;
+    });
+  }
+
   let sheetKey = '';
   function renderSheet() {
-    if (!ui.sheet) $('sheet-scroll').scrollTop = 0;
+    if (!ui.sheet) { $('sheet-scroll').scrollTop = 0; hidePracticeAnswers(); }
     applySheet();
     if (!ui.sheet || atEnd()) return;
 
@@ -456,11 +463,15 @@
       `<div><p class="ex-en" lang="en">${esc(ex.en)}</p><p class="ex-tr">${esc(ex.tr)}</p></div>`
     )).join('');
 
-    // Çeviri alıştırması: yalnızca Türkçesi gösterilir. İngilizcesi veride durur ama ekrana gelmez.
+    // Çeviri alıştırması: Türkçesi görünür, İngilizcesi dokununca açılır.
     const practice = Array.isArray(item.practice) ? item.practice : [];
     $('sheet-practice').hidden = practice.length === 0;
-    $('sheet-practice-list').innerHTML = practice
-      .map((ex) => `<p class="practice-tr">${esc(ex.tr)}</p>`).join('');
+    $('sheet-practice-list').innerHTML = practice.map((ex) => (
+      `<button type="button" class="practice-item" aria-expanded="false">` +
+      `<span class="practice-tr">${esc(ex.tr)}</span>` +
+      `<span class="practice-en" lang="en" hidden>${esc(ex.en)}</span>` +
+      `</button>`
+    )).join('');
   }
 
   function renderDefter() {
@@ -673,6 +684,16 @@
     sheet.addEventListener('touchcancel', end);
 
     $('sheet-close').addEventListener('click', () => closeTop('sheet'));
+
+    // Bir alıştırmaya dokunmak İngilizcesini açar, tekrar dokunmak kapatır.
+    $('sheet-practice-list').addEventListener('click', (e) => {
+      const btn = e.target.closest('.practice-item');
+      if (!btn) return;
+      const en = btn.querySelector('.practice-en');
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      en.hidden = open;
+    });
   }
 
   function bindLayers() {
