@@ -455,6 +455,12 @@
     $('sheet-examples').innerHTML = item.examples.map((ex) => (
       `<div><p class="ex-en" lang="en">${esc(ex.en)}</p><p class="ex-tr">${esc(ex.tr)}</p></div>`
     )).join('');
+
+    // Çeviri alıştırması: yalnızca Türkçesi gösterilir. İngilizcesi veride durur ama ekrana gelmez.
+    const practice = Array.isArray(item.practice) ? item.practice : [];
+    $('sheet-practice').hidden = practice.length === 0;
+    $('sheet-practice-list').innerHTML = practice
+      .map((ex) => `<p class="practice-tr">${esc(ex.tr)}</p>`).join('');
   }
 
   function renderDefter() {

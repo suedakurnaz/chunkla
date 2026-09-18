@@ -5,6 +5,27 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 
 ---
 
+## 2026-09-19 — Detay panelinde çeviri alıştırması
+
+**Karar:** Detay panelinin en altına, mevcut üç örneğin ardından **3 Türkçe cümle** eklenir.
+Kullanıcı bunları deftere İngilizceye çevirerek yazar. Üstteki hiçbir şey değişmedi.
+
+**Görünüm:** Dalgalı ayraç + "SEN ÇEVİR" etiketi + üç cümle (serif italik, 21 px).
+Etiket olmadan bu cümleler "İngilizcesi eksik kalmış örnek" gibi duruyordu.
+
+**Veri:** Her maddeye `practice: [{ tr, en } × 3]` alanı eklendi. **`en` ekranda gösterilmez**;
+doğrulayıcının cümlenin gerçekten kalıbı gerektirdiğini denetlemesi ve ileride "cevabı göster"
+istenirse hazır olması için veride durur.
+
+**Ölçü:** En fazla 9 kelime (elle yazılacak), mevcut örneklerden farklı, üçü ayrı zaman/kipte.
+1122 cümlenin tamamı benzersiz; hiçbiri mevcut bir örnek cümleyle çakışmıyor.
+
+**Denetim:** `validate-chunks.js` artık kalıbın İngilizce cümlede (çekimli hâlleriyle) geçip
+geçmediğine bakıyor ve uzun cümleleri işaretliyor. Uyarılar hata değil; birkaçı yanlış alarm
+(ör. "it's up to you" içinde "it's" düşünce kalıp bulunamıyor sanılıyor).
+
+**Sonuç:** `chunks.js` 181 KB → 292 KB. Çevrimdışı önbellek bir kez indirdiği için sorun değil.
+
 ## 2026-09-17 — Arka plan çetelesinde eski günler soluk
 
 **Karar:** 30 günlük çetele sayfasında bugünün grubu tasarımdaki gibi (`rgba(255,255,255,.7)`),

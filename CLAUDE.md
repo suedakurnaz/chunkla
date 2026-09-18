@@ -39,7 +39,7 @@ www/icons/                PWA ikonları (assets/icon.svg'den üretildi)
 www/fonts/                Plus Jakarta Sans, Newsreader italik, Caveat — yerel woff2 + fonts.css
 www/assets/               chunkla-logo.png, chunkla-mark.png
 www/privacy.html          gizlilik politikası TR + EN
-scripts/                  validate-chunks.js, test-core.js, check-sw.js, chunks-kilit.json
+scripts/                  validate-chunks.js, test-core.js, check-sw.js, add-practice.js, chunks-kilit.json
 assets/                   ikon kaynağı (icon.svg, ikon-uret.py), yüksek çözünürlüklü logo
 docs/                     PRD, kararlar, entegrasyon belgesi, promptlar, paylaşım listesi
 docs/tasarim/             Claude Design dışa aktarımı — YALNIZCA REFERANS, www/'e kopyalanmaz
@@ -52,6 +52,7 @@ Yükleme sırası: `fonts/fonts.css`, `styles.css`, `chunks.js`, `js/core.js`, `
 
 ```
 npm run check      # veri + çekirdek testleri + sw.js önbellek listesi — her değişiklikten sonra
+                   # (çeviri alıştırmalarını da denetler; uyarılar hata değil, gözden geçirilir)
 npm run serve      # http://localhost:8080 (yerelde service worker kapalı, değişiklik anında görünür)
                    # internetsiz davranışı yerelde denemek için: http://localhost:8080/?sw
 npm run sw:liste   # www/'e dosya ekleyip sildikten sonra sw.js ASSETS listesini yeniden yazar
@@ -63,14 +64,20 @@ Actions yayınlasın, telefondan Pages adresini aç.
 ## Bozulmaması gereken kurallar
 
 1. **Veri formatı birebir korunur.** Her madde: `group` (TR), `chunk` (EN), `tr` (TR),
-   `note` (TR, tek cümle), `examples` (tam 3 adet `{ en, tr }`). Alan ekleme/çıkarma yok.
+   `note` (TR, tek cümle), `examples` (tam 3 adet `{ en, tr }`) ve `practice` (tam 3 adet
+   `{ tr, en }` çeviri alıştırması). Başka alan eklenmez.
+   **`practice[i].en` ekranda GÖSTERİLMEZ.** Yalnızca doğrulayıcının "bu Türkçe cümle gerçekten
+   bu kalıbı gerektiriyor mu" denetimini yapabilmesi ve ileride "cevabı göster" istenirse hazır
+   olması için veride durur. Arayüz yalnızca `practice[i].tr` okur.
 2. **Sıra değişmez, ekleme sona yapılır.** İşaretler gün+slot olarak saklandığı için araya
    madde sokmak kullanıcıların geçmişini bozar. `scripts/chunks-kilit.json` bunu denetler.
    Kilidi yalnızca kullanıcı onayıyla güncelle: `npm run validate -- --kilitle`.
 3. **Tekrar yok.** Yeni ifade eklemeden önce `npm run validate`.
 4. **Notlar tuzak odaklı.** Sözlük tanımı değil; `on time`/`in time`, `apply for`/`apply to`,
    make/do seçimi, `look forward to` + `-ing` gibi Türk öğrencinin düştüğü hatayı söyler.
-5. **Örnek cümleler kısa.** Elle yazılacaklar.
+5. **Örnek cümleler kısa.** Elle yazılacaklar. Çeviri alıştırmaları da en fazla 9 kelime,
+   mevcut örneklerden farklı ve üçü ayrı zaman/kipte olur (olumsuz, soru, geçmiş).
+   Toplu eklemek için: `node scripts/add-practice.js parti.json`.
 6. **Arayüz metinleri Türkçe, içerik İngilizce.**
 7. **Kapsam dışı, eklenmez:** ses, telaffuz, bildirim, hatırlatma, test, quiz, puan, rozet,
    seviye, hesap, sunucu, senkronizasyon, sosyal özellik, analitik, reklam, çerez.
@@ -141,6 +148,7 @@ ChunklaPWA.onChange(fn)
 - [x] GitHub reposu, Pages ayarı, ilk yayın
 - [x] Tasarım entegrasyonu (Aşama 1–4 tek seferde yapıldı; `docs/TASARIM-ENTEGRASYON.md` referans olarak kalıyor)
 - [x] 30 çetele grubunda okunaklılık: eski günler soluk, bugünün çetelesi parlak
+- [x] Detay panelinde çeviri alıştırması: 374 kalıp × 3 Türkçe cümle (1122 cümle)
 - [ ] Gerçek telefonlarda (iPhone + Android) dokunma hareketleri ve çentik kontrolü
 - [ ] Yükleme yönlendirmesi, yedekleme, lisans kararları (KARARLAR.md açık sorular)
 - [ ] Paylaşım hazırlığı: README görselleri, og-image, GitHub sosyal önizleme (`docs/paylasim.md`)

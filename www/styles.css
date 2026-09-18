@@ -376,6 +376,19 @@ path.draw { animation: draw .45s ease both; }
   color: var(--ink-55);
 }
 
+/* Çeviri alıştırması: örneklerin altında, yalnızca Türkçe */
+.practice .wave { margin: 30px 0 18px; }
+.practice-list { display: flex; flex-direction: column; gap: 18px; margin-top: 16px; }
+.practice-tr {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 1.35;
+  color: var(--ink-72);
+  text-wrap: pretty;
+}
+
 /* ——— Tam ekran katmanlar ——— */
 
 .layer {

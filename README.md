@@ -6,11 +6,11 @@
 
 <p align="center">
   Günde beş İngilizce kalıp. Oku, deftere yaz, çeteleye çak.<br>
-  <a href="https://suedakurnaz.github.io/chunkla/"><strong>Uygulamayı aç →</strong></a>
+  <a href="https://KULLANICI.github.io/chunkla/"><strong>Uygulamayı aç →</strong></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/suedakurnaz/chunkla/actions/workflows/yayin.yml"><img src="https://github.com/suedakurnaz/chunkla/actions/workflows/yayin.yml/badge.svg" alt="Kontrol ve yayın"></a>
+  <a href="https://github.com/KULLANICI/chunkla/actions/workflows/yayin.yml"><img src="https://github.com/KULLANICI/chunkla/actions/workflows/yayin.yml/badge.svg" alt="Kontrol ve yayın"></a>
 </p>
 
 <!-- Ekran görüntüleri ve GIF buraya: docs/paylasim.md -->
@@ -27,10 +27,10 @@ Sınav yok, puan yok, bildirim yok. İşin sadece okumak ve yazmak.
 
 Uygulama bir web sayfası olarak açılır ve telefona uygulama gibi yüklenir. Mağazaya gerek yok.
 
-**Android (Chrome):** [Uygulamayı aç](https://suedakurnaz.github.io/chunkla/) → sağ üstteki ⋮ menü →
+**Android (Chrome):** [Uygulamayı aç](https://KULLANICI.github.io/chunkla/) → sağ üstteki ⋮ menü →
 **Uygulamayı yükle**.
 
-**iPhone (Safari):** [Uygulamayı aç](https://suedakurnaz.github.io/chunkla/) → alttaki Paylaş düğmesi →
+**iPhone (Safari):** [Uygulamayı aç](https://KULLANICI.github.io/chunkla/) → alttaki Paylaş düğmesi →
 **Ana Ekrana Ekle**.
 
 Yükledikten sonra internet olmadan da çalışır. iPhone'da ilerlemenin korunması için ana ekrana
@@ -41,13 +41,14 @@ eklemen önerilir.
 - **Günde beş kalıp.** Başladığın gün 1. gündür; her gün sıradaki beş kalıp gelir.
 - **Kaydır, oku, yukarı çek.** Kalıplar arasında kaydırırsın; yukarı çekince not ve örnekler açılır.
 - **Dokun, çeteleye çak.** Deftere yazdığın her kalıp bir çizgi. Beş çizgi bir gün.
+- **Kendin çevir.** Her kalıbın altında üç Türkçe cümle var; İngilizcelerini deftere sen yazarsın.
 - **Her yedinci gün tekrar.** Haftanın kalıplarını baştan okumadan o gün kapanmaz.
 - **Kaçırdığın gün kaybolmaz.** Defterden geçmiş günlere dönüp telafi edebilirsin.
 
 ## Gizlilik
 
 Hesap yok, analitik yok, reklam yok, çerez yok. İlerlemen yalnızca kendi cihazında durur ve hiçbir
-sunucuya gönderilmez. Ayrıntı: [gizlilik politikası](https://suedakurnaz.github.io/chunkla/privacy.html).
+sunucuya gönderilmez. Ayrıntı: [gizlilik politikası](https://KULLANICI.github.io/chunkla/privacy.html).
 
 Bunun bir sonucu olarak ilerleme cihaza bağlıdır: telefon değiştirince veya tarayıcı verilerini
 silince baştan başlarsın.
@@ -85,8 +86,10 @@ denemek için `http://localhost:8080/?sw` adresini kullan.
 ### Kalıp eklemek
 
 Yeni kalıplar `www/chunks.js` dizisinin **sonuna** eklenir; araya ekleme veya sıra değiştirme
-kullanıcıların geçmişini bozar. Her kalıpta `group`, `chunk`, `tr`, `note` ve tam üç `examples`
-bulunur. `npm run validate` biçimi, tekrarları ve sırayı denetler.
+kullanıcıların geçmişini bozar. Her kalıpta `group`, `chunk`, `tr`, `note`, tam üç `examples` ve
+tam üç `practice` (çeviri alıştırması) bulunur. `npm run validate` biçimi, tekrarları ve sırayı
+denetler. Çeviri alıştırmalarının İngilizce karşılıkları veride durur ama ekranda gösterilmez;
+doğrulayıcı bunlarla cümlenin gerçekten kalıbı gerektirdiğini kontrol eder.
 
 ## Lisans
 
