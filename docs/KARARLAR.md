@@ -5,6 +5,23 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 
 ---
 
+## 2026-09-20 — Seri kurtarma: haftada bir hak
+
+**Karar:** Seri koptuğunda kullanıcı onu bir kez kurtarabilir.
+- **Hak:** takvim haftasında (Pazartesi–Pazar) bir. Pazartesi yenilenir.
+- **Boşluk:** yalnızca tek gün. Dün kapatılmadıysa ve önceki gün kapatıldıysa, bugün
+  kurtarılabilir. İki gün ve üstü kaçırılırsa seri sıfırlanır.
+- **Nasıl:** Seri ekranında "Seriyi kurtar". İçinde bulunulan gün (bugünkü zaten kapatıldıysa
+  bir sonraki) kurtarma günü olur; kapatılınca dünün yerine sayılır (`forDate`) ve bugün için
+  yeni gün açılır. Hak, kurtarma günü kapatılınca harcanır; yarım kalan kurtarma ertesi gün düşer.
+- Hak kullanıldıysa Seri ekranı "pazartesi yenilenir" der.
+
+**Şema:** isteğe bağlı yeni alanlar, sürüm değişmedi: `days[N].forDate`, `repair`
+(süren kurtarma), `repairs` (kullanılan haklar). Eski kayıtlar olduğu gibi okunur.
+
+**Neden:** Kullanıcı arada bir kaçırılan günün uzun seriyi silmesini istemedi; kaçırdığı
+günü sonradan tamamlayıp seriyi sürdürmek istedi.
+
 ## 2026-09-20 — Seri girişi değil çalışmayı sayar
 
 **Karar:** Seri, "Deftere yazdım" ile gün kapatılan takvim günlerinin art arda sayısıdır;

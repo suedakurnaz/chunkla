@@ -45,6 +45,7 @@ eklemen önerilir.
 - **Her yedinci gün tekrar.** Haftanın kalıplarını baştan okumadan o gün kapanmaz.
 - **Kaldığın yerden.** Birkaç gün giremezsen dönünce borç birikmez; kaldığın günden devam edersin.
 - **Seri çalışmayı sayar.** "Deftere yazdım" dediğin günler art arda sayılır; girip çalışmamak seriyi sürdürmez.
+- **Haftada bir kurtarma hakkı.** Bir gün kaçırırsan ertesi gün o günü fazladan bitirip serini kurtarabilirsin.
 - **Geri al, sil, baştan başla.** Günün sonunda "Bu günü geri al"; çalışmadığın eski bir günü
   Defter'den silebilirsin; Seri ekranında "Baştan başla" var.
 

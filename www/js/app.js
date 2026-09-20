@@ -52,7 +52,8 @@
     undraw: false,
     askUndo: false,    // "Bu günü geri al" onayı açık
     askReset: false,   // "Baştan başla" onayı açık
-    askDelete: null    // Defter'de silme onayı açık olan gün
+    askDelete: null,   // Defter'de silme onayı açık olan gün
+    justRepaired: false // Seri ekranında bir kez "Seri kurtarıldı" göster
   };
   let deckSeq = 0;
 
@@ -130,7 +131,7 @@
   function closeLayer(name) {
     if (name === 'sheet') { ui.sheet = false; ui.sheetDrag = 0; }
     else if (name === 'defter') ui.defter = false;
-    else if (name === 'splash') ui.splash = false;
+    else if (name === 'splash') { ui.splash = false; ui.justRepaired = false; }
     else if (name === 'intro') ui.intro = Math.max(0, (ui.intro || 0) - 1);
   }
 
@@ -261,11 +262,12 @@
         action() {
           const day = ui.deck.day;
           if (!C.isWeekReviewed(day)) C.markWeekReviewed(day);
+          const repairing = C.isRepairing();
           C.markDayDone(day);
           ui.deck = null;
           ui.viewDay = day;
           ui.idx = 0;
-          openDefter();
+          if (repairing) afterRepair(); else openDefter();
         }
       };
     }
@@ -278,7 +280,8 @@
         action() { ui.deck = null; ui.idx = 0; openDefter(); }
       };
     }
-    const eyebrow = `Gün ${d} · beş ifade`;
+    const repairDay = C.isRepairing() && d === C.today();
+    const eyebrow = repairDay ? `Gün ${d} · seri kurtarma` : `Gün ${d} · beş ifade`;
     const done = C.isDayDone(d);
     if (C.isReviewDay(d) && !done && !C.isWeekReviewed(d)) {
       const week = C.weekNumber(d);
@@ -305,6 +308,15 @@
           : 'Bu gün defterinde duruyor.',
         button: 'Defteri aç',
         action: openDefter
+      };
+    }
+    if (repairDay) {
+      return {
+        eyebrow,
+        title: 'Hepsi okundu.',
+        note: 'Bu gün dünün yerine sayılacak. Deftere yazınca serin geri gelir.',
+        button: 'Deftere yazdım',
+        action() { C.markDayDone(d); afterRepair(); }
       };
     }
     return {
@@ -611,9 +623,55 @@
     });
   }
 
+  // Kurtarma günü kapatıldı: bugünün gününe geç, Seri ekranında geri gelen seriyi göster.
+  function afterRepair() {
+    ui.deck = null;
+    ui.today = C.today();
+    ui.viewDay = ui.today;
+    ui.idx = 0;
+    ui.justRepaired = true;
+    announce(`Seri kurtarıldı: ${C.streak()} gün.`);
+    openSplash();
+  }
+
+  function startRepair() {
+    C.startRepair().then(() => {
+      closeTop('splash', () => {
+        ui.deck = null;
+        ui.today = C.today();
+        ui.viewDay = ui.today;
+        ui.idx = 0;
+      });
+      announce('Seri kurtarma başladı. Bu beş kalıbı bitirip deftere yaz.');
+      focusSoon('deck');
+    });
+  }
+
+  function renderRepair() {
+    const offer = C.repairOffer();
+    let text = '';
+    let button = '';
+    if (ui.justRepaired) {
+      text = 'Seri kurtarıldı. Şimdi bugünün kalıpları seni bekliyor.';
+    } else if (C.isRepairing()) {
+      text = `Seri kurtarma sürüyor: Gün ${C.today()}'i bitirip deftere yaz, serin geri gelsin.`;
+      button = 'Devam et';
+    } else if (offer) {
+      text = `Dün çalışmadın, serin koptu. Bu haftanın kurtarma hakkını kullan: bir günün kalıplarını şimdi bitir, serin ${offer.streak} güne dönsün.`;
+      button = 'Seriyi kurtar';
+    } else if (C.repairBlockedThisWeek()) {
+      text = 'Dün çalışmadın. Bu haftanın kurtarma hakkını kullandın; pazartesi yenilenir.';
+    }
+    $('splash-repair').hidden = !text;
+    $('splash-repair-text').textContent = text;
+    $('splash-repair-btn').hidden = !button;
+    $('splash-repair-btn').textContent = button;
+  }
+
   function renderSplash() {
     $('splash').hidden = !ui.splash;
     if (!ui.splash) return;
+    renderRepair();
     renderConfirm($('splash-reset'), ui.askReset);
     $('splash-streak').textContent = C.streak();
     $('splash-jar').textContent = C.totalMarked();
@@ -822,6 +880,10 @@
     });
 
     $('splash-close').addEventListener('click', () => closeTop('splash'));
+    $('splash-repair-btn').addEventListener('click', () => {
+      if (C.isRepairing()) closeTop('splash', () => { ui.deck = null; ui.viewDay = C.today(); ui.idx = 0; });
+      else startRepair();
+    });
     $('splash-reset').addEventListener('click', (e) => {
       const act = e.target.closest('[data-act]');
       if (!act) return;

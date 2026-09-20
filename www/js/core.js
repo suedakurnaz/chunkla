@@ -25,6 +25,10 @@
   - Seri, "Deftere yazdım" ile kapatılan günlerin tarihlerinden (doneAt) hesaplanır: art arda
     kaç takvim gününde gün kapatıldı. Bugün henüz kapatılmadıysa dünden geriye sayılır.
     Girip çalışmamak seriyi sürdürmez; bir günü silmek o tarihteki halkayı koparır.
+  - Seri kurtarma: takvim haftasında (Pazartesi–Pazar) bir hak. Yalnızca tek günlük boşlukta,
+    ertesi gün kullanılabilir (dün kapatılmadı, önceki gün kapatıldı). Kullanıcı bir günü
+    fazladan bitirir; o gün dünün yerine sayılır (forDate) ve bugün için yeni gün açılır.
+    Hak, kurtarma günü kapatılınca harcanır; yarım kalan kurtarma ertesi gün düşer.
   - "Baştan başla" her şeyi sıfırlar; eski veri önce yedek anahtara yazılır (resetAll).
 
   Durum şeması (v2; v1 kayıtları init sırasında taşınır, ham hâli yedeklenir):
@@ -37,8 +41,11 @@
     introDone: true,             // tanıtım bir kez gösterildi
     days: {
       "1": { marked: [0, 1, 2, 3, 4], doneAt: "YYYY-MM-DD" },
-      "7": { marked: [0, 3], doneAt: null, reviewedAt: "YYYY-MM-DD" }
-    }
+      "7": { marked: [0, 3], doneAt: null, reviewedAt: "YYYY-MM-DD" },
+      "8": { marked: [0, 1, 2, 3, 4], doneAt: "2026-09-22", forDate: "2026-09-21" }  // kurtarma
+    },
+    repair: { date: "YYYY-MM-DD", startedAt: "YYYY-MM-DD" },   // isteğe bağlı: süren kurtarma
+    repairs: [{ date: "YYYY-MM-DD", at: "YYYY-MM-DD", day: 8 }]  // isteğe bağlı: kullanılan haklar
   }
 */
 
@@ -163,16 +170,45 @@
     return writeQueue;
   }
 
-  /* Art arda gün kapatılan takvim günü sayısı; bugün kapatılmadıysa dünden geriye. */
-  function computeStreak(todayKey) {
+  /* Bir günün seride sayıldığı tarih: kurtarma günüyse kurtardığı tarih, değilse kapatıldığı gün. */
+  function creditDate(entry) {
+    return entry && entry.doneAt ? (entry.forDate || entry.doneAt) : null;
+  }
+
+  function creditedDates() {
     var dates = {};
     Object.keys(state.days).forEach(function (k) {
-      if (state.days[k].doneAt) dates[state.days[k].doneAt] = true;
+      var d = creditDate(state.days[k]);
+      if (d) dates[d] = true;
     });
-    var d = dates[todayKey] ? todayKey : addDays(todayKey, -1);
+    return dates;
+  }
+
+  function streakFrom(dates, fromKey) {
     var n = 0;
+    var d = fromKey;
     while (dates[d]) { n++; d = addDays(d, -1); }
     return n;
+  }
+
+  /* Art arda gün kapatılan takvim günü sayısı; bugün kapatılmadıysa dünden geriye. */
+  function computeStreak(todayKey) {
+    var dates = creditedDates();
+    return streakFrom(dates, dates[todayKey] ? todayKey : addDays(todayKey, -1));
+  }
+
+  function weekStart(key) { return addDays(key, -weekdayIndex(key)); }
+
+  function repairUsedThisWeek(todayKey) {
+    var start = weekStart(todayKey);
+    return (state.repairs || []).some(function (r) { return r.at >= start && r.at <= todayKey; });
+  }
+
+  /* Dün kaçırıldı, önceki gün kapatıldı mı? Öyleyse kurtarılacak tarih (dün), değilse null. */
+  function missedYesterday(todayKey) {
+    var dates = creditedDates();
+    var y = addDays(todayKey, -1);
+    return !dates[y] && dates[addDays(todayKey, -2)] ? y : null;
   }
 
   function requireInit() {
@@ -232,6 +268,9 @@
           state.day += 1;
           cur = state.days[String(state.day)];
         }
+
+        // Yarım kalan kurtarma yalnızca başladığı gün geçerli.
+        if (state.repair && state.repair.startedAt !== today) delete state.repair;
 
         state.streak = computeStreak(today);
         return backup.then(persist).then(function () {
@@ -312,7 +351,53 @@
       if (Chunkla.isReviewDay(day) && !Chunkla.isWeekReviewed(day)) {
         throw new Error('Haftalık tekrar bitmeden bu gün kapatılamaz.');
       }
-      dayEntry(day, true).doneAt = toDateKey(nowOr(now));
+      var today = toDateKey(nowOr(now));
+      var entry = dayEntry(day, true);
+      entry.doneAt = today;
+      if (state.repair && day === state.day) {
+        // Kurtarma günü: dünün yerine sayılır, hak harcanır. Bugün henüz sayılmadıysa yeni gün açılır.
+        entry.forDate = state.repair.date;
+        state.repairs = (state.repairs || []).concat([{ date: state.repair.date, at: today, day: day }]);
+        delete state.repair;
+        if (!creditedDates()[today]) state.day += 1;
+      }
+      return persist();
+    },
+
+    /* ——— Seri kurtarma ——— */
+
+    /*
+      Seri ekranında gösterilecek teklif: { date, streak } ya da null.
+      streak = kurtarılırsa serinin ulaşacağı değer (dün dahil).
+    */
+    repairOffer: function (now) {
+      requireInit();
+      var today = toDateKey(nowOr(now));
+      if (state.repair || repairUsedThisWeek(today)) return null;
+      var missed = missedYesterday(today);
+      if (!missed) return null;
+      var dates = creditedDates();
+      dates[missed] = true;
+      return { date: missed, streak: streakFrom(dates, dates[today] ? today : missed) };
+    },
+
+    /* Dün kaçırıldı ama bu haftanın hakkı kullanıldı mı (Seri ekranındaki not için). */
+    repairBlockedThisWeek: function (now) {
+      requireInit();
+      var today = toDateKey(nowOr(now));
+      return !state.repair && !!missedYesterday(today) && repairUsedThisWeek(today);
+    },
+
+    isRepairing: function () { requireInit(); return !!state.repair; },
+
+    /* Kurtarmayı başlatır: içinde bulunulan gün (bugün zaten kapatıldıysa bir sonraki) dünün yerine sayılacak. */
+    startRepair: function (now) {
+      requireInit();
+      var offer = Chunkla.repairOffer(now);
+      if (!offer) throw new Error('Şu an kullanılabilecek seri kurtarma hakkı yok.');
+      var today = toDateKey(nowOr(now));
+      if (Chunkla.isDayDone(state.day)) state.day += 1;
+      state.repair = { date: offer.date, startedAt: today };
       return persist();
     },
 
@@ -472,7 +557,8 @@
       requireInit();
       var counts = [0, 0, 0, 0, 0, 0, 0];
       Object.keys(state.days).forEach(function (k) {
-        if (state.days[k].doneAt) counts[weekdayIndex(state.days[k].doneAt)]++;
+        var d = creditDate(state.days[k]);
+        if (d) counts[weekdayIndex(d)]++;
       });
       return counts;
     },

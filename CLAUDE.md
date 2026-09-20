@@ -119,6 +119,9 @@ Chunkla.tallyPage()                 → { page, firstDay, lastDay, days: [{ day,
 Chunkla.completedByWeekday()        → [Pt..Pz] (doneAt tarihine göre) / todayWeekday()
 Chunkla.canUndoDay(day) / await undoDay(day)   // "Bu günü geri al / sil" — bugün ya da geçmiş gün;
                                     // gün numarası değişmez, silinen geçmiş gün telafi olur
+Chunkla.repairOffer() → { date, streak } | null / repairBlockedThisWeek() / isRepairing()
+await Chunkla.startRepair()         // seri kurtarma: haftada 1 hak, yalnızca tek günlük boşluk;
+                                    // kurtarma günü forDate ile dünün yerine sayılır
 await Chunkla.resetAll()            // "Baştan başla" — önce .yedek anahtarına yedekler
 Chunkla.isIntroDone() / await markIntroDone()
 ```
@@ -163,6 +166,7 @@ ChunklaPWA.onChange(fn)
 - [x] 30 çetele grubunda okunaklılık: eski günler soluk, bugünün çetelesi parlak
 - [x] Detay panelinde çeviri alıştırması: 374 kalıp × 3 Türkçe cümle (1122 cümle), dokununca cevap
 - [x] Kaldığın yerden (şema v2), "Bu günü geri al", "Baştan başla"
+- [x] Seri kurtarma: haftada bir hak, tek günlük boşluk (Seri ekranı)
 - [x] Seri çalışmaya bağlandı (doneAt), silinen gün Günler'den de kalkar
 - [x] Geçmiş günü silme: Defter → açık grup → "Bu günü sil" ve geçmiş günün gün sonu kartı
 - [ ] Gerçek telefonlarda (iPhone + Android) dokunma hareketleri ve çentik kontrolü

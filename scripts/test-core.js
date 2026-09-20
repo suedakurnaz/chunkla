@@ -147,6 +147,63 @@ async function finish(day) {
   r = await C.init(at('2026-09-11'));
   assert.strictEqual(r.today, 10, 'taşımadan sonra gün yalnızca tamamlanınca ilerler');
 
+  /* ——— Seri kurtarma (haftada bir, tek günlük boşluk) ——— */
+  await C._reset();
+  await C.init(at('2026-09-14')); // Pazartesi
+  await finish(1);
+  await C.init(at('2026-09-15'));
+  await finish(2);
+  assert.strictEqual(C.streak(), 2);
+  assert.strictEqual(C.repairOffer(), null, 'boşluk yokken teklif yok');
+  // 16 Eylül kaçırıldı
+  r = await C.init(at('2026-09-17'));
+  assert.strictEqual(r.streak, 0, 'seri koptu');
+  assert.deepStrictEqual(C.repairOffer(), { date: '2026-09-16', streak: 3 }, 'kurtarma teklifi');
+  await C.startRepair();
+  assert.strictEqual(C.isRepairing(), true);
+  assert.strictEqual(C.repairOffer(), null, 'kurtarma sürerken yeni teklif yok');
+  assert.strictEqual(C.today(), 3);
+  await finish(3);
+  assert.strictEqual(C.isRepairing(), false);
+  assert.strictEqual(C._state().days['3'].forDate, '2026-09-16', 'gün dünün yerine sayıldı');
+  assert.strictEqual(C.streak(), 3, 'seri geri geldi');
+  assert.strictEqual(C.today(), 4, 'bugün için yeni gün açıldı');
+  await finish(4);
+  assert.strictEqual(C.streak(), 4);
+  // Aynı hafta ikinci boşluk: hak yok
+  await C.init(at('2026-09-18'));
+  await finish(5);
+  r = await C.init(at('2026-09-20')); // 19 Eylül kaçırıldı, Pazar
+  assert.strictEqual(r.streak, 0);
+  assert.strictEqual(C.repairOffer(), null, 'haftalık hak kullanıldı');
+  assert.strictEqual(C.repairBlockedThisWeek(), true);
+  assert.throws(() => C.startRepair(), /hakkı yok/);
+  await finish(6);
+  await C.init(at('2026-09-21')); // yeni hafta
+  await finish(7);
+  // 22 Eylül kaçırıldı; 23'te önce bugünü bitirip sonra kurtarma
+  r = await C.init(at('2026-09-23'));
+  assert.strictEqual(C.today(), 8);
+  await finish(8);
+  assert.strictEqual(C.streak(), 1, 'bugün kapalı, dün boş');
+  assert.deepStrictEqual(C.repairOffer(), { date: '2026-09-22', streak: 4 }, 'yeni haftada hak geri geldi');
+  await C.startRepair();
+  assert.strictEqual(C.today(), 9, 'bugün zaten kapalıysa kurtarma için sonraki gün açılır');
+  await finish(9);
+  assert.strictEqual(C.streak(), 4, '20-23 Eylül');
+  assert.strictEqual(C.today(), 9, 'bugün zaten sayıldığı için ek gün açılmaz');
+  r = await C.init(at('2026-09-24'));
+  assert.strictEqual(r.today, 10);
+  // Yarım kalan kurtarma ertesi gün düşer; iki günlük boşluk kurtarılamaz
+  for (const d of ['2026-09-24', '2026-09-25', '2026-09-26']) { await C.init(at(d)); await finish(C.today()); }
+  await C.init(at('2026-09-28')); // 27 kaçırıldı, Pazartesi
+  assert.ok(C.repairOffer(), 'yeni hafta teklif');
+  await C.startRepair();
+  r = await C.init(at('2026-09-29'));
+  assert.strictEqual(C.isRepairing(), false, 'yarım kurtarma düştü');
+  assert.strictEqual(C.repairOffer(), null, 'iki günlük boşluk kurtarılamaz');
+  assert.strictEqual(r.streak, 0);
+
   /* ——— Tasarımdan gelen davranışlar ——— */
   await C._reset();
   // 2026-09-14 Pazartesi → 1. gün
