@@ -71,8 +71,8 @@ async function finish(day) {
 
   /* ——— Bu günü geri al ——— */
   assert.strictEqual(C.canUndoDay(3), true, 'işaretli gün geri alınabilir');
-  assert.strictEqual(C.canUndoDay(2), false, 'geçmiş gün geri alınamaz');
-  assert.throws(() => C.undoDay(2), /içinde bulunulan/);
+  assert.strictEqual(C.canUndoDay(4), false, 'gelecek gün silinemez');
+  assert.throws(() => C.undoDay(4), /Gelecek/);
   await finish(3);
   await C.undoDay(3);
   assert.strictEqual(C.markedCount(3), 0, 'işaretler silindi');
@@ -82,6 +82,19 @@ async function finish(day) {
   r = await C.init(at('2026-09-26'));
   assert.strictEqual(r.today, 3, 'geri alınan gün ertesi gün de beklemede');
   assert.strictEqual(C.markedCount(2), 0);
+
+  // Geçmiş günü silmek: çeteleden düşer, telafi olur, bugünkü gün değişmez
+  C.toggleMark(1, 0);
+  C.toggleMark(1, 1);
+  assert.strictEqual(C.canUndoDay(1), true, 'geçmiş gün silinebilir');
+  await C.undoDay(1);
+  assert.strictEqual(C.markedCount(1), 0, 'geçmiş günün işaretleri silindi');
+  assert.strictEqual(C.dayStatus(1), 'telafi', 'silinen geçmiş gün telafi olur');
+  assert.strictEqual(C.notebookByDay().some(g => g.day === 1), false, 'defterden düştü');
+  assert.strictEqual(C.today(), 3, 'bugünkü gün değişmez');
+  assert.strictEqual(C.dayStatus(2), 'tamam', 'diğer günlere dokunulmaz');
+  await C.markDayDone(1);
+  assert.strictEqual(C.dayStatus(1), 'tamam', 'silinen gün yeniden çalışılıp kapatılabilir');
 
   const n = C.TOTAL;
   const lastDay = Math.ceil(n / C.PER_DAY);

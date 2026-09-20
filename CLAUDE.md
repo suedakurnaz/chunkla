@@ -115,7 +115,8 @@ Chunkla.isReviewDay(day) / weekNumber(day) / weekReviewItems(day)
 await Chunkla.markWeekReviewed(day) / isWeekReviewed(day)
 Chunkla.tallyPage()                 → { page, firstDay, lastDay, days: [{ day, count, position }] }
 Chunkla.completedByWeekday()        → [Pt..Pz] (doneAt tarihine göre) / todayWeekday()
-Chunkla.canUndoDay(day) / await undoDay(day)   // "Bu günü geri al" — yalnızca içinde bulunulan gün
+Chunkla.canUndoDay(day) / await undoDay(day)   // "Bu günü geri al / sil" — bugün ya da geçmiş gün;
+                                    // gün numarası değişmez, silinen geçmiş gün telafi olur
 await Chunkla.resetAll()            // "Baştan başla" — önce .yedek anahtarına yedekler
 Chunkla.isIntroDone() / await markIntroDone()
 ```
@@ -160,6 +161,7 @@ ChunklaPWA.onChange(fn)
 - [x] 30 çetele grubunda okunaklılık: eski günler soluk, bugünün çetelesi parlak
 - [x] Detay panelinde çeviri alıştırması: 374 kalıp × 3 Türkçe cümle (1122 cümle), dokununca cevap
 - [x] Kaldığın yerden (şema v2), "Bu günü geri al", "Baştan başla"
+- [x] Geçmiş günü silme: Defter → açık grup → "Bu günü sil" ve geçmiş günün gün sonu kartı
 - [ ] Gerçek telefonlarda (iPhone + Android) dokunma hareketleri ve çentik kontrolü
 - [ ] Yükleme yönlendirmesi, yedekleme, lisans kararları (KARARLAR.md açık sorular)
 - [ ] Paylaşım hazırlığı: README görselleri, og-image, GitHub sosyal önizleme (`docs/paylasim.md`)

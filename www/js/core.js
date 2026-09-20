@@ -19,7 +19,9 @@
   - Gün numarası takvimle değil ilerlemeyle ilerler ("kaldığın yerden"). Gün ancak
     "Deftere yazdım" ile kapatılır ve ertesi takvim gününde bir sonraki güne geçilir.
     Girilmeyen günler borç biriktirmez; takvim günü başına en fazla bir yeni gün açılır.
-  - "Bu günü geri al" yalnızca içinde bulunulan günü sıfırlar (undoDay).
+  - "Bu günü geri al / sil" bir günün işaretlerini, tamamlanma ve tekrar kaydını siler
+    (undoDay). Bugün ya da geçmiş bir gün olabilir; gün numarası değişmez. Silinen geçmiş
+    gün Defter → Günler'de "telafi et" olarak kalır, istenirse yeniden çalışılır.
   - "Baştan başla" her şeyi sıfırlar; eski veri önce yedek anahtara yazılır (resetAll).
 
   Durum şeması (v2; v1 kayıtları init sırasında taşınır, ham hâli yedeklenir):
@@ -468,18 +470,21 @@
 
     /* ——— Geri alma ve sıfırlama ——— */
 
-    /* "Bu günü geri al" gösterilsin mi: yalnızca içinde bulunulan gün, üstünde bir iz varsa. */
+    /* "Bu günü geri al / sil" gösterilsin mi: bugün ya da geçmiş bir gün, üstünde bir iz varsa. */
     canUndoDay: function (day) {
       requireInit();
-      if (day !== state.day) return false;
+      if (!(day >= 1 && day <= state.day)) return false;
       var entry = dayEntry(day, false);
       return !!(entry && (entry.marked.length > 0 || entry.doneAt || entry.reviewedAt));
     },
 
-    /* İçinde bulunulan günün işaretlerini, tamamlanma ve tekrar kaydını siler. Gün numarası aynı kalır. */
+    /*
+      Günün işaretlerini, tamamlanma ve tekrar kaydını siler; çetele ve defterden düşer.
+      Gün numarası değişmez: bugünse aynı günde kalınır, geçmişse o gün telafi olur.
+    */
     undoDay: function (day) {
       requireInit();
-      if (day !== state.day) throw new Error('Yalnızca içinde bulunulan gün geri alınabilir.');
+      if (!(day >= 1 && day <= state.day)) throw new Error('Gelecek günler silinemez.');
       delete state.days[String(day)];
       return persist();
     },

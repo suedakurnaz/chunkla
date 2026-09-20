@@ -5,6 +5,22 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 
 ---
 
+## 2026-09-20 — Geçmiş günler de silinebilir
+
+**Karar:** "Bu günü geri al" yalnızca bugünle sınırlı değil. Kullanıcı çalışmadığını ya da
+öğrenmediğini düşündüğü herhangi bir geçmiş günü silebilir:
+- **Defter → Çetele grupları:** açık grubun altında "Bu günü sil".
+- **Geçmiş günün gün sonu kartı** (Defter → Günler'den açılır): "Bu günü sil".
+Bugün için kartta eski metin ("Bu günü geri al") kalır. İkisi de iki adımlı onaylı.
+
+Silinen günün işaretleri, tamamlanma ve tekrar kaydı gider; çeteleden, defterden ve Seri
+şeridinden düşer. Gün numarası ve sıradaki günler değişmez: kalıplar kaybolmaz, gün
+Günler listesinde "telafi et" olarak durur ve istenirse yeniden çalışılıp kapatılır.
+Seri (art arda giriş) etkilenmez.
+
+**Neden:** Kullanıcı bazı günler uygulamaya girip çalışmadığını söyledi; o günlerin çetelede
+"öğrenilmiş" gibi görünmesini istemiyor.
+
 ## 2026-09-20 — Kaldığın yerden; "Bu günü geri al" ve "Baştan başla"
 
 **Karar:** Gün numarası artık takvimden hesaplanmaz, ilerlemeyle ilerler. Gün ancak

@@ -51,7 +51,8 @@
     justDrawn: null,   // bu çizimde animasyon oynatılacak gün
     undraw: false,
     askUndo: false,    // "Bu günü geri al" onayı açık
-    askReset: false    // "Baştan başla" onayı açık
+    askReset: false,   // "Baştan başla" onayı açık
+    askDelete: null    // Defter'de silme onayı açık olan gün
   };
   let deckSeq = 0;
 
@@ -111,7 +112,7 @@
   function focusSoon(id) {
     if (!keyboardUser) return;
     requestAnimationFrame(() => {
-      const el = id.startsWith('#') ? document.querySelector(id) : $(id);
+      const el = /^[#\[]/.test(id) ? document.querySelector(id) : $(id);
       if (el) el.focus({ preventScroll: true });
     });
   }
@@ -217,6 +218,7 @@
     if (ui.defter) return;
     ui.defter = true;
     ui.openGroup = null;
+    ui.askDelete = null;
     pushLayer('defter');
     render();
     focusSoon('defter-close');
@@ -298,7 +300,9 @@
       return {
         eyebrow,
         title: 'Deftere yazıldı.',
-        note: 'Yarın sıradaki kalıplar hazır olacak. İstersen geçmiş günlere dönebilirsin.',
+        note: d === C.today()
+          ? 'Yarın sıradaki kalıplar hazır olacak. İstersen geçmiş günlere dönebilirsin.'
+          : 'Bu gün defterinde duruyor.',
         button: 'Defteri aç',
         action: openDefter
       };
@@ -396,6 +400,14 @@
     const canUndo = !ui.deck && C.canUndoDay(ui.viewDay);
     if (!canUndo) ui.askUndo = false;
     $('finish-undo').hidden = !canUndo;
+    if (canUndo) {
+      const isToday = ui.viewDay === C.today();
+      $('finish-undo').querySelector('[data-act="ask"]').textContent = isToday ? 'Bu günü geri al' : 'Bu günü sil';
+      $('finish-undo').querySelector('.confirm-text').textContent = isToday
+        ? 'Bu günün işaretleri silinir, gün baştan başlar. Emin misin?'
+        : `Gün ${ui.viewDay} çeteleden ve defterden silinir; istersen yeniden çalışırsın. Emin misin?`;
+      $('finish-undo').querySelector('[data-act="yes"]').textContent = isToday ? 'Evet, geri al' : 'Evet, sil';
+    }
     renderConfirm($('finish-undo'), ui.askUndo);
 
     // Yalnızca görünen kart ekran okuyucuya açık; gün sonu düğmesi yalnızca oradayken odaklanabilir.
@@ -515,7 +527,7 @@
             `<span class="row-n">${k + 1}</span>` +
             `<span class="row-text"><span class="row-chunk" lang="en">${esc(it.item.chunk)}</span><span class="row-tr">${esc(it.item.tr)}</span></span>` +
             `</button>`
-          )).join('')}</div>`
+          )).join('')}</div>` + deleteBox(g.day)
           : '';
         return `<div class="section">` +
           `<div class="section-head">` +
@@ -542,6 +554,29 @@
     }
   }
 
+  // Defter'de açık grubun altındaki "Bu günü sil" (iki adımlı).
+  function deleteBox(day) {
+    const asking = ui.askDelete === day;
+    return `<div class="section-foot quiet-action" data-del="${day}">` +
+      `<button type="button" class="quiet-btn" data-act="ask"${asking ? ' hidden' : ''}>Bu günü sil</button>` +
+      `<div class="confirm" data-confirm${asking ? '' : ' hidden'}>` +
+      `<p class="confirm-text">Gün ${day} çeteleden ve defterden silinir. Kalıplar kaybolmaz; Günler'den yeniden çalışabilirsin. Emin misin?</p>` +
+      `<div class="confirm-row">` +
+      `<button type="button" class="confirm-yes" data-act="yes">Evet, sil</button>` +
+      `<button type="button" class="quiet-btn" data-act="no">Vazgeç</button>` +
+      `</div></div></div>`;
+  }
+
+  function deleteDay(day) {
+    C.undoDay(day).then(() => {
+      ui.askDelete = null;
+      ui.openGroup = -1;
+      if (ui.deck && ui.deck.type === 'group' && ui.deck.day === day) { ui.deck = null; ui.idx = 0; }
+      render();
+      announce(`Gün ${day} silindi.`);
+    });
+  }
+
   // Geri alınamaz işlemler iki adımlı: önce sessiz düğme, sonra "Emin misin?" satırı.
   function renderConfirm(box, open) {
     box.querySelector('[data-act="ask"]').hidden = open;
@@ -554,7 +589,7 @@
       ui.askUndo = false;
       ui.idx = 0;
       render();
-      announce(`Gün ${d} geri alındı. Baştan başlayabilirsin.`);
+      announce(d === C.today() ? `Gün ${d} geri alındı. Baştan başlayabilirsin.` : `Gün ${d} silindi.`);
       focusSoon('deck');
     });
   }
@@ -760,11 +795,21 @@
     $('tab-days').addEventListener('click', () => { ui.defterTab = 'days'; render(); });
 
     $('defter').addEventListener('click', (e) => {
+      const del = e.target.closest('[data-del] [data-act]');
+      if (del) {
+        const day = Number(del.closest('[data-del]').dataset.del);
+        if (del.dataset.act === 'yes') { deleteDay(day); return; }
+        ui.askDelete = del.dataset.act === 'ask' ? day : null;
+        render();
+        focusSoon(`[data-del="${day}"] [data-act="${ui.askDelete ? 'no' : 'ask'}"]`);
+        return;
+      }
       const toggle = e.target.closest('[data-toggle]');
       if (toggle) {
         const day = Number(toggle.dataset.toggle);
         const openDay = ui.openGroup === null ? ui.viewDay : ui.openGroup;
         ui.openGroup = openDay === day ? -1 : day;
+        ui.askDelete = null;
         render();
         return;
       }
