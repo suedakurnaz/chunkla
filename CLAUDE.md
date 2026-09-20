@@ -150,7 +150,7 @@ ChunklaPWA.onChange(fn)
   "↑ Detay" düğmesi gizlenir, Detay katmanı açılmaz. Panel kaydırmasız sığacak şekilde
   sıkı (720 px yüksekliğe kadar 374 kalıbın hepsi, cevaplar açıkken bile sığıyor; alçak
   ekranlar için ayrı `max-height: 820px` kuralı). İlerleme çizgileri iki sütunun altında.
-  Tanıtım, giriş, Seri ve Defter ortada açılır pencere (popup).
+  Tanıtım, giriş, Seri ve Defter ortada açılır pencere (popup); arkada bulanık `#backdrop`.
   Üst şerit (`#topbar`) `.main`'in dışında, `.frame`'in ilk çocuğu; katman açıkken inert.
 - **Hareket azaltma:** `prefers-reduced-motion` açıksa geçiş ve çizim animasyonları kapanır.
 - Dokunma hedefleri en az 44 px; klavye odağı her zaman görünür.

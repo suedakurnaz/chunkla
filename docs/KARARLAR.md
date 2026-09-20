@@ -14,7 +14,7 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 - Bilgisayarda sağ panel kaydırılmadan sığar ve daha yukarıdan başlar; alttaki ilerleme
   çizgileri iki sütunun altında en soldan en sağa uzanır.
 - Bilgisayarda tanıtım, giriş, Seri ve Defter ekranın ortasında açılır pencere olarak
-  gösterilir, arkası karartılır.
+  gösterilir; arkası bulanıklaştırılır (`#backdrop`, backdrop-filter blur), altındaki yazılar okunmaz.
 
 **Neden:** Kullanıcı isteği: tanıtımı kaçıran ya da yeniden bakmak isteyen için; panelin
 aşağı yukarı oynaması ve tam ekran bilgi sayfalarının geniş ekranda garip durması.

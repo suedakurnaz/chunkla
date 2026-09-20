@@ -752,6 +752,7 @@
     renderIntro();
     $('main').inert = anyLayer();
     $('topbar').inert = anyLayer();
+    $('backdrop').hidden = !(wide.matches && (ui.defter || ui.splash || ui.intro !== null || ui.gate));
     const len = rows().length;
     $('nav-prev').disabled = ui.idx <= 0;
     $('nav-next').disabled = ui.idx >= len;
