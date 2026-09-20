@@ -44,6 +44,7 @@ eklemen önerilir.
 - **Kendin çevir.** Her kalıbın altında üç Türkçe cümle var; İngilizcelerini deftere sen yazarsın.
 - **Her yedinci gün tekrar.** Haftanın kalıplarını baştan okumadan o gün kapanmaz.
 - **Kaldığın yerden.** Birkaç gün giremezsen dönünce borç birikmez; kaldığın günden devam edersin.
+- **Seri çalışmayı sayar.** "Deftere yazdım" dediğin günler art arda sayılır; girip çalışmamak seriyi sürdürmez.
 - **Geri al, sil, baştan başla.** Günün sonunda "Bu günü geri al"; çalışmadığın eski bir günü
   Defter'den silebilirsin; Seri ekranında "Baştan başla" var.
 

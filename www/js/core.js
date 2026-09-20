@@ -21,7 +21,10 @@
     Girilmeyen günler borç biriktirmez; takvim günü başına en fazla bir yeni gün açılır.
   - "Bu günü geri al / sil" bir günün işaretlerini, tamamlanma ve tekrar kaydını siler
     (undoDay). Bugün ya da geçmiş bir gün olabilir; gün numarası değişmez. Silinen geçmiş
-    gün Defter → Günler'de "telafi et" olarak kalır, istenirse yeniden çalışılır.
+    gün hiçbir yerde görünmez (history() izi olmayan geçmiş günleri listelemez).
+  - Seri, "Deftere yazdım" ile kapatılan günlerin tarihlerinden (doneAt) hesaplanır: art arda
+    kaç takvim gününde gün kapatıldı. Bugün henüz kapatılmadıysa dünden geriye sayılır.
+    Girip çalışmamak seriyi sürdürmez; bir günü silmek o tarihteki halkayı koparır.
   - "Baştan başla" her şeyi sıfırlar; eski veri önce yedek anahtara yazılır (resetAll).
 
   Durum şeması (v2; v1 kayıtları init sırasında taşınır, ham hâli yedeklenir):
@@ -30,7 +33,7 @@
     day: 12,                     // içinde bulunulan gün numarası
     startDate: "YYYY-MM-DD",     // ilk açılış (ya da son "Baştan başla")
     lastVisit: "YYYY-MM-DD",     // son giriş
-    streak: 3,                   // art arda giriş yapılan gün sayısı
+    streak: 3,                   // son hesaplanan seri (bilgi amaçlı; streak() doneAt'ten hesaplar)
     introDone: true,             // tanıtım bir kez gösterildi
     days: {
       "1": { marked: [0, 1, 2, 3, 4], doneAt: "YYYY-MM-DD" },
@@ -160,6 +163,18 @@
     return writeQueue;
   }
 
+  /* Art arda gün kapatılan takvim günü sayısı; bugün kapatılmadıysa dünden geriye. */
+  function computeStreak(todayKey) {
+    var dates = {};
+    Object.keys(state.days).forEach(function (k) {
+      if (state.days[k].doneAt) dates[state.days[k].doneAt] = true;
+    });
+    var d = dates[todayKey] ? todayKey : addDays(todayKey, -1);
+    var n = 0;
+    while (dates[d]) { n++; d = addDays(d, -1); }
+    return n;
+  }
+
   function requireInit() {
     if (!state) throw new Error('Chunkla.init() çağrılmadan kullanılamaz.');
   }
@@ -205,14 +220,10 @@
         state = loaded || emptyState(today);
 
         var firstVisitToday = state.lastVisit !== today;
-        if (state.lastVisit === null) {
-          state.streak = 1;
+        if (state.lastVisit === null || daysBetween(state.lastVisit, today) > 0) {
           state.lastVisit = today;
-        } else {
-          var gap = daysBetween(state.lastVisit, today);
-          if (gap === 1) { state.streak += 1; state.lastVisit = today; }
-          else if (gap > 1) { state.streak = 1; state.lastVisit = today; }
-          else if (gap < 0) { firstVisitToday = false; } // saat geri alınmış; hiçbir şeyi değiştirme
+        } else if (daysBetween(state.lastVisit, today) < 0) {
+          firstVisitToday = false; // saat geri alınmış; hiçbir şeyi değiştirme
         }
 
         // Kaldığın yerden: dün (ya da daha önce) kapatılan gün varsa bir sonrakine geç.
@@ -222,6 +233,7 @@
           cur = state.days[String(state.day)];
         }
 
+        state.streak = computeStreak(today);
         return backup.then(persist).then(function () {
           return { firstVisitToday: firstVisitToday, today: Chunkla.today(), streak: state.streak };
         });
@@ -234,7 +246,12 @@
       return state.day;
     },
 
-    streak: function () { requireInit(); return state.streak; },
+    /* Seri her çağrıda yeniden hesaplanır; gün kapatma ya da silme anında yansır. */
+    streak: function () {
+      requireInit();
+      state.streak = computeStreak(toDateKey(nowOr()));
+      return state.streak;
+    },
 
     /* Gün + slot → DATA dizisindeki indeks. */
     chunkIndex: function (day, slot) {
@@ -313,11 +330,16 @@
       return 'telafi';
     },
 
-    /* Bugünden geriye doğru tüm günler. */
+    /*
+      Defter → Günler: bugünden geriye, üstünde iz olan günler (tamamlanmış, işaretli ya da
+      tekrarı yapılmış) ve bugün. Silinen ya da hiç açılmamış geçmiş günler listelenmez.
+    */
     history: function () {
       requireInit();
       var list = [];
       for (var d = Chunkla.today(); d >= 1; d--) {
+        var e = dayEntry(d, false);
+        if (d !== state.day && !(e && (e.doneAt || e.reviewedAt || e.marked.length))) continue;
         list.push({ day: d, status: Chunkla.dayStatus(d), marked: Chunkla.markedCount(d) });
       }
       return list;
@@ -499,7 +521,7 @@
       var old = JSON.stringify(state);
       state = {
         version: VERSION, day: 1, startDate: today, lastVisit: today,
-        streak: 1, introDone: true, days: {}
+        streak: 0, introDone: true, days: {}
       };
       writeQueue = writeQueue.then(function () { return writeRaw(BACKUP_RESET_KEY, old); });
       return persist();

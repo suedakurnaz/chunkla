@@ -32,31 +32,33 @@ async function finish(day) {
 
 (async () => {
   let r = await C.init(at('2026-09-16'));
-  assert.deepStrictEqual(r, { firstVisitToday: true, today: 1, streak: 1 }, 'ilk açılış');
+  assert.deepStrictEqual(r, { firstVisitToday: true, today: 1, streak: 0 }, 'ilk açılış: henüz kapatılan gün yok');
   assert.strictEqual(C._state().version, 2, 'yeni kayıt v2');
 
   r = await C.init(at('2026-09-16'));
   assert.strictEqual(r.firstVisitToday, false, 'aynı gün ikinci açılış seri ekranı göstermez');
-  assert.strictEqual(r.streak, 1, 'aynı gün seriyi değiştirmez');
+  assert.strictEqual(r.streak, 0, 'girmek seriyi başlatmaz');
 
   /* ——— Kaldığın yerden ——— */
   r = await C.init(at('2026-09-17'));
-  assert.strictEqual(r.streak, 2, 'ertesi gün seri artar');
+  assert.strictEqual(r.streak, 0, 'girip çalışmamak seriyi sürdürmez');
   assert.strictEqual(r.today, 1, 'gün kapatılmadıysa aynı günde kalınır');
 
   await finish(1);
+  assert.strictEqual(C.streak(), 1, 'gün kapatınca seri anında artar');
   r = await C.init(at('2026-09-17'));
   assert.strictEqual(r.today, 1, 'aynı takvim gününde yeni gün açılmaz');
   assert.strictEqual(C.dayStatus(1), 'tamam');
 
   r = await C.init(at('2026-09-18'));
   assert.strictEqual(r.today, 2, 'ertesi takvim gününde bir sonraki gün');
-  assert.strictEqual(r.streak, 3);
+  assert.strictEqual(r.streak, 1, 'bugün henüz kapatılmadıysa dünden sayılır');
   await finish(2);
+  assert.strictEqual(C.streak(), 2, 'art arda iki gün');
 
   r = await C.init(at('2026-09-25'));
   assert.strictEqual(r.today, 3, 'günler atlanınca yalnızca bir gün ilerler, borç birikmez');
-  assert.strictEqual(r.streak, 1, 'gün atlanınca seri sıfırdan başlar');
+  assert.strictEqual(r.streak, 0, 'gün atlanınca seri kopar');
   assert.deepStrictEqual(C.history().map(h => h.status), ['bugun', 'tamam', 'tamam'], 'telafi yok');
 
   const day3 = C.chunksForDay(3).map(x => x.index);
@@ -74,7 +76,9 @@ async function finish(day) {
   assert.strictEqual(C.canUndoDay(4), false, 'gelecek gün silinemez');
   assert.throws(() => C.undoDay(4), /Gelecek/);
   await finish(3);
+  assert.strictEqual(C.streak(), 1);
   await C.undoDay(3);
+  assert.strictEqual(C.streak(), 0, 'geri alınan gün seriden düşer');
   assert.strictEqual(C.markedCount(3), 0, 'işaretler silindi');
   assert.strictEqual(C.isDayDone(3), false, 'tamamlanma silindi');
   assert.strictEqual(C.canUndoDay(3), false, 'boş gün için düğme yok');
@@ -91,6 +95,7 @@ async function finish(day) {
   assert.strictEqual(C.markedCount(1), 0, 'geçmiş günün işaretleri silindi');
   assert.strictEqual(C.dayStatus(1), 'telafi', 'silinen geçmiş gün telafi olur');
   assert.strictEqual(C.notebookByDay().some(g => g.day === 1), false, 'defterden düştü');
+  assert.deepStrictEqual(C.history().map(h => h.day), [3, 2], 'Günler listesinden düştü');
   assert.strictEqual(C.today(), 3, 'bugünkü gün değişmez');
   assert.strictEqual(C.dayStatus(2), 'tamam', 'diğer günlere dokunulmaz');
   await C.markDayDone(1);
@@ -111,7 +116,7 @@ async function finish(day) {
   await C.resetAll();
   assert.strictEqual(store[KEY + '.yedek'], before, 'eski veri yedeklendi');
   assert.strictEqual(C.today(), 1);
-  assert.strictEqual(C.streak(), 1);
+  assert.strictEqual(C.streak(), 0, 'seri sıfırlandı');
   assert.strictEqual(C.totalMarked(), 0);
   assert.strictEqual(C.isIntroDone(), true, 'tanıtım yeniden gösterilmez');
   r = await C.init(at('2026-09-26'));
@@ -131,11 +136,12 @@ async function finish(day) {
   store[KEY] = v1;
   r = await C.init(at('2026-09-10'));
   assert.strictEqual(r.today, 10, 'taşımada takvimdeki gün korunur');
-  assert.strictEqual(r.streak, 5, 'seri korunur');
+  assert.strictEqual(r.streak, 0, 'seri artık kapatılan günlerden hesaplanır');
   assert.strictEqual(store[KEY + '.yedek-v1'], v1, 'v1 ham verisi yedeklendi');
   assert.strictEqual(C._state().version, 2);
   assert.strictEqual(C.totalMarked(), 3, 'işaretler korunur');
   assert.strictEqual(C.dayStatus(9), 'telafi', 'eski boşluklar telafi olarak kalır');
+  assert.deepStrictEqual(C.history().map(h => h.day), [10, 9, 1], 'izi olmayan eski günler listelenmez');
   await C.markDayDone(9);
   assert.strictEqual(C.dayStatus(9), 'tamam', 'eski gün hâlâ kapatılabilir');
   r = await C.init(at('2026-09-11'));
@@ -196,6 +202,12 @@ async function finish(day) {
   assert.strictEqual(C.notebookByDay().length, 2, 'defter sıfırlanmaz');
   C.toggleMark(31, 0);
   assert.deepStrictEqual(C.tallyPage().days.map(d => d.position), [0]);
+
+  // Seri: 30 gün art arda kapatıldı; aradan bir gün silinince zincir kopar
+  assert.strictEqual(C.streak(), 30, '30 gün art arda');
+  await C.undoDay(29);
+  assert.strictEqual(C.streak(), 1, 'silinen gün seriyi koparır');
+  assert.strictEqual(C.history().some(h => h.day === 29), false, 'silinen gün Günler\'de yok');
 
   console.log('core.js: tüm testler geçti');
 })().catch(e => { console.error(e.stack || e.message); process.exit(1); });

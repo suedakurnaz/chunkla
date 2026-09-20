@@ -5,6 +5,21 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 
 ---
 
+## 2026-09-20 — Seri girişi değil çalışmayı sayar
+
+**Karar:** Seri, "Deftere yazdım" ile gün kapatılan takvim günlerinin art arda sayısıdır;
+kayıtlı `doneAt` tarihlerinden her seferinde yeniden hesaplanır. Bugün henüz kapatılmadıysa
+seri dünden geriye sayılır (gün içinde "kopmuş" görünmez). Uygulamayı açıp çalışmamak seriyi
+sürdürmez. Bir gün silinir ya da geri alınırsa o tarihteki halka kopar ve seri anında düşer.
+"Baştan başla" sonrası seri 0'dır.
+
+**Neden:** Kullanıcı gün silince serinin bozulmamasını hata olarak gördü. Eski seri yalnızca
+girişleri sayıyordu; girip çalışmadığı günler de seriyi uzatıyordu.
+
+**Yan etki:** v1'den ve önceki v2 sürümünden gelen kullanıcıların serisi ilk açılışta kendi
+tamamlanma tarihlerine göre yeniden hesaplanır; giriş sayısına dayalı eski değer kaybolur.
+`state.streak` alanı şemada kalır (bilgi amaçlı son değer), şema sürümü değişmedi.
+
 ## 2026-09-20 — Geçmiş günler de silinebilir
 
 **Karar:** "Bu günü geri al" yalnızca bugünle sınırlı değil. Kullanıcı çalışmadığını ya da
@@ -13,10 +28,12 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 - **Geçmiş günün gün sonu kartı** (Defter → Günler'den açılır): "Bu günü sil".
 Bugün için kartta eski metin ("Bu günü geri al") kalır. İkisi de iki adımlı onaylı.
 
-Silinen günün işaretleri, tamamlanma ve tekrar kaydı gider; çeteleden, defterden ve Seri
-şeridinden düşer. Gün numarası ve sıradaki günler değişmez: kalıplar kaybolmaz, gün
-Günler listesinde "telafi et" olarak durur ve istenirse yeniden çalışılıp kapatılır.
-Seri (art arda giriş) etkilenmez.
+Silinen günün işaretleri, tamamlanma ve tekrar kaydı gider; çeteleden, defterden, Günler
+listesinden ve Seri şeridinden düşer. Gün numarası ve sıradaki günler değişmez; o günün
+kalıpları liste başa döndüğünde (75 günde bir) yeniden gelir. ~~Seri (art arda giriş) etkilenmez.~~ *(Değişti: silinen gün seriyi koparır, bkz. "Seri girişi değil çalışmayı sayar".)*
+Günler listesi bu yüzden yalnızca izi olan günleri gösterir (bugün + tamamlanmış, işaretli ya da
+tekrarı yapılmış günler); v1'den kalan boş "telafi" günleri de artık listelenmez.
+*(İlk sürümde silinen gün Günler'de "telafi et" olarak kalıyordu; kullanıcı istemedi.)*
 
 **Neden:** Kullanıcı bazı günler uygulamaya girip çalışmadığını söyledi; o günlerin çetelede
 "öğrenilmiş" gibi görünmesini istemiyor.

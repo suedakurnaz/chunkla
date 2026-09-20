@@ -104,6 +104,8 @@ await Chunkla.init()                → { firstVisitToday, today, streak }   // 
 Chunkla.today() / streak() / totalMarked() / fullTallyCount()
                                     // today() = içinde bulunulan gün; takvimle değil, gün kapatılınca
                                     // ertesi takvim gününde bir artar (kaldığın yerden)
+                                    // streak() = art arda gün kapatılan takvim günleri (doneAt'ten
+                                    // hesaplanır); giriş saymaz, gün silinince düşer
 Chunkla.chunksForDay(day)           → [{ day, slot, index, item, marked }] × 5
 Chunkla.toggleMark(day, slot)       → yeni işaret durumu
 Chunkla.markedCount(day) / isMarked(day, slot) / isDayMarkedFull(day)
@@ -161,6 +163,7 @@ ChunklaPWA.onChange(fn)
 - [x] 30 çetele grubunda okunaklılık: eski günler soluk, bugünün çetelesi parlak
 - [x] Detay panelinde çeviri alıştırması: 374 kalıp × 3 Türkçe cümle (1122 cümle), dokununca cevap
 - [x] Kaldığın yerden (şema v2), "Bu günü geri al", "Baştan başla"
+- [x] Seri çalışmaya bağlandı (doneAt), silinen gün Günler'den de kalkar
 - [x] Geçmiş günü silme: Defter → açık grup → "Bu günü sil" ve geçmiş günün gün sonu kartı
 - [ ] Gerçek telefonlarda (iPhone + Android) dokunma hareketleri ve çentik kontrolü
 - [ ] Yükleme yönlendirmesi, yedekleme, lisans kararları (KARARLAR.md açık sorular)

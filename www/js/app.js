@@ -405,7 +405,7 @@
       $('finish-undo').querySelector('[data-act="ask"]').textContent = isToday ? 'Bu günü geri al' : 'Bu günü sil';
       $('finish-undo').querySelector('.confirm-text').textContent = isToday
         ? 'Bu günün işaretleri silinir, gün baştan başlar. Emin misin?'
-        : `Gün ${ui.viewDay} çeteleden ve defterden silinir; istersen yeniden çalışırsın. Emin misin?`;
+        : `Gün ${ui.viewDay} çeteleden, defterden ve Günler listesinden silinir; serin de buna göre düşer. Emin misin?`;
       $('finish-undo').querySelector('[data-act="yes"]').textContent = isToday ? 'Evet, geri al' : 'Evet, sil';
     }
     renderConfirm($('finish-undo'), ui.askUndo);
@@ -560,7 +560,7 @@
     return `<div class="section-foot quiet-action" data-del="${day}">` +
       `<button type="button" class="quiet-btn" data-act="ask"${asking ? ' hidden' : ''}>Bu günü sil</button>` +
       `<div class="confirm" data-confirm${asking ? '' : ' hidden'}>` +
-      `<p class="confirm-text">Gün ${day} çeteleden ve defterden silinir. Kalıplar kaybolmaz; Günler'den yeniden çalışabilirsin. Emin misin?</p>` +
+      `<p class="confirm-text">Gün ${day} çeteleden, defterden ve Günler listesinden silinir; serin de buna göre düşer. Emin misin?</p>` +
       `<div class="confirm-row">` +
       `<button type="button" class="confirm-yes" data-act="yes">Evet, sil</button>` +
       `<button type="button" class="quiet-btn" data-act="no">Vazgeç</button>` +
@@ -572,6 +572,7 @@
       ui.askDelete = null;
       ui.openGroup = -1;
       if (ui.deck && ui.deck.type === 'group' && ui.deck.day === day) { ui.deck = null; ui.idx = 0; }
+      if (!ui.deck && ui.viewDay === day && day !== C.today()) { ui.viewDay = C.today(); ui.idx = 0; }
       render();
       announce(`Gün ${day} silindi.`);
     });
@@ -587,6 +588,7 @@
     const d = ui.viewDay;
     C.undoDay(d).then(() => {
       ui.askUndo = false;
+      ui.viewDay = C.today(); // silinen geçmiş günde kalma, bugüne dön
       ui.idx = 0;
       render();
       announce(d === C.today() ? `Gün ${d} geri alındı. Baştan başlayabilirsin.` : `Gün ${d} silindi.`);
