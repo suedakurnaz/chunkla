@@ -5,6 +5,33 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 
 ---
 
+## 2026-09-20 — Kaldığın yerden; "Bu günü geri al" ve "Baştan başla"
+
+**Karar:** Gün numarası artık takvimden hesaplanmaz, ilerlemeyle ilerler. Gün ancak
+"Deftere yazdım" ile kapatılır; ertesi takvim gününde sıradaki gün açılır. Birkaç gün
+girilmezse dönüşte kalınan yerden devam edilir: borç birikmez, takvim günü başına en
+fazla bir yeni gün açılır. Seri eskisi gibi art arda girişi sayar.
+
+İki yeni düğme, ikisi de iki adımlı ("Emin misin?"):
+- **Bu günü geri al** (gün sonu kartı): yalnızca içinde bulunulan günün işaretlerini,
+  tamamlanma ve tekrar kaydını siler. Gün numarası değişmez. Geçmiş günlere uygulanmaz.
+- **Baştan başla** (Seri ekranının altı): 1. güne döner; seri, çetele ve defter sıfırlanır.
+  Tanıtım yeniden gösterilmez. Eski veri silinmeden önce `chunkla.progress.v1.yedek`
+  anahtarına yazılır (yalnızca son sıfırlama saklanır).
+
+**Neden:** Kullanıcı bazı günler girmiyor ya da aksatıyor. Takvim modelinde her kaçan gün
+"telafi" borcu olarak birikiyor, dönüş zorlaşıyordu. Yanlışlıkla işaretlenen ya da
+kapatılan günü düzeltmenin de yolu yoktu.
+
+**Şema:** `version: 2`, yeni `day` alanı (içinde bulunulan gün). Anahtar değişmedi
+(`chunkla.progress.v1`). v1 kayıtları açılışta taşınır: ham hâli `chunkla.progress.v1.yedek-v1`
+anahtarına yedeklenir, kullanıcı taşıma anındaki takvim gününde kalır (şaşırmasın diye),
+eski boşluklar Defter'de "telafi" olarak durur ve kapatılabilir. Taşımadan sonra yeni
+boşluk oluşmaz. `dateOfDay()` kaldırıldı; Seri şeridi günleri tamamlanma tarihine
+(`doneAt`) göre sayar.
+
+Önceki "gün numarası takvimle ilerler" davranışının yerini alır.
+
 ## 2026-09-19 — Alıştırmalarda birebir örtüşme kuralı
 
 **Karar:** Çeviri alıştırmasında Türkçe cümle ile gizli İngilizce cevap **kelime kelime**

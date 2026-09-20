@@ -16,10 +16,17 @@
   - Arka plan çetelesi 30 günlük sayfalar hâlinde gösterilir (1-30, 31-60…).
     Defter ve istatistikler sıfırlanmaz; yalnızca arka plan sayfası yenilenir.
 
-  Durum şeması (v1 — yeni alanlar isteğe bağlıdır, eski kayıtlar olduğu gibi okunur):
+  - Gün numarası takvimle değil ilerlemeyle ilerler ("kaldığın yerden"). Gün ancak
+    "Deftere yazdım" ile kapatılır ve ertesi takvim gününde bir sonraki güne geçilir.
+    Girilmeyen günler borç biriktirmez; takvim günü başına en fazla bir yeni gün açılır.
+  - "Bu günü geri al" yalnızca içinde bulunulan günü sıfırlar (undoDay).
+  - "Baştan başla" her şeyi sıfırlar; eski veri önce yedek anahtara yazılır (resetAll).
+
+  Durum şeması (v2; v1 kayıtları init sırasında taşınır, ham hâli yedeklenir):
   {
-    version: 1,
-    startDate: "YYYY-MM-DD",     // ilk açılış = 1. gün
+    version: 2,
+    day: 12,                     // içinde bulunulan gün numarası
+    startDate: "YYYY-MM-DD",     // ilk açılış (ya da son "Baştan başla")
     lastVisit: "YYYY-MM-DD",     // son giriş
     streak: 3,                   // art arda giriş yapılan gün sayısı
     introDone: true,             // tanıtım bir kez gösterildi
@@ -36,7 +43,10 @@
   var PER_DAY = 5;
   var REVIEW_EVERY = 7;       // her 7. gün haftalık tekrar
   var TALLY_PAGE_DAYS = 30;   // arka plan çetelesi 30 günde bir boş sayfaya geçer
-  var STORAGE_KEY = 'chunkla.progress.v1';
+  var STORAGE_KEY = 'chunkla.progress.v1';        // şema v2 olsa da anahtar aynı kalır
+  var BACKUP_V1_KEY = STORAGE_KEY + '.yedek-v1';   // v1 → v2 taşımadan önceki ham veri
+  var BACKUP_RESET_KEY = STORAGE_KEY + '.yedek';   // son "Baştan başla" öncesi veri
+  var VERSION = 2;
   var MS_DAY = 86400000;
 
   // chunks.js "const CHUNKS = [...]" ile tanımlar; bu window'a değil genel kapsama yazılır.
@@ -120,12 +130,25 @@
   function nowOr(now) { return now || testNow || new Date(); }
 
   function emptyState(todayKey) {
-    return { version: 1, startDate: todayKey, lastVisit: null, streak: 0, days: {} };
+    return { version: VERSION, day: 1, startDate: todayKey, lastVisit: null, streak: 0, days: {} };
   }
 
   function isValidState(s) {
-    return s && s.version === 1 && typeof s.startDate === 'string' &&
-      typeof s.streak === 'number' && s.days && typeof s.days === 'object';
+    if (!s || typeof s.startDate !== 'string' || typeof s.streak !== 'number' ||
+      !s.days || typeof s.days !== 'object') return false;
+    if (s.version === 1) return true;
+    return s.version === VERSION && typeof s.day === 'number' && s.day >= 1;
+  }
+
+  /*
+    v1'de gün numarası takvimden hesaplanıyordu. Kullanıcı şaşırmasın diye taşıma anında
+    aynı gün numarasında kalır; o güne kadarki boşluklar Defter'de "telafi" olarak durur.
+    Buradan sonra gün yalnızca tamamlanınca ilerler.
+  */
+  function migrateV1(s, todayKey) {
+    s.day = Math.max(1, daysBetween(s.startDate, todayKey) + 1);
+    s.version = VERSION;
+    return s;
   }
 
   // Yazmaları sıraya koyar; art arda iki dokunuş birbirinin üstüne yazmaz.
@@ -165,12 +188,16 @@
       // Bekleyen yazma varsa önce onun bitmesini bekle; yoksa eski veriyi okuruz.
       return writeQueue.then(function () { return readRaw(STORAGE_KEY); }).then(function (raw) {
         var loaded = null;
+        var backup = Promise.resolve();
         if (raw) {
           try { loaded = JSON.parse(raw); } catch (e) { loaded = null; }
           if (!isValidState(loaded)) {
             // Bozuk veriyi silmeden kenara al, sonra temiz başla.
-            writeRaw(STORAGE_KEY + '.bozuk', raw);
+            backup = writeRaw(STORAGE_KEY + '.bozuk', raw);
             loaded = null;
+          } else if (loaded.version === 1) {
+            backup = writeRaw(BACKUP_V1_KEY, raw);
+            loaded = migrateV1(loaded, today);
           }
         }
         state = loaded || emptyState(today);
@@ -186,16 +213,23 @@
           else if (gap < 0) { firstVisitToday = false; } // saat geri alınmış; hiçbir şeyi değiştirme
         }
 
-        return persist().then(function () {
+        // Kaldığın yerden: dün (ya da daha önce) kapatılan gün varsa bir sonrakine geç.
+        var cur = state.days[String(state.day)];
+        while (cur && cur.doneAt && cur.doneAt < today) {
+          state.day += 1;
+          cur = state.days[String(state.day)];
+        }
+
+        return backup.then(persist).then(function () {
           return { firstVisitToday: firstVisitToday, today: Chunkla.today(), streak: state.streak };
         });
       });
     },
 
-    /* Bugünün gün numarası (1'den başlar). */
-    today: function (now) {
+    /* İçinde bulunulan gün numarası (1'den başlar). Yalnızca init sırasında ilerler. */
+    today: function () {
       requireInit();
-      return Math.max(1, daysBetween(state.startDate, toDateKey(nowOr(now))) + 1);
+      return state.day;
     },
 
     streak: function () { requireInit(); return state.streak; },
@@ -414,15 +448,9 @@
       requireInit();
       var counts = [0, 0, 0, 0, 0, 0, 0];
       Object.keys(state.days).forEach(function (k) {
-        if (state.days[k].doneAt) counts[weekdayIndex(Chunkla.dateOfDay(Number(k)))]++;
+        if (state.days[k].doneAt) counts[weekdayIndex(state.days[k].doneAt)]++;
       });
       return counts;
-    },
-
-    /* N. günün takvim tarihi (YYYY-MM-DD). */
-    dateOfDay: function (day) {
-      requireInit();
-      return addDays(state.startDate, day - 1);
     },
 
     /* Bugünün haftadaki yeri, Pazartesi = 0. */
@@ -435,6 +463,40 @@
     markIntroDone: function () {
       requireInit();
       state.introDone = true;
+      return persist();
+    },
+
+    /* ——— Geri alma ve sıfırlama ——— */
+
+    /* "Bu günü geri al" gösterilsin mi: yalnızca içinde bulunulan gün, üstünde bir iz varsa. */
+    canUndoDay: function (day) {
+      requireInit();
+      if (day !== state.day) return false;
+      var entry = dayEntry(day, false);
+      return !!(entry && (entry.marked.length > 0 || entry.doneAt || entry.reviewedAt));
+    },
+
+    /* İçinde bulunulan günün işaretlerini, tamamlanma ve tekrar kaydını siler. Gün numarası aynı kalır. */
+    undoDay: function (day) {
+      requireInit();
+      if (day !== state.day) throw new Error('Yalnızca içinde bulunulan gün geri alınabilir.');
+      delete state.days[String(day)];
+      return persist();
+    },
+
+    /*
+      "Baştan başla": 1. güne döner; seri, çetele ve defter sıfırlanır.
+      Eski veri silinmeden önce yedek anahtara yazılır (kural 10). Tanıtım yeniden gösterilmez.
+    */
+    resetAll: function (now) {
+      requireInit();
+      var today = toDateKey(nowOr(now));
+      var old = JSON.stringify(state);
+      state = {
+        version: VERSION, day: 1, startDate: today, lastVisit: today,
+        streak: 1, introDone: true, days: {}
+      };
+      writeQueue = writeQueue.then(function () { return writeRaw(BACKUP_RESET_KEY, old); });
       return persist();
     },
 

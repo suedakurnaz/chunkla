@@ -38,12 +38,13 @@ eklemen önerilir.
 
 ## Nasıl çalışır
 
-- **Günde beş kalıp.** Başladığın gün 1. gündür; her gün sıradaki beş kalıp gelir.
+- **Günde beş kalıp.** Başladığın gün 1. gündür; günü kapattıysan ertesi gün sıradaki beş kalıp gelir.
 - **Kaydır, oku, yukarı çek.** Kalıplar arasında kaydırırsın; yukarı çekince not ve örnekler açılır.
 - **Dokun, çeteleye çak.** Deftere yazdığın her kalıp bir çizgi. Beş çizgi bir gün.
 - **Kendin çevir.** Her kalıbın altında üç Türkçe cümle var; İngilizcelerini deftere sen yazarsın.
 - **Her yedinci gün tekrar.** Haftanın kalıplarını baştan okumadan o gün kapanmaz.
-- **Kaçırdığın gün kaybolmaz.** Defterden geçmiş günlere dönüp telafi edebilirsin.
+- **Kaldığın yerden.** Birkaç gün giremezsen dönünce borç birikmez; kaldığın günden devam edersin.
+- **Geri al, baştan başla.** Günün sonunda "Bu günü geri al", Seri ekranında "Baştan başla" var.
 
 ## Gizlilik
 

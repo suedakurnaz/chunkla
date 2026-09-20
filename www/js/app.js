@@ -49,7 +49,9 @@
     dragging: false,
     axis: null,
     justDrawn: null,   // bu çizimde animasyon oynatılacak gün
-    undraw: false
+    undraw: false,
+    askUndo: false,    // "Bu günü geri al" onayı açık
+    askReset: false    // "Baştan başla" onayı açık
   };
   let deckSeq = 0;
 
@@ -108,7 +110,10 @@
 
   function focusSoon(id) {
     if (!keyboardUser) return;
-    requestAnimationFrame(() => { const el = $(id); if (el) el.focus({ preventScroll: true }); });
+    requestAnimationFrame(() => {
+      const el = id.startsWith('#') ? document.querySelector(id) : $(id);
+      if (el) el.focus({ preventScroll: true });
+    });
   }
 
   /* ——— Geri tuşu: katmanlar tarayıcı geçmişine yazılır ——— */
@@ -156,6 +161,7 @@
 
   function go(n) {
     ui.idx = Math.max(0, Math.min(rows().length, n));
+    ui.askUndo = false;
     ui.dragX = 0;
     if (isWeekDeck() && atEnd() && !C.isWeekReviewed(ui.deck.day)) C.markWeekReviewed(ui.deck.day);
     render();
@@ -219,6 +225,7 @@
   function openSplash() {
     if (ui.splash) return;
     ui.splash = true;
+    ui.askReset = false;
     pushLayer('splash');
     render();
     focusSoon('splash-close');
@@ -375,6 +382,9 @@
         `<h2 class="finish-title" id="finish-title"></h2>` +
         `<p class="finish-note" id="finish-note"></p>` +
         `<button type="button" class="primary-btn" id="finish-btn"></button>` +
+        `<div class="quiet-action" id="finish-undo">` +
+        `<button type="button" class="quiet-btn" data-act="ask">Bu günü geri al</button><div class="confirm" data-confirm hidden><p class="confirm-text">Bu günün işaretleri silinir, gün baştan başlar. Emin misin?</p><div class="confirm-row"><button type="button" class="confirm-yes" data-act="yes">Evet, geri al</button><button type="button" class="quiet-btn" data-act="no">Vazgeç</button></div></div>` +
+        `</div>` +
         `</article>`;
     }
 
@@ -383,6 +393,10 @@
     $('finish-title').textContent = f.title;
     $('finish-note').textContent = f.note;
     $('finish-btn').textContent = f.button;
+    const canUndo = !ui.deck && C.canUndoDay(ui.viewDay);
+    if (!canUndo) ui.askUndo = false;
+    $('finish-undo').hidden = !canUndo;
+    renderConfirm($('finish-undo'), ui.askUndo);
 
     // Yalnızca görünen kart ekran okuyucuya açık; gün sonu düğmesi yalnızca oradayken odaklanabilir.
     Array.from(track.children).forEach((card, i) => {
@@ -528,9 +542,42 @@
     }
   }
 
+  // Geri alınamaz işlemler iki adımlı: önce sessiz düğme, sonra "Emin misin?" satırı.
+  function renderConfirm(box, open) {
+    box.querySelector('[data-act="ask"]').hidden = open;
+    box.querySelector('[data-confirm]').hidden = !open;
+  }
+
+  function undoToday() {
+    const d = ui.viewDay;
+    C.undoDay(d).then(() => {
+      ui.askUndo = false;
+      ui.idx = 0;
+      render();
+      announce(`Gün ${d} geri alındı. Baştan başlayabilirsin.`);
+      focusSoon('deck');
+    });
+  }
+
+  function resetEverything() {
+    C.resetAll().then(() => {
+      ui.askReset = false;
+      closeTop('splash', () => {
+        ui.deck = null;
+        ui.today = C.today();
+        ui.viewDay = ui.today;
+        ui.idx = 0;
+        ui.openGroup = null;
+        trackKey = '';
+      });
+      announce('Her şey sıfırlandı. 1. gün.');
+    });
+  }
+
   function renderSplash() {
     $('splash').hidden = !ui.splash;
     if (!ui.splash) return;
+    renderConfirm($('splash-reset'), ui.askReset);
     $('splash-streak').textContent = C.streak();
     $('splash-jar').textContent = C.totalMarked();
     $('splash-full').textContent = C.fullTallyCount();
@@ -631,7 +678,13 @@
     deck.addEventListener('pointercancel', () => end(true));
 
     $('track').addEventListener('click', (e) => {
-      if (e.target.closest('#finish-btn')) finishState().action();
+      if (e.target.closest('#finish-btn')) { finishState().action(); return; }
+      const act = e.target.closest('#finish-undo [data-act]');
+      if (!act) return;
+      if (act.dataset.act === 'yes') { undoToday(); return; }
+      ui.askUndo = act.dataset.act === 'ask';
+      render();
+      focusSoon(ui.askUndo ? '#finish-undo [data-act="no"]' : 'finish-btn');
     });
   }
 
@@ -722,6 +775,14 @@
     });
 
     $('splash-close').addEventListener('click', () => closeTop('splash'));
+    $('splash-reset').addEventListener('click', (e) => {
+      const act = e.target.closest('[data-act]');
+      if (!act) return;
+      if (act.dataset.act === 'yes') { resetEverything(); return; }
+      ui.askReset = act.dataset.act === 'ask';
+      render();
+      focusSoon(ui.askReset ? '#splash-reset [data-act="no"]' : 'splash-close');
+    });
 
     $('intro-next').addEventListener('click', nextIntro);
     $('intro-back').addEventListener('click', () => { if (ui.intro > 0) closeTop('intro'); });

@@ -90,7 +90,8 @@ Actions yayınlasın, telefondan Pages adresini aç.
    dosyalarını kendi adresinden yükler. Fontlar `www/fonts/` altında.
 9. **Günlük sayı sabit 5.** Ayar ekranı yapılmaz.
 10. **Depolama yalnızca `core.js` üzerinden.** Arayüz kodu localStorage'a doğrudan yazmaz.
-    Anahtar: `chunkla.progress.v1`. Şema değişecekse `version` artırılır ve eski veriyi taşıyan
+    Anahtar: `chunkla.progress.v1` (şema v2; v1 kayıtları açılışta taşınır, ham hâli
+    `.yedek-v1` anahtarında). "Baştan başla" eski veriyi `.yedek` anahtarına yazar. Şema değişecekse `version` artırılır ve eski veriyi taşıyan
     kod yazılır; veri asla sessizce silinmez. Yayında gerçek kullanıcı verisi var.
 11. **`sw.js` içindeki `VERSION = 'dev'` satırı elle değiştirilmez**, biçimi de değişmez
     (Actions bu satırı arar). `www/`'de dosya ekleyip silince `npm run sw:liste`.
@@ -101,6 +102,8 @@ Actions yayınlasın, telefondan Pages adresini aç.
 ```
 await Chunkla.init()                → { firstVisitToday, today, streak }   // açılışta bir kez
 Chunkla.today() / streak() / totalMarked() / fullTallyCount()
+                                    // today() = içinde bulunulan gün; takvimle değil, gün kapatılınca
+                                    // ertesi takvim gününde bir artar (kaldığın yerden)
 Chunkla.chunksForDay(day)           → [{ day, slot, index, item, marked }] × 5
 Chunkla.toggleMark(day, slot)       → yeni işaret durumu
 Chunkla.markedCount(day) / isMarked(day, slot) / isDayMarkedFull(day)
@@ -111,7 +114,9 @@ Chunkla.notebookByDay()             → [{ day, count, full, items }] (Defter �
 Chunkla.isReviewDay(day) / weekNumber(day) / weekReviewItems(day)
 await Chunkla.markWeekReviewed(day) / isWeekReviewed(day)
 Chunkla.tallyPage()                 → { page, firstDay, lastDay, days: [{ day, count, position }] }
-Chunkla.completedByWeekday()        → [Pt..Pz] / todayWeekday() / dateOfDay(day)
+Chunkla.completedByWeekday()        → [Pt..Pz] (doneAt tarihine göre) / todayWeekday()
+Chunkla.canUndoDay(day) / await undoDay(day)   // "Bu günü geri al" — yalnızca içinde bulunulan gün
+await Chunkla.resetAll()            // "Baştan başla" — önce .yedek anahtarına yedekler
 Chunkla.isIntroDone() / await markIntroDone()
 ```
 
@@ -154,6 +159,7 @@ ChunklaPWA.onChange(fn)
 - [x] Tasarım entegrasyonu (Aşama 1–4 tek seferde yapıldı; `docs/TASARIM-ENTEGRASYON.md` referans olarak kalıyor)
 - [x] 30 çetele grubunda okunaklılık: eski günler soluk, bugünün çetelesi parlak
 - [x] Detay panelinde çeviri alıştırması: 374 kalıp × 3 Türkçe cümle (1122 cümle), dokununca cevap
+- [x] Kaldığın yerden (şema v2), "Bu günü geri al", "Baştan başla"
 - [ ] Gerçek telefonlarda (iPhone + Android) dokunma hareketleri ve çentik kontrolü
 - [ ] Yükleme yönlendirmesi, yedekleme, lisans kararları (KARARLAR.md açık sorular)
 - [ ] Paylaşım hazırlığı: README görselleri, og-image, GitHub sosyal önizleme (`docs/paylasim.md`)

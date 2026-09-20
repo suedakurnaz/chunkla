@@ -269,6 +269,41 @@ path.draw { animation: draw .45s ease both; }
 .primary-btn:hover { transform: translateY(-1px); }
 .primary-btn:active { transform: translateY(1px); }
 
+/* İki adımlı geri alma / sıfırlama: göze batmayan metin düğmesi, sonra onay satırı */
+.quiet-action { display: flex; flex-direction: column; align-items: flex-start; }
+.quiet-btn {
+  min-height: 44px;
+  padding: 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-55);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, .3);
+  text-underline-offset: 4px;
+}
+.quiet-btn:hover { color: var(--ink); }
+.confirm { display: flex; flex-direction: column; gap: 8px; animation: fadeIn .2s ease both; }
+.confirm-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--ink-72);
+  max-width: 30ch;
+}
+.confirm-row { display: flex; align-items: center; gap: 14px; }
+.confirm-yes {
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, .7);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+.confirm-yes:hover { background: rgba(255, 255, 255, .12); }
+.finish .quiet-action { margin-top: -10px; }
+
 .hand {
   position: absolute;
   left: 64%;
@@ -575,7 +610,7 @@ path.draw { animation: draw .45s ease both; }
   flex-direction: column;
   justify-content: center;
   gap: 26px;
-  padding: 0 22px calc(20px + var(--safe-bottom));
+  padding: 0 22px 8px;
 }
 
 .streak-big { display: flex; align-items: flex-end; gap: 16px; padding: 0 4px; }
@@ -604,6 +639,7 @@ path.draw { animation: draw .45s ease both; }
 .week-day.empty .week-name { color: rgba(255, 255, 255, .5); }
 
 .stats { display: flex; gap: 26px; padding: 0 4px; }
+.splash-foot { flex: none; padding: 0 22px calc(18px + var(--safe-bottom)); }
 .stat { display: flex; flex-direction: column; gap: 2px; }
 .stat-n { font-size: 30px; font-weight: 700; letter-spacing: -.03em; line-height: 1; }
 .stat-label { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(255, 255, 255, .62); }
