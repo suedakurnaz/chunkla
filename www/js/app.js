@@ -53,7 +53,8 @@
     askUndo: false,    // "Bu günü geri al" onayı açık
     askReset: false,   // "Baştan başla" onayı açık
     askDelete: null,   // Defter'de silme onayı açık olan gün
-    justRepaired: false // Seri ekranında bir kez "Seri kurtarıldı" göster
+    justRepaired: false, // Seri ekranında bir kez "Seri kurtarıldı" göster
+    introReplay: false   // tanıtım ⓘ düğmesiyle yeniden açıldı (giriş ekranı gösterilmez)
   };
   let deckSeq = 0;
 
@@ -134,7 +135,11 @@
     if (name === 'sheet') { ui.sheet = false; ui.sheetDrag = 0; }
     else if (name === 'defter') ui.defter = false;
     else if (name === 'splash') { ui.splash = false; ui.justRepaired = false; }
-    else if (name === 'intro') ui.intro = Math.max(0, (ui.intro || 0) - 1);
+    else if (name === 'intro') {
+      // Yeniden izlemede ilk adımdan geri çıkmak tanıtımı kapatır.
+      if (ui.introReplay && (ui.intro || 0) === 0) { ui.intro = null; ui.introReplay = false; }
+      else ui.intro = Math.max(0, (ui.intro || 0) - 1);
+    }
   }
 
   // Arayüzden kapatma: geçmiş yığını kaymasın diye history.back() ile.
@@ -330,6 +335,24 @@
     };
   }
 
+  // ⓘ: tanıtımı baştan göster. Her adım bir geçmiş katmanı; geri tuşu adım adım çıkar.
+  function openIntroReplay() {
+    if (anyLayer()) return;
+    ui.introReplay = true;
+    ui.intro = 0;
+    pushLayer('intro');
+    render();
+    focusSoon('intro-next');
+  }
+
+  function closeIntroReplay() {
+    const steps = stack.filter((x) => x === 'intro').length;
+    afterPop = () => { ui.intro = null; ui.introReplay = false; };
+    if (steps > 0) history.go(-steps);
+    else { afterPop(); afterPop = null; render(); }
+    focusSoon('btn-info');
+  }
+
   function nextIntro() {
     const n = (ui.intro || 0) + 1;
     if (n < INTRO.length) {
@@ -338,6 +361,7 @@
       render();
       return;
     }
+    if (ui.introReplay) { closeIntroReplay(); return; }
     const steps = stack.filter((x) => x === 'intro').length;
     const finish = () => { ui.intro = null; ui.gate = true; };
     C.markIntroDone();
@@ -702,6 +726,8 @@
     const step = ui.intro;
     $('intro-title').textContent = INTRO[step].t;
     $('intro-text').textContent = INTRO[step].b;
+    $('intro-close').hidden = !ui.introReplay;
+    $('intro-next').textContent = ui.introReplay && step === INTRO.length - 1 ? 'Tamam' : 'İleri';
     $('intro-back').classList.toggle('off', step === 0);
     $('intro-back').tabIndex = step === 0 ? -1 : 0;
     $('intro-dots').innerHTML = INTRO.map((_, i) => `<span class="dot${i === step ? ' on' : ''}"></span>`).join('');
@@ -910,6 +936,8 @@
     });
 
     $('intro-next').addEventListener('click', nextIntro);
+    $('intro-close').addEventListener('click', closeIntroReplay);
+    $('btn-info').addEventListener('click', openIntroReplay);
     $('intro-back').addEventListener('click', () => { if (ui.intro > 0) closeTop('intro'); });
     $('gate-start').addEventListener('click', () => {
       ui.gate = false;
@@ -921,6 +949,7 @@
 
   function bindKeys() {
     document.addEventListener('keydown', (e) => {
+      if (ui.intro !== null && ui.introReplay && e.key === 'Escape') { closeIntroReplay(); return; }
       if (ui.intro !== null || ui.gate) return;
       if (ui.splash || ui.defter) {
         if (e.key === 'Escape') closeTop(ui.splash ? 'splash' : 'defter');

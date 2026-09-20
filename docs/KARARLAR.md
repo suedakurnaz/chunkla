@@ -5,6 +5,20 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 
 ---
 
+## 2026-09-20 — Tanıtım ⓘ ile yeniden açılır; bilgisayar düzeni ince ayar
+
+**Karar:**
+- Üst şeritte Serinin solunda ⓘ düğmesi. Tanıtımın beş adımını baştan açar; son adımda
+  "Tamam", köşede ×, Esc ve geri tuşu kapatır. Tanıtım bittiğinde "Başlayalım" giriş ekranı
+  bu kez gösterilmez. Dar telefonlarda (≤ 400 px) üst şerit sıkıştırılır ki üç düğme sığsın.
+- Bilgisayarda sağ panel kaydırılmadan sığar ve daha yukarıdan başlar; alttaki ilerleme
+  çizgileri iki sütunun altında en soldan en sağa uzanır.
+- Bilgisayarda tanıtım, giriş, Seri ve Defter ekranın ortasında açılır pencere olarak
+  gösterilir, arkası karartılır.
+
+**Neden:** Kullanıcı isteği: tanıtımı kaçıran ya da yeniden bakmak isteyen için; panelin
+aşağı yukarı oynaması ve tam ekran bilgi sayfalarının geniş ekranda garip durması.
+
 ## 2026-09-20 — Bilgisayar için geniş ekran düzeni
 
 **Karar:** Ekran 960 px ve üstündeyse düzen iki sütun olur: solda kalıp destesi, sağda Detay
