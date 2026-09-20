@@ -46,27 +46,32 @@
       <!-- Kalıp işaretlenince bir an beyaz parlama -->
       <span class="flash" id="flash" aria-hidden="true" hidden></span>
 
+      <header class="topbar" id="topbar">
+        <div class="brand">
+          <img src="assets/chunkla-logo.png" alt="" width="34" height="34">
+          <span class="wordmark">chunkla</span>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="pill" id="btn-streak" aria-label="Seri">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.6 2.8c.4 3.4 3.4 4.6 3.9 7.8.6 3.8-1.6 6.6-4.6 6.9-3.2.3-5.6-2-5.5-5 .1-2.2 1.3-3.4 2.1-4.3.1 1.6.7 2.4 1.4 2.7.4-3.1-.2-5.6 2.7-8.1Z"/><path d="M10.4 21.2c1.3.5 2.7.5 4 0"/></svg>
+            <span id="streak-count">0</span>
+          </button>
+          <button type="button" class="pill" id="btn-defter" aria-label="Defter">
+            <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 3v18"/></svg>
+            <span id="jar-count">0</span>
+          </button>
+        </div>
+      </header>
+
       <div class="main" id="main">
-        <header class="topbar">
-          <div class="brand">
-            <img src="assets/chunkla-logo.png" alt="" width="34" height="34">
-            <span class="wordmark">chunkla</span>
-          </div>
-          <div class="topbar-actions">
-            <button type="button" class="pill" id="btn-streak" aria-label="Seri">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.6 2.8c.4 3.4 3.4 4.6 3.9 7.8.6 3.8-1.6 6.6-4.6 6.9-3.2.3-5.6-2-5.5-5 .1-2.2 1.3-3.4 2.1-4.3.1 1.6.7 2.4 1.4 2.7.4-3.1-.2-5.6 2.7-8.1Z"/><path d="M10.4 21.2c1.3.5 2.7.5 4 0"/></svg>
-              <span id="streak-count">0</span>
-            </button>
-            <button type="button" class="pill" id="btn-defter" aria-label="Defter">
-              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 3v18"/></svg>
-              <span id="jar-count">0</span>
-            </button>
-          </div>
-        </header>
 
         <div class="deck" id="deck" tabindex="0" aria-roledescription="kalıp destesi">
           <div class="track" id="track"></div>
         </div>
+
+        <!-- Geniş ekranda kalıplar arasında geçiş okları (dokunmatikte kaydırma var) -->
+        <button type="button" class="nav-arrow nav-prev" id="nav-prev" aria-label="Önceki kalıp">←</button>
+        <button type="button" class="nav-arrow nav-next" id="nav-next" aria-label="Sonraki kalıp">→</button>
 
         <button type="button" class="sr-only" id="mark-toggle" aria-pressed="false">Bu kalıbı çeteleye işle</button>
 
@@ -87,6 +92,7 @@
           <div class="eyebrow" id="sheet-group"></div>
           <button type="button" class="round-btn" id="sheet-close" aria-label="Kapat">↓</button>
         </div>
+        <p class="sheet-empty" id="sheet-empty">Günün kalıpları bitti.<br>Deftere geçirdiysen günü kapat.</p>
         <div class="sheet-scroll" id="sheet-scroll">
           <h3 class="sheet-chunk" id="sheet-chunk" lang="en"></h3>
           <p class="sheet-tr" id="sheet-tr"></p>

@@ -97,6 +97,8 @@
   const atEnd = () => ui.idx >= rows().length;
   const current = () => { const r = rows(); return r[Math.min(ui.idx, r.length - 1)]; };
   const isWeekDeck = () => !!(ui.deck && ui.deck.type === 'week');
+  // Bilgisayar düzeni: detay paneli sağda sürekli açık, kalıplar oklarla geçilir.
+  const wide = window.matchMedia('(min-width: 960px)');
   const anyLayer = () => ui.sheet || ui.defter || ui.splash || ui.intro !== null || ui.gate;
 
   function announce(text) {
@@ -208,7 +210,7 @@
   }
 
   function openSheet() {
-    if (atEnd() || ui.sheet) return;
+    if (atEnd() || ui.sheet || wide.matches) return;
     ui.sheet = true;
     pushLayer('sheet');
     render();
@@ -471,7 +473,7 @@
     sheet.classList.toggle('open', ui.sheet);
     sheet.classList.toggle('dragging', ui.sheetDrag > 0);
     sheet.style.transform = ui.sheet && ui.sheetDrag > 0 ? `translate3d(0,${Math.round(ui.sheetDrag)}px,0)` : '';
-    sheet.inert = !ui.sheet;
+    sheet.inert = wide.matches ? anyLayer() : !ui.sheet;
   }
 
   function hidePracticeAnswers() {
@@ -483,14 +485,17 @@
 
   let sheetKey = '';
   function renderSheet() {
-    if (!ui.sheet) { $('sheet-scroll').scrollTop = 0; hidePracticeAnswers(); }
+    const shown = ui.sheet || wide.matches;
+    if (!shown) { $('sheet-scroll').scrollTop = 0; hidePracticeAnswers(); }
     applySheet();
-    if (!ui.sheet || atEnd()) return;
+    $('sheet').classList.toggle('at-end', atEnd());
+    if (!shown || atEnd()) return;
 
     const row = current();
     const key = row.day + ':' + row.slot + ':' + row.index;
     if (key === sheetKey) return;
     sheetKey = key;
+    $('sheet-scroll').scrollTop = 0;
 
     const { item } = row;
     $('sheet-group').textContent = item.group;
@@ -720,6 +725,10 @@
     renderSplash();
     renderIntro();
     $('main').inert = anyLayer();
+    $('topbar').inert = anyLayer();
+    const len = rows().length;
+    $('nav-prev').disabled = ui.idx <= 0;
+    $('nav-next').disabled = ui.idx >= len;
   }
 
   /* ——— Olaylar ——— */
@@ -849,6 +858,13 @@
     $('btn-defter').addEventListener('click', openDefter);
     $('btn-detail').addEventListener('click', openSheet);
     $('mark-toggle').addEventListener('click', toggleMark);
+    $('nav-prev').addEventListener('click', () => go(ui.idx - 1));
+    $('nav-next').addEventListener('click', () => go(ui.idx + 1));
+    // Pencere genişleyince açık kalmış mobil detay katmanını kapat; daralınca yeniden çiz.
+    wide.addEventListener('change', () => {
+      if (wide.matches && ui.sheet) closeTop('sheet');
+      else { sheetKey = ''; render(); }
+    });
 
     $('defter-close').addEventListener('click', () => closeTop('defter'));
     $('tab-groups').addEventListener('click', () => { ui.defterTab = 'groups'; render(); });

@@ -145,6 +145,10 @@ ChunklaPWA.onChange(fn)
 - **Güvenli alan:** `viewport-fit=cover` + `black-translucent` durum çubuğu nedeniyle içerik
   çentik ve durum çubuğunun altına uzanır. `env(safe-area-inset-*)` ile boşluk bırak.
 - **iOS:** yükleme penceresi yoktur; kullanıcı Safari → Paylaş → Ana Ekrana Ekle yapar.
+- **Geniş ekran (≥ 960 px, bilgisayar):** deste solda, Detay paneli sağda sürekli açık
+  (`wide` media query, app.js). Kalıplar ← → oklarıyla ya da klavye oklarıyla geçilir;
+  "↑ Detay" düğmesi gizlenir, Detay katmanı açılmaz. Defter ve Seri ortada 660 px sütunda.
+  Üst şerit (`#topbar`) `.main`'in dışında, `.frame`'in ilk çocuğu; katman açıkken inert.
 - **Hareket azaltma:** `prefers-reduced-motion` açıksa geçiş ve çizim animasyonları kapanır.
 - Dokunma hedefleri en az 44 px; klavye odağı her zaman görünür.
 
@@ -166,6 +170,7 @@ ChunklaPWA.onChange(fn)
 - [x] 30 çetele grubunda okunaklılık: eski günler soluk, bugünün çetelesi parlak
 - [x] Detay panelinde çeviri alıştırması: 374 kalıp × 3 Türkçe cümle (1122 cümle), dokununca cevap
 - [x] Kaldığın yerden (şema v2), "Bu günü geri al", "Baştan başla"
+- [x] Bilgisayar düzeni: sağda sürekli açık Detay, ← → okları
 - [x] Seri kurtarma: haftada bir hak, tek günlük boşluk (Seri ekranı)
 - [x] Seri çalışmaya bağlandı (doneAt), silinen gün Günler'den de kalkar
 - [x] Geçmiş günü silme: Defter → açık grup → "Bu günü sil" ve geçmiş günün gün sonu kartı

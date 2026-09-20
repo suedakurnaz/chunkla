@@ -73,6 +73,8 @@ h2, h3, p { margin: 0; }
 
 .frame {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 560px;
   height: 100%;
@@ -85,7 +87,8 @@ h2, h3, p { margin: 0; }
   z-index: 1;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
 }
 
 /* ——— Ortak metin stilleri ——— */
@@ -153,6 +156,8 @@ path.draw { animation: draw .45s ease both; }
 /* ——— Üst şerit ——— */
 
 .topbar {
+  position: relative;
+  z-index: 1;
   flex: none;
   display: flex;
   align-items: center;
@@ -742,5 +747,86 @@ path.draw { animation: draw .45s ease both; }
   *, *::before, *::after {
     animation-duration: .001ms !important;
     transition-duration: .001ms !important;
+  }
+}
+
+/* ——— Geniş ekran (bilgisayar): deste solda, detay sağda sürekli açık ——— */
+
+.nav-arrow, .sheet-empty { display: none; }
+
+@media (min-width: 960px) {
+  .frame {
+    --side: clamp(380px, 36vw, 460px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--side);
+    grid-template-rows: auto minmax(0, 1fr);
+    max-width: 1280px;
+  }
+  .topbar { grid-column: 1 / -1; grid-row: 1; padding: 14px 24px; }
+  .main { grid-column: 1; grid-row: 2; }
+  .tally { right: var(--side); }
+
+  .card { padding: 12px 104px 28px; gap: 22px; }
+  .chunk { font-size: clamp(44px, 4.4vw, 60px); }
+  .tr { font-size: 30px; }
+  .finish-title { font-size: 44px; }
+
+  .detail-row { visibility: hidden; }
+
+  .nav-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 52px;
+    height: 52px;
+    margin-top: -40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .28);
+    font-size: 20px;
+    color: rgba(255, 255, 255, .85);
+    transition: border-color .15s ease, background .15s ease, opacity .2s ease;
+  }
+  .nav-arrow:hover:not(:disabled) { border-color: #fff; background: rgba(255, 255, 255, .1); color: #fff; }
+  .nav-arrow:disabled { opacity: .2; cursor: default; }
+  .nav-prev { left: 24px; }
+  .nav-next { right: 24px; }
+
+  .sheet {
+    position: relative;
+    inset: auto;
+    z-index: 1;
+    grid-column: 2;
+    grid-row: 2;
+    transform: none;
+    transition: none;
+    padding-top: 0;
+    border-left: 1px solid var(--line);
+  }
+  .sheet-head { padding: 26px 32px 10px; }
+  .sheet-head .round-btn { display: none; }
+  .sheet-scroll { padding: 0 32px 48px; }
+  .sheet-chunk { font-size: 30px; }
+  .ex-en { font-size: 24px; }
+
+  .sheet.at-end .sheet-head,
+  .sheet.at-end .sheet-scroll { display: none; }
+  .sheet.at-end .sheet-empty {
+    display: block;
+    padding: 34px 32px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--ink-55);
+  }
+
+  /* Defter ve Seri ekranı ortada okunaklı bir sütunda */
+  .layer {
+    padding-left: max(0px, calc(50% - 330px));
+    padding-right: max(0px, calc(50% - 330px));
   }
 }

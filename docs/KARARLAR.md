@@ -5,6 +5,18 @@ Yeni karar alındıkça en üste eklenir; eski kayıt silinmez.
 
 ---
 
+## 2026-09-20 — Bilgisayar için geniş ekran düzeni
+
+**Karar:** Ekran 960 px ve üstündeyse düzen iki sütun olur: solda kalıp destesi, sağda Detay
+paneli (not, örnekler, "Sen çevir") sürekli açık ve o anki kalıbı gösterir. Bilgisayarda
+kaydırma olmadığı için destenin iki yanında ← → okları var; klavye okları da çalışır, karta
+tıklamak işaretler. Seri ve Defter sağ üstte kalır. Gün sonu kartında sağ panel "Günün
+kalıpları bitti" der. Defter ve Seri ekranları ortada okunaklı bir sütunda açılır.
+Telefon düzeni değişmedi.
+
+**Neden:** Kullanıcı bilgisayarda deftere yazarken örnekleri ve alıştırmayı sürekli görmek
+istedi; fareyle kaydırma doğal değil.
+
 ## 2026-09-20 — Seri kurtarma: haftada bir hak
 
 **Karar:** Seri koptuğunda kullanıcı onu bir kez kurtarabilir.
