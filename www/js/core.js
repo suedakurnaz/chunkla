@@ -289,7 +289,7 @@
     /* "Deftere yazdım". Tekrar gününde önce markWeekReviewed çağrılmış olmalı. */
     markDayDone: function (day, now) {
       requireInit();
-      if (day > Chunkla.today(now)) throw new Error('Gelecek günler tamamlanamaz.');
+      if (day > Chunkla.today()) throw new Error('Gelecek günler tamamlanamaz.');
       if (Chunkla.isReviewDay(day) && !Chunkla.isWeekReviewed(day)) {
         throw new Error('Haftalık tekrar bitmeden bu gün kapatılamaz.');
       }
@@ -375,7 +375,7 @@
     markWeekReviewed: function (day, now) {
       requireInit();
       if (!Chunkla.isReviewDay(day)) throw new Error(day + '. gün tekrar günü değil.');
-      if (day > Chunkla.today(now)) throw new Error('Gelecek günler için tekrar yapılamaz.');
+      if (day > Chunkla.today()) throw new Error('Gelecek günler için tekrar yapılamaz.');
       dayEntry(day, true).reviewedAt = toDateKey(nowOr(now));
       return persist();
     },
@@ -426,9 +426,9 @@
       days: yalnızca bu sayfada işareti olan günler, { day, count, position }.
       position 0-29, sayfa içindeki sabit yer; arayüz bunu ızgaraya yerleştirir.
     */
-    tallyPage: function (now) {
+    tallyPage: function () {
       requireInit();
-      var today = Chunkla.today(now);
+      var today = Chunkla.today();
       var page = Math.floor((today - 1) / TALLY_PAGE_DAYS);
       var firstDay = page * TALLY_PAGE_DAYS + 1;
       var lastDay = firstDay + TALLY_PAGE_DAYS - 1;
